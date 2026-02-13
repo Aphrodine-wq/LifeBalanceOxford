@@ -2,9 +2,10 @@ import emailjs from '@emailjs/browser';
 import { generateIntakePdf } from './pdfGenerator';
 import type { FullIntakeData } from './intakeTypes';
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
+// Hardcoded for debugging to ensure correct ID is used
+const SERVICE_ID = 'service_9vitjto';
+const TEMPLATE_ID = 'template_5hioh65';
+const PUBLIC_KEY = 'WgqZwkJgrF6WRIlcQ';
 
 export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string }> {
     // ── 1. Generate the PDF ────────────────────────────────────────
@@ -42,7 +43,11 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
         to_email: 'jamesburge.mcm@gmail.com',
     };
 
+    console.log('📝 Template Params (text items):', JSON.stringify(templateParams, null, 2));
+
     // ── 4. Try sending WITH the PDF attachment ─────────────────────
+    console.log(`🚀 Sending to Service: ${SERVICE_ID}, Template: ${TEMPLATE_ID}`);
+
     if (pdfBase64) {
         templateParams.final_pdf_blob = pdfBase64;
         const pdfSizeKB = (pdfBase64.length * 0.75) / 1024;
@@ -59,10 +64,13 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
 
         return { success: true };
     } catch (firstErr: any) {
-        console.warn('Send with PDF failed, retrying without attachment...', firstErr);
+        console.error('❌ Send failed. Error details:', firstErr);
+        if (firstErr.text) console.error('Error text:', firstErr.text);
+
+        console.warn('Retrying without attachment...');
 
         // ── 5. Retry WITHOUT the PDF (payload was too big) ─────────
-        delete templateParams.pdf_attachment;
+        delete templateParams.final_pdf_blob;
         templateParams.message += '\n\n⚠️ PDF attachment was too large. Patient received a downloaded copy.';
 
         try {
