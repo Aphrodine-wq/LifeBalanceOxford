@@ -1,4 +1,4 @@
-# EmailJS Setup Guide — Life Balance Intake Form
+# EmailJS Setup Guide — Life Balance Intake Form [UPDATED]
 
 ## How It Works
 
@@ -82,11 +82,11 @@ New Patient Intake: {{from_name}}
 
     <table style="width: 100%; margin-bottom: 24px; border-collapse: collapse;">
       <tr>
-        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; width: 50%;"><span style="font-size: 12px; color: #64748b;">Anxiety</span></td>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; width: 50%;"><span style="font-size: 12px; color: #64748b;">Anxiety (GAD-7)</span></td>
         <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; text-align: right;"><strong>{{anxiety}}</strong></td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><span style="font-size: 12px; color: #64748b;">Depression</span></td>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><span style="font-size: 12px; color: #64748b;">Depression (PHQ-9)</span></td>
         <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; text-align: right;"><strong>{{depression}}</strong></td>
       </tr>
       <tr>
@@ -98,7 +98,7 @@ New Patient Intake: {{from_name}}
         <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; text-align: right;"><strong>{{focus}}</strong></td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><span style="font-size: 12px; color: #64748b;">Mood Swings</span></td>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><span style="font-size: 12px; color: #64748b;">Mood Swings (MDQ)</span></td>
         <td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9; text-align: right;"><strong>{{mood}}</strong></td>
       </tr>
     </table>
@@ -128,8 +128,9 @@ New Patient Intake: {{from_name}}
 - Dashboard → **Account** → **API Keys**
 - Copy your **Public Key**
 
-### 6. Add Keys to .env.local
-Open `.env.local` in the project root and fill in your real values:
+### 6. Add Keys to .env.local (AND VERCEL)
+You must restart the dev server after changing `.env.local`.
+For Vercel production hosting, you MUST add these variables in the **Vercel Project Settings**.
 
 ```
 VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
@@ -162,12 +163,12 @@ emailjs.send(
     from_name: "Patient Name",       // Just data — goes into {{from_name}}
     from_email: "patient@email.com", // Just data — goes into {{from_email}}
     from_phone: "5551234567",        // Just data — goes into {{from_phone}}
-    anxiety: "3 — Moderately",
-    depression: "2 — A little",
-    sleep: "4 — Quite a bit",
-    focus: "1 — Not at all",
-    mood: "2 — A little",
-    message: "I've been struggling with...",
+    anxiety: "GAD-7 Score: 15",
+    depression: "PHQ-9 Score: 18",
+    sleep: "PHQ-9 Sleep Item: 2",
+    focus: "PHQ-9 Focus Item: 1",
+    mood: "MDQ Positive Items: 7/13",
+    message: "Reason for visit: ... [FULL DETAILS IN ATTACHED PDF]",
     pdf_attachment: "base64-encoded-pdf-data..."  // becomes the PDF attachment
   },
   "YOUR_PUBLIC_KEY"        // Your EmailJS public key
@@ -186,12 +187,12 @@ just content in the body — they never authenticate anything.
 | `{{from_name}}` | Patient's full name |
 | `{{from_email}}` | Patient's email address |
 | `{{from_phone}}` | Patient's phone number |
-| `{{anxiety}}` | Anxiety score (e.g. "3 — Moderately") |
-| `{{depression}}` | Depression score |
-| `{{sleep}}` | Sleep issues score |
-| `{{focus}}` | Focus / concentration score |
-| `{{mood}}` | Mood swings score |
-| `{{message}}` | Free-text notes from the patient |
+| `{{anxiety}}` | GAD-7 Score (e.g. "Score: 9") |
+| `{{depression}}` | PHQ-9 Score (e.g. "Score: 12") |
+| `{{sleep}}` | Specific sleep score from PHQ-9 |
+| `{{focus}}` | Specific focus score from PHQ-9 |
+| `{{mood}}` | MDQ positive items count (e.g. "7/13") |
+| `{{message}}` | Patient's reason for visit |
 | `{{pdf_attachment}}` | Base64 PDF (auto-attached as file) |
 
 ---
@@ -202,14 +203,15 @@ just content in the body — they never authenticate anything.
 Delete the Gmail service in EmailJS and re-add it. Make sure you grant
 the `gmail.send` scope during OAuth.
 
+**"Payload too large":**
+The free tier has a limit on email size (about 50KB). The generated PDF might be too big if it has many pages.
+The code now has a fallback: if the PDF is too big, it will try to send the email text-only, and ask the user to download the PDF manually.
+
 **No PDF attachment:**
 Make sure you added `pdf_attachment` in the template's Attachments tab,
 not in the email body.
 
-**"Couldn't send" on the form:**
+**"EmailJS is not configured":**
 Check browser console (F12) for the specific error. Most common: wrong
-Service ID, Template ID, or Public Key in `.env.local`.
-
-**Free tier limit:**
-200 emails/month on the free plan. If you're getting more intake requests
-than that, that's a great problem to have — upgrade to the $10/mo plan.
+Service ID, Template ID, or Public Key in `.env.local` or Vercel Settings.
+**Vercel does NOT read .env.local**, so you must add keys there manually.

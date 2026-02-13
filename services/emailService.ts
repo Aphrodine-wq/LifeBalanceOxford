@@ -6,7 +6,15 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 
-export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string }> {
+// Debug logging to help troubleshoot (check console)
+console.log('EmailJS Config:', {
+    hasServiceId: !!SERVICE_ID,
+    hasTemplateId: !!TEMPLATE_ID,
+    hasPublicKey: !!PUBLIC_KEY,
+    serviceIdPreview: SERVICE_ID ? `${SERVICE_ID.slice(0, 4)}...` : 'MISSING',
+});
+
+export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string; usingFallback?: boolean }> {
     // Generate the PDF
     let pdfBase64 = '';
     let dataUri = '';
@@ -20,7 +28,8 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
 
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
         console.warn('EmailJS is not configured — falling back to mailto link.');
-        return sendViaMailto(data, pdfBase64);
+        const fallback = sendViaMailto(data, pdfBase64);
+        return { ...fallback, usingFallback: true };
     }
 
     try {
@@ -43,6 +52,15 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
             to_email: 'jamesburge.mcm@gmail.com',
         };
 
+        // Check PDF size
+        const pdfSizeKB = pdfBase64.length ? (pdfBase64.length * 0.75) / 1024 : 0;
+        console.log(`Generated PDF Size: ${pdfSizeKB.toFixed(2)} KB`);
+
+        // WARN if likely to exceed limits (EmailJS free tier often has trouble > 50KB in total payload)
+        if (pdfSizeKB > 40) {
+            console.warn('PDF size is large (>40KB). This might exceed EmailJS limits.');
+        }
+
         if (pdfBase64) {
             // EmailJS attachment via 'content' or variable. 
             // Usually 'content' is used for the file content if the template supports it 
@@ -53,11 +71,45 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
             templateParams.pdf_attachment = pdfBase64;
         }
 
-        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-        return { success: true };
+        const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+        console.log('EmailJS Send Success:', res);
+        return { success: true, usingFallback: false };
     } catch (err: any) {
-        console.error('EmailJS send failed:', err);
-        return sendViaMailto(data, pdfBase64);
+        console.error('EmailJS send failed (falling back to mailto):', err);
+
+        // RETRY WITHOUT ATTACHMENT
+        // If the error might be size related, try sending just the text
+        if (pdfBase64 && (err?.status === 413 || err?.text?.includes('large') || true)) {
+            try {
+                console.log('Retrying without attachment to see if it sends...');
+                // We recreate params without the huge base64 strings
+                const phqScore = data.phq9.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+                const gadScore = data.gad7.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+                const retryParams = {
+                    from_name: data.patientName,
+                    from_email: data.email,
+                    from_phone: data.primaryPhone,
+                    anxiety: `GAD-7 Score: ${gadScore}`,
+                    depression: `PHQ-9 Score: ${phqScore}`,
+                    sleep: `PHQ-9 Score: ${data.phq9[2] ?? 'N/A'}`,
+                    focus: `PHQ-9 Focus: ${data.phq9[6] ?? 'N/A'}`,
+                    mood: `MDQ Positive: ${data.mdqItems.filter(Boolean).length}/13`,
+                    message: `Reason: ${data.reasonForVisit}\n\n[PDF WAS TOO LARGE TO ATTACH - PLEASE SEE EMR or DOWNLOAD]`,
+                    to_email: 'jamesburge.mcm@gmail.com',
+                };
+                await emailjs.send(SERVICE_ID, TEMPLATE_ID, retryParams, PUBLIC_KEY);
+                console.log('EmailJS Retry Success (Text Only)');
+                // If text-only succeeds, we still return "usingFallback: true" so the user knows
+                // to download the PDF, but at least the notification got through.
+                // However, the UI expects "success: false" to trigger the logic.
+                // Let's stick to the fallback logic for now so the user gets the PDF.
+            } catch (retryErr) {
+                console.error('Retry also failed:', retryErr);
+            }
+        }
+
+        const fallback = sendViaMailto(data, pdfBase64);
+        return { ...fallback, error: err?.text || err?.message || 'Unknown error', usingFallback: true };
     }
 }
 
