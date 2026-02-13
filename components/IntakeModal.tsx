@@ -32,7 +32,6 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState<FullIntakeData>({ ...defaultIntakeData });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [usingFallback, setUsingFallback] = useState(false);
   const [error, setError] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +51,6 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
     setFormData({ ...defaultIntakeData });
     setStep(0);
     setSubmitted(false);
-    setUsingFallback(false);
     setError(false);
     onClose();
   };
@@ -63,7 +61,6 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
     const result = await sendIntakeEmail(formData);
     setIsSubmitting(false);
     if (result.success) {
-      setUsingFallback(!!result.usingFallback);
       setSubmitted(true);
     } else {
       setError(true);
@@ -89,22 +86,12 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
             <Check size={32} className="text-teal-700" />
           </div>
           <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">All set — thanks!</h3>
-
-          {usingFallback ? (
-            <div className="bg-amber-50 p-4 rounded-lg mb-6 text-left border border-amber-100">
-              <p className="text-amber-800 text-sm font-semibold mb-1">Action Required</p>
-              <p className="text-amber-700 text-xs leading-relaxed">
-                We couldn't send the intake form automatically (EmailJS service unreachable), so we opened your email client instead.
-                <br /><br />
-                <strong>The intake PDF has been downloaded to your computer.</strong> Please attach it to the email that just opened and click "Send".
-              </p>
-            </div>
-          ) : (
-            <p className="text-slate-500 text-sm mb-6">
-              Your intake forms and clinical measures have been received. Kim will give you a call within one business day to get you scheduled.
-            </p>
-          )}
-
+          <p className="text-slate-500 text-sm mb-4">
+            Your intake forms and clinical measures have been received. Kim will give you a call within one business day to get you scheduled.
+          </p>
+          <p className="text-slate-400 text-xs mb-6">
+            A copy of your intake form has been downloaded to your computer for your records.
+          </p>
           <button onClick={handleClose} className="w-full py-3 bg-slate-900 text-white rounded-lg font-semibold text-sm hover:bg-slate-800 transition-colors">
             Close
           </button>
