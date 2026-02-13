@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './components/Header';
 import Home from './components/Home';
 import Services from './components/Services'; // Re-purposed as Services Page
@@ -33,7 +34,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-
+        <Analytics />
       </div>
     </BrowserRouter>
   );
