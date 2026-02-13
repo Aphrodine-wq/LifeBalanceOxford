@@ -72,3 +72,8 @@ img {
 .scroll-reveal-delay-3 {
   transition-delay: 0.3s;
 }
+
+/* Hero image sizing */
+.hero-image {
+  min-height: 520px;
+}

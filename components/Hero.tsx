@@ -10,10 +10,10 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
   return (
     <section className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-14 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-14 md:py-24">
 
           {/* Left Column */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start lg:col-span-5">
             <p className="text-teal-700 font-medium text-sm tracking-wide mb-4">
               Oxford, Mississippi
             </p>
@@ -50,14 +50,14 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
           </div>
 
           {/* Right Column: Hero Image — blended into the page */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block lg:col-span-7">
             {/* Soft glow behind the image */}
             <div className="absolute -inset-8 bg-gradient-to-br from-teal-50 via-stone-100 to-transparent rounded-3xl opacity-60" />
             <div className="relative">
               <img
                 src="/hero.png"
                 alt="Life Balance Psychiatric Services — stacked stones representing balance"
-                className="w-full h-auto rounded-2xl"
+                className="w-full rounded-2xl object-cover hero-image"
               />
             </div>
           </div>
@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
             <img
               src="/hero.png"
               alt="Balanced stones"
-              className="w-full h-64 sm:h-80 object-cover"
+              className="w-full h-80 sm:h-96 object-cover"
             />
           </div>
 
