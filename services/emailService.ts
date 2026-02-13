@@ -1,86 +1,55 @@
 import emailjs from '@emailjs/browser';
 import { generateIntakePdf } from './pdfGenerator';
-
-// ============================================================
-// EmailJS Configuration
-// ============================================================
-// To set up EmailJS (free tier: 200 emails/month):
-//
-// 1. Go to https://www.emailjs.com/ and create a free account
-// 2. Add an Email Service (Gmail, Outlook, etc.) — note the Service ID
-// 3. Create an Email Template with these variables:
-//      {{from_name}}, {{from_email}}, {{from_phone}},
-//      {{anxiety}}, {{depression}}, {{sleep}},
-//      {{focus}}, {{mood}}, {{message}}
-//    Set the "To Email" in the template to: jamesburge.mcm@gmail.com
-//    Note the Template ID
-// 4. Copy your Public Key from Account > API Keys
-// 5. Put all three values in your .env.local file
-// ============================================================
+import type { FullIntakeData } from './intakeTypes';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 
-interface IntakeFormData {
-    name: string;
-    email: string;
-    phone: string;
-    anxiety: number;
-    depression: number;
-    sleep: number;
-    focus: number;
-    mood: number;
-    message: string;
-}
-
-function formatScaleLabel(value: number): string {
-    const labels: Record<number, string> = {
-        1: '1 — Not at all',
-        2: '2 — A little',
-        3: '3 — Moderately',
-        4: '4 — Quite a bit',
-        5: '5 — Extremely',
-    };
-    return labels[value] || `${value}`;
-}
-
-export async function sendIntakeEmail(data: IntakeFormData): Promise<{ success: boolean; error?: string }> {
+export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string }> {
     // Generate the PDF
     let pdfBase64 = '';
+    let dataUri = '';
     try {
-        const dataUri = generateIntakePdf(data);
-        // Extract just the base64 part from the data URI
-        // Format: "data:application/pdf;filename=generated.pdf;base64,XXXXXX"
+        dataUri = generateIntakePdf(data);
+        // Extract just the base64 part
         pdfBase64 = dataUri.split('base64,')[1] || '';
     } catch (err) {
-        console.warn('PDF generation failed, sending without attachment:', err);
+        console.warn('PDF generation failed:', err);
     }
 
-    // If EmailJS isn't configured, fall back to mailto + offer a PDF download
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
         console.warn('EmailJS is not configured — falling back to mailto link.');
         return sendViaMailto(data, pdfBase64);
     }
 
     try {
+        const phqScore = data.phq9.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+        const gadScore = data.gad7.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+        const mdqYes = data.mdqItems.filter(Boolean).length;
+
         const templateParams: Record<string, string> = {
-            from_name: data.name,
+            from_name: data.patientName,
             from_email: data.email,
-            from_phone: data.phone,
-            anxiety: formatScaleLabel(data.anxiety),
-            depression: formatScaleLabel(data.depression),
-            sleep: formatScaleLabel(data.sleep),
-            focus: formatScaleLabel(data.focus),
-            mood: formatScaleLabel(data.mood),
-            message: data.message || '(none)',
+            from_phone: data.primaryPhone,
+            // Mapping scores to the 1-5 scale fields in the template as best we can or using string description
+            // Since the template expects {{anxiety}}, {{depression}}, etc.
+            anxiety: `GAD-7 Score: ${gadScore}`,
+            depression: `PHQ-9 Score: ${phqScore}`,
+            sleep: `PHQ-9 Sleep Item: ${data.phq9[2] >= 0 ? data.phq9[2] : 'N/A'}`, // Item 3 is sleep
+            focus: `PHQ-9 Focus Item: ${data.phq9[6] >= 0 ? data.phq9[6] : 'N/A'}`, // Item 7 is concentration
+            mood: `MDQ Positive Items: ${mdqYes}/13`,
+            message: `Reason for visit: ${data.reasonForVisit}\n\n[FULL DETAILS IN ATTACHED PDF]`,
             to_email: 'jamesburge.mcm@gmail.com',
         };
 
-        // Include PDF as attachment if generated
-        // EmailJS supports attachments via the "content" template variable
-        // The template needs a {{pdf_attachment}} variable set up as attachment
         if (pdfBase64) {
+            // EmailJS attachment via 'content' or variable. 
+            // Usually 'content' is used for the file content if the template supports it 
+            // or we might need to rely on the user downloading it if the plan doesn't support attachments.
+            // But we will try to send it.
+            templateParams.content = pdfBase64;
+            // In case the template uses a different variable for attachment
             templateParams.pdf_attachment = pdfBase64;
         }
 
@@ -88,43 +57,35 @@ export async function sendIntakeEmail(data: IntakeFormData): Promise<{ success: 
         return { success: true };
     } catch (err: any) {
         console.error('EmailJS send failed:', err);
-        // Fall back to mailto if EmailJS errors
         return sendViaMailto(data, pdfBase64);
     }
 }
 
-/**
- * Fallback: opens the user's mail client with pre-filled data.
- * Also triggers a PDF download so they can attach it manually.
- */
-function sendViaMailto(data: IntakeFormData, pdfBase64: string): { success: boolean } {
-    // Trigger PDF download so user has the file
+function sendViaMailto(data: FullIntakeData, pdfBase64: string): { success: boolean } {
     if (pdfBase64) {
         try {
             const link = document.createElement('a');
             link.href = `data:application/pdf;base64,${pdfBase64}`;
-            link.download = `Life-Balance-Intake_${data.name.replace(/\s+/g, '-')}.pdf`;
+            link.download = `Life-Balance-Intake_${data.patientName.replace(/\s+/g, '-')}.pdf`;
             link.click();
         } catch (e) {
             console.warn('PDF download failed:', e);
         }
     }
 
-    const subject = encodeURIComponent(`New Patient Intake: ${data.name}`);
+    const phqScore = data.phq9.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+    const gadScore = data.gad7.reduce((a, b) => a + (b >= 0 ? b : 0), 0);
+
+    const subject = encodeURIComponent(`New Intake: ${data.patientName}`);
     const body = encodeURIComponent(
-        `New Patient Intake Request\n` +
-        `========================\n\n` +
-        `Name: ${data.name}\n` +
-        `Email: ${data.email}\n` +
-        `Phone: ${data.phone}\n\n` +
-        `--- Assessment (1-5 scale) ---\n` +
-        `Anxiety: ${data.anxiety}/5\n` +
-        `Depression: ${data.depression}/5\n` +
-        `Sleep Issues: ${data.sleep}/5\n` +
-        `Focus/Concentration: ${data.focus}/5\n` +
-        `Mood Swings: ${data.mood}/5\n\n` +
-        `Additional Notes:\n${data.message || '(none)'}` +
-        `\n\n(A formatted PDF was also downloaded — please attach it to this email.)\n`
+        `Patient: ${data.patientName}\n` +
+        `DOB: ${data.dob}\n` +
+        `Phone: ${data.primaryPhone}\n\n` +
+        `Reason: ${data.reasonForVisit}\n\n` +
+        `Scores:\n` +
+        `PHQ-9: ${phqScore}\n` +
+        `GAD-7: ${gadScore}\n\n` +
+        `PLEASE SEE ATTACHED PDF FOR FULL DETAILS.`
     );
 
     window.open(`mailto:jamesburge.mcm@gmail.com?subject=${subject}&body=${body}`, '_blank');

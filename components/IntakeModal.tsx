@@ -1,47 +1,61 @@
-import React, { useState } from 'react';
-import { X, Loader2 } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { X, Loader2, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { sendIntakeEmail } from '../services/emailService';
+import IntakeFormStep1 from './intake/IntakeFormStep1';
+import IntakeFormStep2 from './intake/IntakeFormStep2';
+import MeasuresPHQ9 from './intake/MeasuresPHQ9';
+import MeasuresGAD7 from './intake/MeasuresGAD7';
+import MeasuresMDQ from './intake/MeasuresMDQ';
+import MeasuresPCLC from './intake/MeasuresPCLC';
+import MeasuresASRS from './intake/MeasuresASRS';
+import IntakeReview from './intake/IntakeReview';
+import { FullIntakeData, defaultIntakeData } from '../services/intakeTypes';
 
 interface IntakeModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const STEPS = [
+  { label: 'Patient Info', short: '1' },
+  { label: 'Medical History', short: '2' },
+  { label: 'PHQ-9', short: '3' },
+  { label: 'GAD-7', short: '4' },
+  { label: 'MDQ', short: '5' },
+  { label: 'PCL-C', short: '6' },
+  { label: 'ASRS', short: '7' },
+  { label: 'Review', short: '✓' },
+];
+
 const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
+  const [step, setStep] = useState(0);
+  const [formData, setFormData] = useState<FullIntakeData>({ ...defaultIntakeData });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    anxiety: 0,
-    depression: 0,
-    sleep: 0,
-    focus: 0,
-    mood: 0,
-    message: '',
-  });
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
+  }, [step]);
 
   if (!isOpen) return null;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleScale = (field: string, value: number) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const updateData = (partial: Partial<FullIntakeData>) => {
+    setFormData(prev => ({ ...prev, ...partial }));
   };
 
   const handleClose = () => {
-    setFormData({ name: '', email: '', phone: '', anxiety: 0, depression: 0, sleep: 0, focus: 0, mood: 0, message: '' });
+    setFormData({ ...defaultIntakeData });
+    setStep(0);
     setSubmitted(false);
     setError(false);
     onClose();
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setIsSubmitting(true);
     setError(false);
     const result = await sendIntakeEmail(formData);
@@ -53,47 +67,27 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const canSubmit = formData.name && formData.phone && formData.email;
+  const canGoNext = () => {
+    if (step === 0) {
+      return !!(formData.patientName && formData.primaryPhone && formData.email);
+    }
+    return true;
+  };
 
-  const scaleLabels = ['Not at all', 'A little', 'Moderate', 'A lot', 'Severe'];
-
-  const ScaleRow = ({ label, field, hint }: { label: string; field: string; hint: string }) => (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-3 border-b border-slate-100 last:border-0">
-      <div className="sm:w-44 flex-shrink-0">
-        <p className="text-sm font-medium text-slate-800">{label}</p>
-        <p className="text-xs text-slate-400 leading-tight">{hint}</p>
-      </div>
-      <div className="flex gap-1.5 flex-1">
-        {[1, 2, 3, 4, 5].map((num) => {
-          const isSelected = (formData as any)[field] === num;
-          return (
-            <button
-              key={num}
-              type="button"
-              onClick={() => handleScale(field, num)}
-              className={`flex-1 py-2 rounded-md text-xs font-semibold transition-all ${isSelected
-                  ? 'bg-teal-700 text-white shadow-sm'
-                  : 'bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-600'
-                }`}
-            >
-              <span className="block text-sm">{num}</span>
-              <span className="hidden sm:block text-[10px] font-normal mt-0.5 opacity-70">{scaleLabels[num - 1]}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
+  const next = () => { if (step < STEPS.length - 1) setStep(s => s + 1); };
+  const prev = () => { if (step > 0) setStep(s => s - 1); };
 
   // ─── Success ──────────────────────────────
   if (submitted) {
     return (
       <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}>
-        <div className="bg-white rounded-2xl w-full max-w-md p-8 text-center shadow-xl">
-          <p className="text-3xl mb-4">✓</p>
-          <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">Got it, thanks!</h3>
+        <div className="bg-white rounded-2xl w-full max-w-md p-8 text-center shadow-xl animate-fade-in">
+          <div className="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-5">
+            <Check size={32} className="text-teal-700" />
+          </div>
+          <h3 className="font-serif text-xl font-bold text-slate-900 mb-2">All set — thanks!</h3>
           <p className="text-slate-500 text-sm mb-6">
-            Kim will give you a call within one business day to get you scheduled.
+            Your intake forms and clinical measures have been received. Kim will give you a call within one business day to get you scheduled.
           </p>
           <button onClick={handleClose} className="w-full py-3 bg-slate-900 text-white rounded-lg font-semibold text-sm hover:bg-slate-800 transition-colors">
             Close
@@ -103,107 +97,94 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
     );
   }
 
-  // ─── Form ─────────────────────────────────
+  // ─── Render current step ──────────────────
+  const renderStep = () => {
+    switch (step) {
+      case 0: return <IntakeFormStep1 data={formData} onChange={updateData} />;
+      case 1: return <IntakeFormStep2 data={formData} onChange={updateData} />;
+      case 2: return <MeasuresPHQ9 data={formData} onChange={updateData} />;
+      case 3: return <MeasuresGAD7 data={formData} onChange={updateData} />;
+      case 4: return <MeasuresMDQ data={formData} onChange={updateData} />;
+      case 5: return <MeasuresPCLC data={formData} onChange={updateData} />;
+      case 6: return <MeasuresASRS data={formData} onChange={updateData} />;
+      case 7: return <IntakeReview data={formData} />;
+      default: return null;
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}>
-      <div className="bg-white rounded-2xl w-full max-w-2xl shadow-xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4" style={{ backgroundColor: 'rgba(15,23,42,0.55)' }}>
+      <div className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in">
 
         {/* Header */}
-        <div className="px-7 pt-6 pb-4 border-b border-slate-100 flex justify-between items-start flex-shrink-0">
-          <div>
-            <h2 className="font-serif text-2xl font-bold text-slate-900">New patient request</h2>
-            <p className="text-slate-400 text-sm mt-0.5">Fill this out and we'll call you to schedule.</p>
+        <div className="px-5 sm:px-7 pt-5 pb-4 border-b border-slate-100 flex-shrink-0">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">New Patient Intake</h2>
+              <p className="text-slate-400 text-xs sm:text-sm mt-0.5">{STEPS[step].label} — Step {step + 1} of {STEPS.length}</p>
+            </div>
+            <button onClick={handleClose} aria-label="Close" className="text-slate-300 hover:text-slate-500 transition-colors mt-1">
+              <X size={20} />
+            </button>
           </div>
-          <button onClick={handleClose} aria-label="Close" className="text-slate-300 hover:text-slate-500 transition-colors mt-1">
-            <X size={20} />
-          </button>
+
+          {/* Stepper */}
+          <div className="flex items-center gap-1">
+            {STEPS.map((s, i) => (
+              <button
+                key={i}
+                onClick={() => i <= step && setStep(i)}
+                className={`flex-1 h-1.5 rounded-full transition-all duration-300 ${i < step ? 'bg-teal-600' : i === step ? 'bg-teal-700' : 'bg-slate-100'
+                  } ${i <= step ? 'cursor-pointer' : 'cursor-default'}`}
+                title={s.label}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Scrollable body */}
-        <div className="overflow-y-auto flex-1">
-          <form id="intake-form" onSubmit={handleSubmit} className="p-7">
+        {/* Scrollable Body */}
+        <div ref={scrollRef} className="overflow-y-auto flex-1 p-5 sm:p-7">
+          {renderStep()}
 
-            {/* Contact info row */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <div>
-                <label htmlFor="intake-name" className="block text-sm font-medium text-slate-700 mb-1">Name</label>
-                <input
-                  id="intake-name" type="text" name="name" required
-                  value={formData.name} onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label htmlFor="intake-phone" className="block text-sm font-medium text-slate-700 mb-1">Phone</label>
-                <input
-                  id="intake-phone" type="tel" name="phone" required
-                  value={formData.phone} onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow"
-                  placeholder="(555) 123-4567"
-                />
-              </div>
-              <div>
-                <label htmlFor="intake-email" className="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                <input
-                  id="intake-email" type="email" name="email" required
-                  value={formData.email} onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow"
-                  placeholder="you@email.com"
-                />
-              </div>
+          {error && (
+            <div className="mt-4 p-3 bg-red-50 rounded-lg text-sm text-red-700">
+              Couldn't send — try again or call us at{' '}
+              <a href="tel:6626404004" className="font-semibold underline">(662) 640-4004</a>.
             </div>
+          )}
+        </div>
 
-            {/* Symptom scales */}
-            <div className="mb-8">
-              <h3 className="text-sm font-semibold text-slate-800 mb-1">How have you been feeling lately?</h3>
-              <p className="text-xs text-slate-400 mb-4">Rate each over the past two weeks. 1 = not at all, 5 = severe.</p>
-              <div className="bg-stone-50 rounded-xl p-4">
-                <ScaleRow label="Anxiety" field="anxiety" hint="Nervous or on edge" />
-                <ScaleRow label="Depression" field="depression" hint="Down or hopeless" />
-                <ScaleRow label="Sleep" field="sleep" hint="Trouble sleeping" />
-                <ScaleRow label="Focus" field="focus" hint="Hard to concentrate" />
-                <ScaleRow label="Mood Swings" field="mood" hint="Rapid mood changes" />
-              </div>
-            </div>
+        {/* Footer Nav */}
+        <div className="px-5 sm:px-7 py-4 border-t border-slate-100 flex items-center justify-between flex-shrink-0 bg-stone-50/50">
+          <button
+            onClick={prev}
+            disabled={step === 0}
+            className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronLeft size={16} /> Back
+          </button>
 
-            {/* Freeform */}
-            <div className="mb-6">
-              <label htmlFor="intake-message" className="block text-sm font-medium text-slate-700 mb-1">
-                Anything else we should know?
-              </label>
-              <textarea
-                id="intake-message" name="message" rows={3}
-                value={formData.message} onChange={handleChange}
-                className="w-full px-3.5 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 transition-shadow resize-none"
-                placeholder="Current medications, past diagnoses, what you're hoping for..."
-              />
-            </div>
-
-            {error && (
-              <div className="mb-4 p-3 bg-red-50 rounded-lg text-sm text-red-700">
-                Couldn't send — try again or call us at{' '}
-                <a href="tel:6626404004" className="font-semibold underline">(662) 640-4004</a>.
-              </div>
-            )}
-
+          {step < STEPS.length - 1 ? (
             <button
-              type="submit"
-              disabled={isSubmitting || !canSubmit}
-              className="w-full py-3 bg-teal-700 text-white rounded-lg font-semibold text-sm hover:bg-teal-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+              onClick={next}
+              disabled={!canGoNext()}
+              className="flex items-center gap-1.5 px-6 py-2.5 bg-teal-700 text-white rounded-lg text-sm font-semibold hover:bg-teal-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            >
+              Continue <ChevronRight size={16} />
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="flex items-center gap-2 px-6 py-2.5 bg-teal-700 text-white rounded-lg text-sm font-semibold hover:bg-teal-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {isSubmitting ? (
-                <><Loader2 size={16} className="animate-spin" /> Sending...</>
+                <><Loader2 size={16} className="animate-spin" /> Submitting...</>
               ) : (
-                'Send Request'
+                <><Check size={16} /> Submit Intake</>
               )}
             </button>
-
-            <p className="mt-3 text-center text-xs text-slate-400">
-              Or call us directly at{' '}
-              <a href="tel:6626404004" className="text-teal-700 font-medium hover:underline">(662) 640-4004</a>
-            </p>
-          </form>
+          )}
         </div>
       </div>
     </div>
