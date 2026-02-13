@@ -140,7 +140,8 @@ export function generateIntakePdf(data: FullIntakeData): string {
     doc.text(`Member ID: ${data.memberId}`, margin, y);
     doc.text(`Group: ${data.groupNumber}`, margin + 100, y);
     y += 8;
-    doc.text(`Credit Card on File: ${data.creditCardCompany} ending in ${data.creditCardNumber.slice(-4)}`, margin, y);
+    y += 5;
+    doc.text(`Payment Method: ${data.creditCardCompany} - To be provided securely via phone/in-person`, margin, y);
     y += 5;
     doc.text(`Cancellation Policy Accepted: ${data.cancellationPolicyAcknowledged ? 'YES' : 'NO'}`, margin, y);
     y += 15;

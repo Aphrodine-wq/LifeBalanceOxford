@@ -264,35 +264,43 @@ const IntakeFormStep1: React.FC<Props> = ({ data, onChange }) => {
             <div className={sectionClass}>
                 <h3 className={sectionTitleClass}>
                     <span className="w-5 h-5 bg-slate-500 text-white rounded text-xs flex items-center justify-center font-bold">5</span>
-                    Credit Card on File (Required)
+                    Payment Information (Secure)
                 </h3>
                 <div className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label htmlFor="creditCardCompany" className={labelClass}>Card Company</label>
-                            <input id="creditCardCompany" name="creditCardCompany" type="text" value={data.creditCardCompany} onChange={handleChange} className={inputClass} placeholder="Visa, Mastercard, etc." />
-                        </div>
-                        <div>
-                            <label htmlFor="creditCardNumber" className={labelClass}>Card Number</label>
-                            <input id="creditCardNumber" name="creditCardNumber" type="text" value={data.creditCardNumber} onChange={handleChange} className={inputClass} placeholder="Card number" />
+                    <div className="bg-blue-50 border border-blue-100 p-4 rounded-xl">
+                        <div className="flex items-start gap-3">
+                            <div className="mt-0.5 text-blue-600">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-blue-900 text-sm mb-1">We protect your financial security</h4>
+                                <p className="text-xs text-blue-700 leading-relaxed">
+                                    To ensure the highest level of security for your sensitive data, we do not collect full credit card numbers through this online form.
+                                    <strong> Please provide your payment information over the phone or in-person at your first appointment.</strong>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <label htmlFor="creditCardExp" className={labelClass}>Expiration Date</label>
-                            <input id="creditCardExp" name="creditCardExp" type="text" value={data.creditCardExp} onChange={handleChange} className={inputClass} placeholder="MM/YY" />
-                        </div>
-                        <div>
-                            <label htmlFor="creditCardCvv" className={labelClass}>CVV</label>
-                            <input id="creditCardCvv" name="creditCardCvv" type="text" value={data.creditCardCvv} onChange={handleChange} className={inputClass} placeholder="CVV" />
-                        </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="creditCardCompany" className={labelClass}>Preferred Payment Method</label>
+                        <select id="creditCardCompany" name="creditCardCompany" value={data.creditCardCompany} onChange={handleChange} className={inputClass + ' max-w-xs'}>
+                            <option value="">Select</option>
+                            <option value="Visa">Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Amex">American Express</option>
+                            <option value="Discover">Discover</option>
+                            <option value="HSA/FSA">HSA / FSA Card</option>
+                            <option value="Other">Other / Cash</option>
+                        </select>
+                        <p className="text-xs text-slate-400 mt-1">This helps us prepare your file.</p>
                     </div>
 
                     {/* Cancellation Policy */}
                     <div className="bg-amber-50 rounded-xl p-4 border border-amber-100">
                         <h4 className="text-sm font-bold text-slate-900 mb-2">Cancellation & No-Show Policy</h4>
                         <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                            I understand that my credit/debit/HSA card on file will be charged the full appointment amount (<strong>$275 for the initial intake</strong> and <strong>$175 for follow-up</strong>) in the event that I do not attend my scheduled appointment or if I cancel my appointment within 24 hours prior to the scheduled time. I also understand that if the card company declines any credit or debit payment, I shall be billed the full amount of the visit, and that the balance shall be paid in full before another appointment will be made. This agreement shall be governed by the laws of the state of Mississippi.
+                            I understand that I am required to provide a valid credit/debit/HSA card to be kept on file. This card will be charged the full appointment amount (<strong>$275 for the initial intake</strong> and <strong>$175 for follow-up</strong>) in the event that I do not attend my scheduled appointment or if I cancel my appointment within 24 hours prior to the scheduled time. I also understand that if the card company declines any credit or debit payment, I shall be billed the full amount of the visit, and that the balance shall be paid in full before another appointment will be made. This agreement shall be governed by the laws of the state of Mississippi.
                         </p>
                         <label className="flex items-start gap-3 cursor-pointer">
                             <input
@@ -302,7 +310,7 @@ const IntakeFormStep1: React.FC<Props> = ({ data, onChange }) => {
                                 onChange={handleCheckbox}
                                 className="mt-0.5 w-4 h-4 accent-teal-700"
                             />
-                            <span className="text-sm text-slate-700 font-medium">I have read and agree to the cancellation and no-show policy.</span>
+                            <span className="text-sm text-slate-700 font-medium">I have read and agree to the cancellation and no-show policy, and I will provide a valid card for the file upon scheduling.</span>
                         </label>
                     </div>
                 </div>

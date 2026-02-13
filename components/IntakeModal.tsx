@@ -80,7 +80,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
   // ─── Success ──────────────────────────────
   if (submitted) {
     return (
-      <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}>
+      <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/50">
         <div className="bg-white rounded-2xl w-full max-w-md p-8 text-center shadow-xl animate-fade-in">
           <div className="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mx-auto mb-5">
             <Check size={32} className="text-teal-700" />
@@ -113,7 +113,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4" style={{ backgroundColor: 'rgba(15,23,42,0.55)' }}>
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-900/55">
       <div className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in">
 
         {/* Header */}

@@ -39,9 +39,6 @@ export interface FullIntakeData {
     policyholderEmployer: string;
 
     creditCardCompany: string; // Visa, Mastercard, etc.
-    creditCardNumber: string;
-    creditCardExp: string;
-    creditCardCvv: string;
     cancellationPolicyAcknowledged: boolean;
 
     pcpName: string;
@@ -98,7 +95,7 @@ export const defaultIntakeData: FullIntakeData = {
     emergencyPhone: '', emergencyPhoneMayContact: '', emergencyConsentSignature: '',
     insuranceCompany: '', memberId: '', groupNumber: '', policyholderName: '', policyholderDob: '',
     policyholderRelationship: '', policyholderEmployer: '',
-    creditCardCompany: '', creditCardNumber: '', creditCardExp: '', creditCardCvv: '',
+    creditCardCompany: '',
     cancellationPolicyAcknowledged: false,
     pcpName: '', pcpPhone: '', pcpPermissionToContact: '', pharmacyName: '', pharmacyCityState: '',
     email: '',
