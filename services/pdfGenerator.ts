@@ -12,7 +12,7 @@ const BAR_BG = [226, 232, 240] as const;  // slate-300
 const hasVal = (v: any) => v && v !== '' && v !== -1;
 
 export function generateIntakePdf(data: FullIntakeData): string {
-    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const doc = new jsPDF({ unit: 'mm', format: 'a4', compress: true });
     const pageW = 210;
     const pageH = 297;
     const margin = 15;

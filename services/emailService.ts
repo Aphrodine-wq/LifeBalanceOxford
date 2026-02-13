@@ -44,14 +44,19 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
 
     // ── 4. Try sending WITH the PDF attachment ─────────────────────
     if (pdfBase64) {
-        templateParams.pdf_attachment = pdfBase64;  // Only once — this is the attachment
+        templateParams.pdf_attachment = pdfBase64;
         const pdfSizeKB = (pdfBase64.length * 0.75) / 1024;
-        console.log(`📎 PDF base64 length: ${pdfBase64.length} chars (~${pdfSizeKB.toFixed(1)} KB decoded)`);
+        console.log(`📎 PDF Payload: ${pdfBase64.substring(0, 50)}... [length: ${pdfBase64.length} chars | ~${pdfSizeKB.toFixed(1)} KB]`);
     }
 
     try {
         const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-        console.log('✅ EmailJS send success (with PDF):', res.status, res.text);
+        console.log('✅ EmailJS send success:', res.status, res.text);
+
+        // ALWAYS download the PDF locally for the user as a backup record
+        console.log('⬇️ Triggering local PDF download...');
+        triggerPdfDownload(data, pdfBase64);
+
         return { success: true };
     } catch (firstErr: any) {
         console.warn('Send with PDF failed, retrying without attachment...', firstErr);
@@ -62,7 +67,7 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
 
         try {
             await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-            console.log('EmailJS retry success (text only)');
+            console.log('✅ EmailJS retry success (text only)');
         } catch (retryErr) {
             console.error('Retry also failed:', retryErr);
         }
