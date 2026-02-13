@@ -44,9 +44,9 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
 
     // ── 4. Try sending WITH the PDF attachment ─────────────────────
     if (pdfBase64) {
-        templateParams.pdf_attachment = pdfBase64;
+        templateParams.final_pdf_blob = pdfBase64;
         const pdfSizeKB = (pdfBase64.length * 0.75) / 1024;
-        console.log(`📎 PDF Payload: ${pdfBase64.substring(0, 50)}... [length: ${pdfBase64.length} chars | ~${pdfSizeKB.toFixed(1)} KB]`);
+        console.log(`📎 PDF Payload sent to 'final_pdf_blob' [length: ${pdfBase64.length} chars | ~${pdfSizeKB.toFixed(1)} KB]`);
     }
 
     try {
