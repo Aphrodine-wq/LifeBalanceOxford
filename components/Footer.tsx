@@ -4,25 +4,9 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-slate-400">
+    <footer className="bg-neutral-800 text-neutral-400">
 
-      {/* Google Map */}
-      <div className="border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
-          <div className="aspect-[16/5] rounded-xl overflow-hidden bg-slate-800">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.434458564253!2d-89.5663673236086!3d34.36437597305952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88807b1a2f96303d%3A0x6a0a0a0a0a0a0a0a!2s405%20Galleria%20Dr%20Ste%20E%2C%20Oxford%2C%20MS%2038655!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              className="border-0"
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Life Balance Psychiatric Services location"
-            ></iframe>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -69,23 +53,23 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex justify-between">
                 <span>Monday</span>
-                <span className="text-slate-300">8:00am – 5:00pm</span>
+                <span className="text-neutral-300">8:00am – 5:00pm</span>
               </li>
               <li className="flex justify-between">
                 <span>Tuesday</span>
-                <span className="text-slate-300">8:00am – 5:00pm</span>
+                <span className="text-neutral-300">8:00am – 5:00pm</span>
               </li>
               <li className="flex justify-between">
                 <span>Wednesday</span>
-                <span className="text-slate-300">8:00am – 5:00pm</span>
+                <span className="text-neutral-300">8:00am – 5:00pm</span>
               </li>
               <li className="flex justify-between">
                 <span>Thursday</span>
-                <span className="text-slate-300">8:00am – 5:00pm</span>
+                <span className="text-neutral-300">8:00am – 5:00pm</span>
               </li>
               <li className="flex justify-between">
                 <span>Friday</span>
-                <span className="text-slate-300">8:00am – 12:00pm</span>
+                <span className="text-neutral-300">8:00am – 12:00pm</span>
               </li>
               <li className="flex justify-between">
                 <span>Sat – Sun</span>
@@ -110,12 +94,12 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-800">
+      <div className="border-t border-neutral-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-2">
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-neutral-500">
             &copy; {new Date().getFullYear()} Life Balance Psychiatric Services. All rights reserved.
           </p>
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-neutral-500">
             Oxford, Mississippi
           </p>
         </div>

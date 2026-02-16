@@ -111,11 +111,11 @@ img {
 
 /* ===== Layout Utilities ===== */
 .min-h-hero {
-  min-height: 480px;
+  min-height: 520px;
 }
 
 .min-h-hero-image {
-  min-height: 350px;
+  min-height: 400px;
 }
 
 .h-map {

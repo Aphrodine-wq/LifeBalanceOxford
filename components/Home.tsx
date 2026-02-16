@@ -21,13 +21,13 @@ const Home: React.FC = () => {
       <Hero onBookAppointment={openModal} />
 
       {/* ===== About Us Section ===== */}
-      <section className="py-20 bg-dark-green">
+      <section className="py-24 bg-dark-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-10">
               About Us
             </h2>
-            <p className="text-lg leading-relaxed mb-10 text-cream">
+            <p className="text-lg leading-relaxed mb-12 text-cream">
               At Life Balance, we're redefining the experience of mental health care across North Mississippi.
               Our family-owned and operated practice in Oxford provides compassionate, personalized
               psychiatric care for clients twelve years and older, including Ole Miss students, faculty, and staff.
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* ===== Meet Casey Hester Section ===== */}
-      <section className="py-16 border-t border-white/10 bg-dark-green">
+      <section className="py-20 border-t border-white/10 bg-dark-green">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-10">
@@ -87,14 +87,14 @@ const Home: React.FC = () => {
       </section>
 
       {/* ===== Our Services Section ===== */}
-      <section className="py-16 border-t border-white/10 bg-dark-green">
+      <section className="py-20 border-t border-white/10 bg-dark-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-2">
               Our Services
             </h2>
             <div className="w-12 border-t-2 border-white/40 mb-8"></div>
-            <p className="leading-relaxed text-lg text-cream">
+            <p className="leading-relaxed text-lg text-cream mb-10">
               At Life Balance, we offer a comprehensive range of psychiatric services tailored to
               each individual's unique needs. Our care goes beyond prescriptions — we take the
               time to understand your story and create a treatment plan that supports your long-term
@@ -104,12 +104,18 @@ const Home: React.FC = () => {
               evaluations, ongoing supportive care, and proactive treatment options that promote
               overall mental and emotional wellness.
             </p>
+            <button
+              onClick={openModal}
+              className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+            >
+              New Client Intake
+            </button>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ===== Contact Us Section ===== */}
-      <section className="py-16 border-t border-white/10 bg-dark-green">
+      <section className="py-20 border-t border-white/10 bg-dark-green">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white text-center mb-12">
@@ -191,7 +197,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* ===== Footer CTA ===== */}
-      <section className="py-10 border-t border-white/10 bg-grey-green">
+      <section className="py-14 border-t border-white/10 bg-grey-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-serif text-xl font-medium mb-6 text-white">
             Prioritize your mental health today.
