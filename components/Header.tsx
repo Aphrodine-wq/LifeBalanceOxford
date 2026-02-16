@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'MAT Program', href: '/mat-program' },
+    { name: 'Addiction Medicine', href: '/mat-program' },
     { name: 'Team', href: '/team' },
     { name: 'Location', href: '/contact' },
   ];

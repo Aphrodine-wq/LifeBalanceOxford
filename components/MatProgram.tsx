@@ -4,8 +4,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 
 const MatProgram: React.FC = () => {
     usePageMeta({
-        title: 'MAT Program — Medication-Assisted Treatment',
-        description: 'Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone and Sublocade combined with counseling. Private, respectful, judgment-free. Call (662) 640-4004.',
+        title: 'Addiction Medicine — Medication-Assisted Treatment',
+        description: 'Addiction medicine and Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone and Sublocade combined with counseling. Private, respectful, judgment-free. Call (662) 640-4004.',
     });
     return (
         <div className="bg-white min-h-screen">
@@ -64,32 +64,29 @@ const MatProgram: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Pricing Sidebar */}
+                    {/* Payment & Contact Sidebar */}
                     <div className="lg:col-span-1">
                         <div className="bg-stone-50 rounded-xl p-8 sticky top-24">
-                            <h3 className="text-xl font-bold text-slate-900 mb-6">Program Pricing</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-6">Get Started</h3>
 
-                            <div className="space-y-6">
-                                <div className="pb-6 border-b border-slate-200">
-                                    <div className="flex justify-between items-baseline mb-2">
-                                        <span className="text-slate-700 font-medium">Initial Visit</span>
-                                        <span className="text-2xl font-bold text-slate-900">$250</span>
-                                    </div>
-                                    <p className="text-slate-500 text-sm">Comprehensive assessment and treatment plan.</p>
-                                    <p className="text-xs text-slate-400 mt-1">*Urine drug screen: additional $25</p>
+                            <div className="space-y-4">
+                                <div className="bg-white rounded-lg p-5 border border-stone-200">
+                                    <h4 className="font-semibold text-slate-900 mb-2">Self-Pay Options Available</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        We offer self-pay options for patients without insurance coverage. Call our office for details on pricing and payment plans.
+                                    </p>
                                 </div>
 
-                                <div>
-                                    <div className="flex justify-between items-baseline mb-2">
-                                        <span className="text-slate-700 font-medium">Follow-Up Visits</span>
-                                        <span className="text-2xl font-bold text-slate-900">$200</span>
-                                    </div>
-                                    <p className="text-slate-500 text-sm">Ongoing management, includes random drug screening.</p>
+                                <div className="bg-white rounded-lg p-5 border border-stone-200">
+                                    <h4 className="font-semibold text-slate-900 mb-2">Insurance</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        We accept most major insurance plans. Call to verify your specific coverage before your visit.
+                                    </p>
                                 </div>
                             </div>
 
                             <div className="mt-8 pt-6 border-t border-slate-200">
-                                <p className="text-xs text-slate-400 mb-4 text-center">Cash and credit/debit accepted</p>
+                                <p className="text-xs text-slate-400 mb-4 text-center">Cash, credit, and debit accepted</p>
                                 <a
                                     href="tel:6626404004"
                                     className="flex items-center justify-center gap-2 w-full bg-slate-900 text-white py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors"

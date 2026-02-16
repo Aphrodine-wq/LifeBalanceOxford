@@ -4,7 +4,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 const Team: React.FC = () => {
   usePageMeta({
     title: 'Our Team — Casey Hester & Kim Underwood',
-    description: 'Meet Casey Hester, PMHNP-BC, and Kim Underwood at Life Balance Psychiatric Services in Oxford, MS. A small team that genuinely cares.',
+    description: 'Meet Casey Hester, PMHNP-BC, and Kim Underwood at Life Balance Psychiatric Services in Oxford, MS. Oxford\'s elite team that genuinely cares.',
   });
   return (
     <div className="bg-white min-h-screen">
