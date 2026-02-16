@@ -6,27 +6,28 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
   return (
-    <section className="relative min-h-hero">
-      <div className="flex flex-col lg:flex-row min-h-hero">
-        {/* Left side — cream background, large heading */}
-        <div
-          className="flex items-center justify-center lg:w-1/2 px-8 sm:px-12 lg:px-16 py-16 lg:py-24 bg-cream"
-        >
-          <h1
-            className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold leading-tight max-w-md text-dark"
-          >
-            Personalized Psychiatric Care for a Balanced Life
-          </h1>
-        </div>
+    <section className="relative min-h-hero overflow-hidden">
+      {/* Background image */}
+      <img
+        src="/hero-top.jpg"
+        alt="Peaceful countryside landscape"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-        {/* Right side — stacked stones image */}
-        <div className="lg:w-1/2 relative overflow-hidden min-h-hero-image">
-          <img
-            src="/hero.png"
-            alt="Stacked stones representing balance and peace"
-            className="w-full h-full object-cover absolute inset-0"
-          />
-        </div>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Centered content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-hero px-6 sm:px-12 text-center">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-2xl text-white mb-8">
+          Personalized Psychiatric Care for a Balanced Life
+        </h1>
+        <button
+          onClick={onBookAppointment}
+          className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+        >
+          New Client Intake
+        </button>
       </div>
     </section>
   );

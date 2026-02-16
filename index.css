@@ -111,7 +111,7 @@ img {
 
 /* ===== Layout Utilities ===== */
 .min-h-hero {
-  min-height: 520px;
+  min-height: 85vh;
 }
 
 .min-h-hero-image {
