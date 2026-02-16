@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Hero from './Hero';
 import IntakeModal from './IntakeModal';
 import ScrollReveal from './ScrollReveal';
+import Testimonials from './Testimonials';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -113,6 +114,9 @@ const Home: React.FC = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== Testimonials Section ===== */}
+      <Testimonials />
 
       {/* ===== Contact Us Section ===== */}
       <section className="py-20 border-t border-white/10 bg-dark-green">

@@ -10,7 +10,7 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
       {/* Background image */}
       <img
         src="/hero-top.jpg"
-        alt="Zen stones balanced on driftwood with mountains and forest"
+        alt="Balanced zen stones along a sunlit riverbank"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
