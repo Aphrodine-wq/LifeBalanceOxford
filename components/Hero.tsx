@@ -8,10 +8,16 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
   return (
     <section className="relative min-h-hero overflow-hidden">
       {/* Background image */}
-      <img
-        src="/hero-top.jpg"
-        alt="Balanced zen stones along a sunlit riverbank"
-        className="absolute inset-0 w-full h-full object-cover"
+      <div
+        role="img"
+        aria-label="Balanced zen stones along a sunlit riverbank"
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: 'url(/hero-top.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          backgroundRepeat: 'no-repeat',
+        }}
       />
 
       {/* Dark overlay for text readability */}
