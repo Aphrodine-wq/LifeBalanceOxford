@@ -136,11 +136,19 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-900/55">
-      <div className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in">
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-900/55"
+      style={{ touchAction: 'none', overscrollBehavior: 'contain' }}
+      onTouchMove={(e) => e.preventDefault()}
+    >
+      <div
+        className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in"
+        style={{ overscrollBehavior: 'contain' }}
+        onTouchMove={(e) => e.stopPropagation()}
+      >
 
         {/* Header */}
-        <div className="px-5 sm:px-7 pt-5 pb-4 border-b border-slate-100 flex-shrink-0">
+        <div className="px-5 sm:px-7 pt-5 pb-4 border-b border-slate-100 flex-shrink-0 sticky top-0 z-10 bg-white">
           <div className="flex justify-between items-start mb-4">
             <div>
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">New Patient Intake</h2>
@@ -166,7 +174,11 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Scrollable Body */}
-        <div ref={scrollRef} className="overflow-y-auto flex-1 p-5 sm:p-7">
+        <div
+          ref={scrollRef}
+          className="overflow-y-auto flex-1 p-5 sm:p-7"
+          style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+        >
           {renderStep()}
 
           {error && (
@@ -178,7 +190,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer Nav */}
-        <div className="px-5 sm:px-7 py-4 border-t border-slate-100 flex items-center justify-between flex-shrink-0 bg-stone-50/50">
+        <div className="px-5 sm:px-7 py-4 border-t border-slate-100 flex items-center justify-between flex-shrink-0 bg-stone-50/50 sticky bottom-0 z-10">
           <button
             onClick={prev}
             disabled={step === 0}
