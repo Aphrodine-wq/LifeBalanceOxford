@@ -7,17 +7,14 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
   return (
     <section className="relative min-h-hero overflow-hidden">
-      {/* Background image */}
-      <div
-        role="img"
-        aria-label="Balanced zen stones along a sunlit riverbank"
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: 'url(/hero-top.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-          backgroundRepeat: 'no-repeat',
-        }}
+      {/* Background image — native <img> for highest quality */}
+      <img
+        src="/hero-top.jpg"
+        alt="Balanced zen stones along a sunlit riverbank"
+        fetchPriority="high"
+        loading="eager"
+        decoding="sync"
+        className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
       />
 
       {/* Dark overlay for text readability */}

@@ -46,12 +46,12 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors ${isActive(link.href)
+                className={`text-base font-medium transition-colors ${isActive(link.href)
                   ? 'text-white'
                   : 'text-gray-300 hover:text-white'
                   }`}
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
 
           {/* Phone CTA */}
           <div className="hidden md:block">
-            <a href="tel:6626404004" className="text-sm font-semibold transition-colors text-gold-accent">
+            <a href="tel:6626404004" className="text-base font-semibold transition-colors text-gold-accent">
               (662) 640-4004
             </a>
           </div>
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             <Link
               key={link.name}
               to={link.href}
-              className={`block px-4 py-4 rounded-lg text-lg font-medium transition-all duration-300 ${isActive(link.href)
+              className={`block px-4 py-4 rounded-lg text-xl font-medium transition-all duration-300 ${isActive(link.href)
                 ? 'text-white bg-white/10'
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
           <div className="pt-6 mt-4 border-t border-white/20 space-y-3">
             <a
               href="tel:6626404004"
-              className="flex items-center gap-3 px-4 py-4 text-lg font-semibold text-gold-accent"
+              className="flex items-center gap-3 px-4 py-4 text-xl font-semibold text-gold-accent"
             >
               (662) 640-4004
             </a>
