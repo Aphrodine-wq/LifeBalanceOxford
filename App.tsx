@@ -24,7 +24,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen bg-white font-sans flex flex-col">
         <Header />
-        <main className="flex-grow pt-[72px]">
+        <main className="flex-grow pt-[80px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />

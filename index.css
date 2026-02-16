@@ -79,3 +79,45 @@ img {
 .hero-image {
   min-height: 520px;
 }
+
+/* ===== Project Color Palette ===== */
+.bg-dark-green {
+  background-color: #3d5a4c;
+}
+
+.bg-cream {
+  background-color: #f0ebe0;
+}
+
+.bg-grey-green {
+  background-color: #6b7b6e;
+}
+
+.bg-gold-accent {
+  background-color: #c8b560;
+}
+
+.text-cream {
+  color: #e8e0d0;
+}
+
+.text-gold-accent {
+  color: #c8b560;
+}
+
+.text-dark {
+  color: #2d2d2d;
+}
+
+/* ===== Layout Utilities ===== */
+.min-h-hero {
+  min-height: 480px;
+}
+
+.min-h-hero-image {
+  min-height: 350px;
+}
+
+.h-map {
+  height: 350px;
+}

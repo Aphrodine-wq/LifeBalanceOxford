@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
@@ -24,9 +24,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'Addiction Medicine', href: '/mat-program' },
-    { name: 'Team', href: '/team' },
-    { name: 'Location', href: '/contact' },
+    { name: 'About', href: '/team' },
   ];
 
   const isActive = (path: string) => {
@@ -35,27 +33,27 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed w-full bg-white z-50 border-b border-slate-100">
+    <header className="fixed w-full z-50 bg-dark-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-[72px]">
+        <div className="flex justify-between items-center h-[80px]">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-            <img src="/logo.png" alt="Life Balance" className="h-12 w-auto object-contain" />
-            <div className="hidden sm:block">
-              <span className="font-bold text-lg text-slate-900 leading-none block">Life Balance</span>
-              <span className="text-xs text-slate-500 font-medium block mt-0.5">Psychiatric Services</span>
+            <img src="/logo.png" alt="Life Balance" className="h-14 w-auto object-contain" />
+            <div>
+              <span className="font-semibold text-lg text-white leading-none block">Life Balance</span>
+              <span className="text-xs text-gray-300 font-medium block mt-0.5">Casey Hester, PMHNP-BC</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(link.href)
-                  ? 'text-teal-700 bg-teal-50'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                className={`text-sm font-medium transition-colors ${isActive(link.href)
+                  ? 'text-white'
+                  : 'text-gray-300 hover:text-white'
                   }`}
               >
                 {link.name}
@@ -63,10 +61,9 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* Phone CTA */}
           <div className="hidden md:block">
-            <a href="tel:6626404004" className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-teal-700 transition-colors">
-              <Phone size={15} />
+            <a href="tel:6626404004" className="text-sm font-semibold transition-colors text-gold-accent">
               (662) 640-4004
             </a>
           </div>
@@ -74,7 +71,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-slate-600 p-2"
+            className="md:hidden text-white p-2"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,9 +81,9 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu — full screen overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-[72px] bg-white z-40 transition-all duration-300 ease-in-out ${isMenuOpen
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-2 pointer-events-none'
+        className={`md:hidden fixed inset-0 top-[80px] z-40 transition-all duration-300 ease-in-out bg-dark-green ${isMenuOpen
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 -translate-y-2 pointer-events-none'
           }`}
       >
         <div className="px-6 py-6 space-y-1">
@@ -95,8 +92,8 @@ const Header: React.FC = () => {
               key={link.name}
               to={link.href}
               className={`block px-4 py-4 rounded-lg text-lg font-medium transition-all duration-300 ${isActive(link.href)
-                ? 'bg-teal-50 text-teal-700'
-                : 'text-slate-700 hover:bg-slate-50'
+                ? 'text-white bg-white/10'
+                : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
               style={{ transitionDelay: isMenuOpen ? `${i * 50}ms` : '0ms' }}
             >
@@ -104,12 +101,11 @@ const Header: React.FC = () => {
             </Link>
           ))}
 
-          <div className="pt-6 mt-4 border-t border-slate-100 space-y-3">
+          <div className="pt-6 mt-4 border-t border-white/20 space-y-3">
             <a
               href="tel:6626404004"
-              className="flex items-center gap-3 px-4 py-4 text-lg font-semibold text-teal-700"
+              className="flex items-center gap-3 px-4 py-4 text-lg font-semibold text-gold-accent"
             >
-              <Phone size={20} />
               (662) 640-4004
             </a>
           </div>
