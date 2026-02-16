@@ -6,6 +6,24 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 text-slate-400">
 
+      {/* Google Map */}
+      <div className="border-b border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
+          <div className="aspect-[16/5] rounded-xl overflow-hidden bg-slate-800">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.434458564253!2d-89.5663673236086!3d34.36437597305952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88807b1a2f96303d%3A0x6a0a0a0a0a0a0a0a!2s405%20Galleria%20Dr%20Ste%20E%2C%20Oxford%2C%20MS%2038655!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              className="border-0"
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Life Balance Psychiatric Services location"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -15,7 +33,7 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-bold text-lg mb-1 font-serif">Life Balance</h3>
             <p className="text-sm mb-4">Psychiatric Services</p>
             <p className="text-sm leading-relaxed">
-              A small practice in Oxford, MS providing psychiatric care that puts people first. We've been at it since the beginning — and we're not going anywhere.
+              Oxford's elite psychiatric practice, providing care that puts people first. We've been at it since the beginning — and we're not going anywhere.
             </p>
           </div>
 
@@ -82,7 +100,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link to="/mat-program" className="hover:text-white transition-colors">MAT Program</Link></li>
+              <li><Link to="/mat-program" className="hover:text-white transition-colors">Addiction Medicine</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>
             </ul>

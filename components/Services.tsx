@@ -6,7 +6,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 const Services: React.FC = () => {
   usePageMeta({
     title: 'Services',
-    description: 'Psychiatric evaluations, medication management, MAT program, GeneSight testing, and ADHD assessment coordination at Life Balance in Oxford, MS.',
+    description: 'Psychiatric evaluations, medication management, addiction medicine, GeneSight testing, and ADHD assessment coordination at Life Balance in Oxford, MS.',
   });
   const services = [
     {
@@ -20,7 +20,7 @@ const Services: React.FC = () => {
       tag: "Ongoing Care"
     },
     {
-      title: "MAT Program",
+      title: "Addiction Medicine",
       description: "Medication-Assisted Treatment for opioid dependence using Suboxone and Sublocade. Combined with counseling and support — no judgment, ever.",
       tag: "Recovery"
     },

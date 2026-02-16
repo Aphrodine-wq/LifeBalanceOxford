@@ -48,7 +48,7 @@ const services = [
   },
   {
     icon: Brain,
-    title: 'MAT Program',
+    title: 'Addiction Medicine',
     desc: 'Opioid recovery support with Suboxone and Sublocade, paired with counseling. Judgment-free, always.',
     accent: 'bg-teal-50 text-teal-700',
   },
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 
   usePageMeta({
     title: 'Psychiatric Services in Oxford, MS',
-    description: 'Life Balance Psychiatric Services in Oxford, MS. Psychiatric evaluations, medication management, MAT program, and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
+    description: 'Life Balance Psychiatric Services in Oxford, MS. Psychiatric evaluations, medication management, addiction medicine, and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
   });
 
   const openModal = () => setIsModalOpen(true);
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                   Too many clinics cycle patients through in 15 minutes. We do things differently — our evaluations are thorough, our follow-ups are real conversations, and we genuinely care about what happens after you leave our office.
                 </p>
                 <p>
-                  Whether you're dealing with anxiety, depression, ADHD, or navigating recovery through our MAT program, you'll be treated like a person here, not a chart number.
+                  Whether you're dealing with anxiety, depression, ADHD, or navigating recovery through our addiction medicine program, you'll be treated like a person here, not a chart number.
                 </p>
               </div>
               <div className="mt-8">
@@ -165,7 +165,7 @@ const Home: React.FC = () => {
                 <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
                   <h3 className="font-semibold text-white mb-2">Self-Pay Options</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Cash, credit, and debit accepted. MAT program pricing: initial visit $250, follow-ups $200.
+                    Self-pay options are available. Cash, credit, and debit accepted. Call our office for details.
                   </p>
                 </div>
               </div>
@@ -242,7 +242,7 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
               <div>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 leading-snug">
-                  Small team. Big heart.
+                  Oxford's elite team.
                 </h2>
               </div>
               <Link
@@ -301,6 +301,33 @@ const Home: React.FC = () => {
               >
                 Call (662) 640-4004
               </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Google Map */}
+      <section className="bg-stone-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <ScrollReveal>
+            <div className="text-center mb-8">
+              <p className="text-sm text-teal-700 font-medium tracking-wide mb-3">Find Us</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+                405 Galleria Drive, Suite E
+              </h2>
+              <p className="text-slate-500 text-lg">Oxford, MS 38655</p>
+            </div>
+            <div className="aspect-[16/7] rounded-xl overflow-hidden bg-slate-100 shadow-sm">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.434458564253!2d-89.5663673236086!3d34.36437597305952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88807b1a2f96303d%3A0x6a0a0a0a0a0a0a0a!2s405%20Galleria%20Dr%20Ste%20E%2C%20Oxford%2C%20MS%2038655!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                className="border-0"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Life Balance Psychiatric Services location"
+              ></iframe>
             </div>
           </ScrollReveal>
         </div>
