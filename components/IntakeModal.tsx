@@ -137,13 +137,11 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-900/55"
-      style={{ touchAction: 'none', overscrollBehavior: 'contain' }}
+      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-4 bg-slate-900/55 modal-overlay-lock"
       onTouchMove={(e) => e.preventDefault()}
     >
       <div
-        className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in"
-        style={{ overscrollBehavior: 'contain' }}
+        className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col animate-fade-in modal-card-lock"
         onTouchMove={(e) => e.stopPropagation()}
       >
 
@@ -176,8 +174,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
         {/* Scrollable Body */}
         <div
           ref={scrollRef}
-          className="overflow-y-auto flex-1 p-5 sm:p-7"
-          style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+          className="overflow-y-auto flex-1 p-5 sm:p-7 modal-body-scroll"
         >
           {renderStep()}
 

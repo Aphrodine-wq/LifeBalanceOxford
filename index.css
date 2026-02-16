@@ -121,3 +121,18 @@ img {
 .h-map {
   height: 350px;
 }
+
+/* ===== Intake Modal — mobile scroll containment ===== */
+.modal-overlay-lock {
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.modal-card-lock {
+  overscroll-behavior: contain;
+}
+
+.modal-body-scroll {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
