@@ -7,6 +7,9 @@ const SERVICE_ID = 'service_9vitjto';
 const TEMPLATE_ID = 'template_5hioh65';
 const PUBLIC_KEY = 'WgqZwkJgrF6WRIlcQ';
 
+// EmailJS free-tier payload limit is ~50 KB; skip attaching if larger
+const MAX_PDF_SIZE_KB = 45;
+
 export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string }> {
     // ── 1. Generate the PDF ────────────────────────────────────────
     let pdfBase64 = '';
@@ -33,6 +36,7 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
     const templateParams: Record<string, string> = {
         from_name: data.patientName,
         from_email: data.email,
+        reply_to: data.email,
         from_phone: data.primaryPhone,
         anxiety: `GAD-7 Score: ${gadScore}`,
         depression: `PHQ-9 Score: ${phqScore}`,
@@ -43,46 +47,53 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
         to_email: 'jamesburge.mcm@gmail.com',
     };
 
-    console.log('📝 Template Params (text items):', JSON.stringify(templateParams, null, 2));
+    // ── 4. Attach PDF only if within EmailJS size limits ───────────
+    const pdfSizeKB = pdfBase64 ? (pdfBase64.length * 0.75) / 1024 : 0;
+    const includePdf = pdfBase64 !== '' && pdfSizeKB <= MAX_PDF_SIZE_KB;
 
-    // ── 4. Try sending WITH the PDF attachment ─────────────────────
-    console.log(`🚀 Sending to Service: ${SERVICE_ID}, Template: ${TEMPLATE_ID}`);
-
-    if (pdfBase64) {
-        templateParams.final_pdf_blob = pdfBase64;
-        const pdfSizeKB = (pdfBase64.length * 0.75) / 1024;
-        console.log(`📎 PDF Payload sent to 'final_pdf_blob' [length: ${pdfBase64.length} chars | ~${pdfSizeKB.toFixed(1)} KB]`);
+    if (pdfBase64 && !includePdf) {
+        console.warn(`PDF too large for EmailJS (${pdfSizeKB.toFixed(1)} KB > ${MAX_PDF_SIZE_KB} KB) — sending without attachment.`);
+        templateParams.message += '\n\n(PDF was too large to attach — patient received a downloaded copy.)';
     }
+
+    if (includePdf) {
+        // Must match the variable name in the EmailJS template Attachments tab
+        templateParams.pdf_attachment = pdfBase64;
+        console.log(`📎 PDF attached as 'pdf_attachment' [~${pdfSizeKB.toFixed(1)} KB]`);
+    }
+
+    // ── 5. Send the email ──────────────────────────────────────────
+    console.log(`🚀 Sending to Service: ${SERVICE_ID}, Template: ${TEMPLATE_ID}`);
 
     try {
         const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
         console.log('✅ EmailJS send success:', res.status, res.text);
-
-        // ALWAYS download the PDF locally for the user as a backup record
-        console.log('⬇️ Triggering local PDF download...');
         triggerPdfDownload(data, pdfBase64);
-
         return { success: true };
-    } catch (firstErr: any) {
-        console.error('❌ Send failed. Error details:', firstErr);
-        if (firstErr.text) console.error('Error text:', firstErr.text);
+    } catch (err: any) {
+        console.error('❌ EmailJS send failed:', err);
+        if (err.text) console.error('Error text:', err.text);
 
-        console.warn('Retrying without attachment...');
+        // If we included the PDF, retry without it (payload may have been too large)
+        if (includePdf) {
+            console.warn('Retrying without PDF attachment...');
+            delete templateParams.pdf_attachment;
+            templateParams.message += '\n\n(PDF attachment was too large — patient received a downloaded copy.)';
 
-        // ── 5. Retry WITHOUT the PDF (payload was too big) ─────────
-        delete templateParams.final_pdf_blob;
-        templateParams.message += '\n\n⚠️ PDF attachment was too large. Patient received a downloaded copy.';
-
-        try {
-            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-            console.log('✅ EmailJS retry success (text only)');
-        } catch (retryErr) {
-            console.error('Retry also failed:', retryErr);
+            try {
+                const retryRes = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+                console.log('✅ EmailJS retry success (no PDF):', retryRes.status, retryRes.text);
+                triggerPdfDownload(data, pdfBase64);
+                return { success: true };
+            } catch (retryErr: any) {
+                console.error('❌ Retry also failed:', retryErr);
+            }
         }
 
-        // Download the PDF to the patient's machine so it's not lost
+        // Both attempts failed — fall back to mailto and report the failure
         triggerPdfDownload(data, pdfBase64);
-        return { success: true };
+        sendViaMailto(data);
+        return { success: false, error: err?.text || 'Email delivery failed. A mailto fallback was opened.' };
     }
 }
 
