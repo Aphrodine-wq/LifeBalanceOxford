@@ -7,8 +7,8 @@ const SERVICE_ID = 'service_9vitjto';
 const TEMPLATE_ID = 'template_5hioh65';
 const PUBLIC_KEY = 'WgqZwkJgrF6WRIlcQ';
 
-// EmailJS free-tier payload limit is ~50 KB; skip attaching if larger
-const MAX_PDF_SIZE_KB = 45;
+// EmailJS will reject payloads that are too large; the retry logic below
+// handles that gracefully by resending without the attachment if needed.
 
 export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: boolean; error?: string }> {
     // ── 1. Generate the PDF ────────────────────────────────────────
@@ -47,14 +47,9 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
         to_email: 'jamesburge.mcm@gmail.com',
     };
 
-    // ── 4. Attach PDF only if within EmailJS size limits ───────────
+    // ── 4. Attach PDF ──────────────────────────────────────────────
     const pdfSizeKB = pdfBase64 ? (pdfBase64.length * 0.75) / 1024 : 0;
-    const includePdf = pdfBase64 !== '' && pdfSizeKB <= MAX_PDF_SIZE_KB;
-
-    if (pdfBase64 && !includePdf) {
-        console.warn(`PDF too large for EmailJS (${pdfSizeKB.toFixed(1)} KB > ${MAX_PDF_SIZE_KB} KB) — sending without attachment.`);
-        templateParams.message += '\n\n(PDF was too large to attach — patient received a downloaded copy.)';
-    }
+    const includePdf = pdfBase64 !== '';
 
     if (includePdf) {
         // Must match the variable name in the EmailJS template Attachments tab
