@@ -334,32 +334,146 @@ export function generateIntakePdf(data: FullIntakeData): string {
         'Feeling afraid, as if something awful might happen'
     ], data.gad7, []);
 
-    // Other Measures (MDQ, PCL-C, ASRS) - Condensed
-    checkPageBreak(30);
-    drawSectionTitle('Additional Screenings');
+    // ─── Additional Screenings (Full Grid) ───
 
-    // MDQ
-    const mdqYes = data.mdqItems.filter(Boolean).length;
-    checkPageBreak(15);
-    doc.setFont('helvetica', 'bold'); doc.setFontSize(9); doc.setTextColor(...DARK);
-    doc.text(`MDQ (Mood): ${mdqYes}/13 Yes`, margin, y);
-    doc.setFont('helvetica', 'normal');
-    doc.text(` | Co-occurrence: ${data.mdqSameTime || '-'} | Severity: ${data.mdqProblemLevel || '-'}`, margin + 50, y);
-    y += 6;
+    // MDQ (Mood Disorder Questionnaire)
+    const MDQ_PDF_ITEMS = [
+        'Felt so good/hyper that others thought you weren\'t yourself, or got into trouble?',
+        'Were so irritable that you shouted at people or started fights or arguments?',
+        'Felt much more self-confident than usual?',
+        'Got much less sleep than usual and found you didn\'t really miss it?',
+        'Were much more talkative or spoke much faster than usual?',
+        'Had thoughts racing through your head that you couldn\'t slow down?',
+        'Were so easily distracted that you had trouble concentrating or staying on track?',
+        'Had much more energy than usual?',
+        'Were much more active or did many more things than usual?',
+        'Were much more social or outgoing than usual?',
+        'Were much more interested in sex than usual?',
+        'Did things unusual for you that others might have thought excessive, foolish, or risky?',
+        'Spending money got you or your family into trouble?',
+    ];
 
-    // PCL-C
-    const pclcScore = data.pclc.reduce((a, b) => a + (b >= 1 ? b : 0), 0);
+    checkPageBreak(20);
+    drawSectionTitle('MDQ (Mood Disorder Questionnaire)');
+
+    checkPageBreak(8);
+    doc.setFontSize(8);
+    doc.setFont('helvetica', 'italic');
+    doc.setTextColor(...MID);
+    doc.text('1. Has there ever been a period of time when you were not your usual self and...', margin + 2, y);
+    y += 7;
+
+    MDQ_PDF_ITEMS.forEach((q, i) => {
+        checkPageBreak(7);
+        if (i % 2 === 0) {
+            doc.setFillColor(...LIGHT_BG);
+            doc.rect(margin, y - 2, contentW, 6, 'F');
+        }
+        doc.setTextColor(...DARK);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(`${String.fromCharCode(97 + i)}.`, margin + 2, y + 2);
+        doc.text(q.substring(0, 95) + (q.length > 95 ? '...' : ''), margin + 8, y + 2);
+        doc.setFont('helvetica', 'bold');
+        doc.text(data.mdqItems[i] ? 'Yes' : 'No', pageW - margin - 5, y + 2, { align: 'right' });
+        y += 6;
+    });
+
+    const mdqYesTotal = data.mdqItems.filter(Boolean).length;
+    y += 2;
     doc.setFont('helvetica', 'bold');
-    doc.text(`PCL-C (PTSD): Score ${pclcScore}`, margin, y);
-    doc.setFont('helvetica', 'normal'); doc.setTextColor(...MID);
-    doc.text('(See EMR for details)', margin + 50, y);
+    doc.setFontSize(9);
+    doc.setTextColor(...DARK);
+    doc.text(`Total: ${mdqYesTotal}/13 Yes`, pageW - margin - 5, y, { align: 'right' });
     y += 6;
 
-    // ASRS
-    const partAScore = data.asrs.slice(0, 6).filter(v => v >= 2).length;
-    doc.setFont('helvetica', 'bold'); doc.setTextColor(...DARK);
-    doc.text(`ASRS (ADHD): Part A Score ${partAScore}/6`, margin, y);
-    y += 10;
+    const mdqFollowUps = [
+        { q: '2. Did several of these happen during the same period of time?', val: data.mdqSameTime },
+        { q: '3. How much of a problem did any of these cause you?', val: data.mdqProblemLevel },
+        { q: '4. Blood relatives ever had manic-depressive illness or bipolar disorder?', val: data.mdqFamilyHistory },
+        { q: '5. Has a health professional told you that you have bipolar disorder?', val: data.mdqProfessionalDiagnosis },
+    ];
+    mdqFollowUps.forEach((fu, i) => {
+        checkPageBreak(7);
+        if (i % 2 === 0) {
+            doc.setFillColor(...LIGHT_BG);
+            doc.rect(margin, y - 2, contentW, 6, 'F');
+        }
+        doc.setTextColor(...DARK);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.text(fu.q.substring(0, 95), margin + 2, y + 2);
+        doc.setFont('helvetica', 'bold');
+        doc.text(fu.val || '—', pageW - margin - 5, y + 2, { align: 'right' });
+        y += 6;
+    });
+    y += 4;
+
+    // PCL-C (PTSD Checklist — Civilian)
+    drawMeasureGrid('PCL-C (PTSD Checklist — Civilian)', [
+        'Repeated, disturbing memories, thoughts, or images of a stressful past experience',
+        'Repeated, disturbing dreams of a stressful experience from the past',
+        'Suddenly acting or feeling as if a stressful experience were happening again',
+        'Feeling very upset when something reminded you of a stressful experience',
+        'Physical reactions (heart pounding, trouble breathing) when reminded of past stress',
+        'Avoiding thinking about or talking about a stressful experience from the past',
+        'Avoiding activities or situations because they reminded you of a stressful experience',
+        'Trouble remembering important parts of a stressful experience from the past',
+        'Loss of interest in activities that you used to enjoy',
+        'Feeling distant or cut off from other people',
+        'Feeling emotionally numb or unable to have loving feelings for those close to you',
+        'Feeling as if your future will somehow be cut short',
+        'Trouble falling or staying asleep',
+        'Feeling irritable or having angry outbursts',
+        'Having difficulty concentrating',
+        'Being "super-alert" or watchful or on guard',
+        'Feeling jumpy or easily startled',
+    ], data.pclc, []);
+
+    {
+        const pclcTotal = data.pclc.reduce((a, b) => a + (b >= 1 ? b : 0), 0);
+        const pclcSev = pclcTotal < 28 ? 'Below clinical threshold' : pclcTotal < 44 ? 'Possible PTSD' : 'Probable PTSD';
+        checkPageBreak(8);
+        setSmallNoteFont();
+        doc.text(`Severity: ${pclcSev} (range 17-85; clinical threshold >=28)`, margin, y);
+        y += 8;
+    }
+
+    // ASRS (ADHD) — Part A
+    drawMeasureGrid('ASRS (ADHD) — Part A', [
+        'Trouble wrapping up final details of a project after the challenging parts are done?',
+        'Difficulty getting things in order when doing a task that requires organization?',
+        'Problems remembering appointments or obligations?',
+        'Avoid or delay getting started on tasks that require a lot of thought?',
+        'Fidget or squirm with hands or feet when you have to sit down for a long time?',
+        'Feel overly active and compelled to do things, like driven by a motor?',
+    ], data.asrs.slice(0, 6), []);
+
+    {
+        const partAScreenScore = data.asrs.slice(0, 6).filter(v => v >= 2).length;
+        checkPageBreak(8);
+        setSmallNoteFont();
+        doc.text(`Part A Screening Score: ${partAScreenScore}/6 items at or above threshold (0=Never to 4=Very Often; cutoff >=2)`, margin, y);
+        y += 8;
+    }
+
+    // ASRS (ADHD) — Part B
+    drawMeasureGrid('ASRS (ADHD) — Part B', [
+        'Make careless mistakes when working on a boring or difficult project?',
+        'Difficulty keeping attention when doing boring or repetitive work?',
+        'Difficulty concentrating on what people say, even when speaking to you directly?',
+        'Misplace or have difficulty finding things at home or at work?',
+        'Distracted by activity or noise around you?',
+        'Leave your seat in meetings when expected to remain seated?',
+        'Feel restless or fidgety?',
+        'Difficulty unwinding and relaxing when you have time to yourself?',
+        'Find yourself talking too much in social situations?',
+        'Find yourself finishing others\' sentences before they can finish themselves?',
+        'Difficulty waiting your turn in situations when turn taking is required?',
+        'Interrupt others when they are busy?',
+    ], data.asrs.slice(6), []);
+
+    y += 4;
 
     // Footer
     const footerY = pageH - 15;
