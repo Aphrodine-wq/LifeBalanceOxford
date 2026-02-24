@@ -87,6 +87,7 @@ const Footer: React.FC = () => {
               <li><Link to="/mat-program" className="hover:text-white transition-colors">Addiction Medicine</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Practices</Link></li>
             </ul>
           </div>
 
@@ -99,9 +100,11 @@ const Footer: React.FC = () => {
           <p className="text-xs text-neutral-500">
             &copy; {new Date().getFullYear()} Life Balance Psychiatric Services. All rights reserved.
           </p>
-          <p className="text-xs text-neutral-500">
-            Oxford, Mississippi
-          </p>
+          <div className="flex items-center gap-3 text-xs text-neutral-500">
+            <Link to="/privacy" className="hover:text-neutral-300 transition-colors">Privacy Practices</Link>
+            <span>·</span>
+            <span>Oxford, Mississippi</span>
+          </div>
         </div>
       </div>
 
