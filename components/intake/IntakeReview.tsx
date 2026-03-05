@@ -4,9 +4,10 @@ import { Pencil } from 'lucide-react';
 
 interface Props {
     data: FullIntakeData;
+    onChange: (partial: Partial<FullIntakeData>) => void;
 }
 
-const IntakeReview: React.FC<Props> = ({ data }) => {
+const IntakeReview: React.FC<Props> = ({ data, onChange }) => {
     const getProgress = (arr: number[]) => {
         const answered = arr.filter(v => v >= 0).length;
         const total = arr.length;
@@ -126,6 +127,29 @@ const IntakeReview: React.FC<Props> = ({ data }) => {
                             <span className="block text-teal-800 font-bold mb-1">ASRS</span>
                             <span className="text-slate-600 text-xs">{getProgress(data.asrs)}</span>
                         </div>
+                    </div>
+                </section>
+
+                {/* Reason for Seeking Help */}
+                <section className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <div className="bg-slate-50 px-4 py-3 border-b border-slate-100">
+                        <h4 className="font-bold text-slate-800 text-sm uppercase tracking-wide">Why Are You Seeking Help?</h4>
+                    </div>
+                    <div className="p-4">
+                        <p className="text-slate-500 text-sm mb-3">
+                            Please tell us a little about why you decided to seek help and what's going on.
+                            <span className="text-red-500"> *</span>
+                        </p>
+                        <textarea
+                            value={data.reasonForSeeking}
+                            onChange={e => onChange({ reasonForSeeking: e.target.value })}
+                            placeholder="Tell us what brought you here and a bit about what you're experiencing..."
+                            rows={4}
+                            className="w-full border border-slate-200 rounded-lg p-3 text-sm text-slate-900 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-y"
+                        />
+                        <p className={`text-xs mt-1.5 ${data.reasonForSeeking.length >= 20 ? 'text-teal-600' : 'text-slate-400'}`}>
+                            {data.reasonForSeeking.length}/20 characters minimum
+                        </p>
                     </div>
                 </section>
 

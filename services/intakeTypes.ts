@@ -71,6 +71,7 @@ export interface FullIntakeData {
     familyHistoryOther: string;
 
     additionalInfo: string;
+    reasonForSeeking: string; // why the patient decided to seek help (min 20 chars)
 
     // Measures
     phq9: number[]; // 0-3
@@ -107,6 +108,7 @@ export const defaultIntakeData: FullIntakeData = {
     pastMedications: [{ medication: '', howOften: '', dateStarted: '', outcome: '' }],
     familyHistory: [], familyHistoryOther: '',
     additionalInfo: '',
+    reasonForSeeking: '',
     phq9: Array(9).fill(-1), phq9Difficulty: '',
     gad7: Array(7).fill(-1),
     mdqItems: Array(13).fill(false), mdqSameTime: '', mdqProblemLevel: '', mdqFamilyHistory: '', mdqProfessionalDiagnosis: '',

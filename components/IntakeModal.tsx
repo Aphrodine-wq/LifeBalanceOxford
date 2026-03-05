@@ -94,6 +94,10 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
     return true;
   };
 
+  const canSubmit = () => {
+    return formData.reasonForSeeking.trim().length >= 20;
+  };
+
   const next = () => { if (step < STEPS.length - 1) setStep(s => s + 1); };
   const prev = () => { if (step > 0) setStep(s => s - 1); };
 
@@ -130,7 +134,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
       case 4: return <MeasuresMDQ data={formData} onChange={updateData} />;
       case 5: return <MeasuresPCLC data={formData} onChange={updateData} />;
       case 6: return <MeasuresASRS data={formData} onChange={updateData} />;
-      case 7: return <IntakeReview data={formData} />;
+      case 7: return <IntakeReview data={formData} onChange={updateData} />;
       default: return null;
     }
   };
@@ -207,7 +211,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
           ) : (
             <button
               onClick={handleSubmit}
-              disabled={isSubmitting}
+              disabled={isSubmitting || !canSubmit()}
               className="flex items-center gap-2 px-6 py-2.5 bg-teal-700 text-white rounded-lg text-sm font-semibold hover:bg-teal-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               {isSubmitting ? (
