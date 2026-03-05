@@ -222,6 +222,11 @@ export function generateIntakePdf(data: FullIntakeData): string {
     h1 = drawField('Reason for Visit', data.reasonForVisit, 0, contentW);
     y += h1 + 4;
 
+    // Why seeking help
+    checkPageBreak(15);
+    h1 = drawField('Why Seeking Help', data.reasonForSeeking, 0, contentW);
+    y += h1 + 4;
+
     // Meds
     checkPageBreak(15);
     setLabelFont(); doc.text('CURRENT MEDICATIONS', margin, y);

@@ -43,7 +43,7 @@ export async function sendIntakeEmail(data: FullIntakeData): Promise<{ success: 
         sleep: `PHQ-9 Sleep Item: ${data.phq9[2] >= 0 ? data.phq9[2] : 'N/A'}`,
         focus: `PHQ-9 Focus Item: ${data.phq9[6] >= 0 ? data.phq9[6] : 'N/A'}`,
         mood: `MDQ Positive Items: ${mdqYes}/13`,
-        message: data.reasonForVisit || '(none provided)',
+        message: (data.reasonForVisit || '(none provided)') + '\n\nWhy seeking help: ' + (data.reasonForSeeking || '(none provided)'),
         to_email: 'jamesburge.mcm@gmail.com',
     };
 
@@ -115,7 +115,8 @@ function sendViaMailto(data: FullIntakeData): void {
         `Patient: ${data.patientName}\n` +
         `DOB: ${data.dob}\n` +
         `Phone: ${data.primaryPhone}\n\n` +
-        `Reason: ${data.reasonForVisit}\n\n` +
+        `Reason: ${data.reasonForVisit}\n` +
+        `Why Seeking Help: ${data.reasonForSeeking}\n\n` +
         `Scores:\nPHQ-9: ${phqScore}\nGAD-7: ${gadScore}\n\n` +
         `PLEASE SEE DOWNLOADED PDF FOR FULL DETAILS.`
     );
