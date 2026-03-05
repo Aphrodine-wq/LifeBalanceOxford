@@ -222,10 +222,36 @@ export function generateIntakePdf(data: FullIntakeData): string {
     h1 = drawField('Reason for Visit', data.reasonForVisit, 0, contentW);
     y += h1 + 4;
 
-    // Why seeking help
-    checkPageBreak(15);
-    h1 = drawField('Why Seeking Help', data.reasonForSeeking, 0, contentW);
-    y += h1 + 4;
+    // ─── Why Seeking Help (Prominent Section) ───
+    {
+        const seekingText = data.reasonForSeeking || '—';
+        setValueFont();
+        const wrappedLines = doc.splitTextToSize(seekingText, contentW - 16);
+        const boxH = Math.max(28, 14 + wrappedLines.length * 4.5 + 6);
+        checkPageBreak(boxH + 14);
+
+        drawSectionTitle('Reason for Seeking Help');
+
+        // Teal-tinted background box
+        doc.setFillColor(240, 253, 250); // teal-50
+        doc.setDrawColor(...TEAL);
+        doc.setLineWidth(0.6);
+        doc.roundedRect(margin, y - 2, contentW, boxH, 2, 2, 'FD');
+
+        // Label inside the box
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.setTextColor(...TEAL);
+        doc.text('In the patient\'s own words:', margin + 6, y + 5);
+
+        // Patient's response text
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9.5);
+        doc.setTextColor(...DARK);
+        doc.text(wrappedLines, margin + 6, y + 12);
+
+        y += boxH + 6;
+    }
 
     // Meds
     checkPageBreak(15);
