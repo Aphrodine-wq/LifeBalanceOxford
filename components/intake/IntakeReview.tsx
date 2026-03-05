@@ -147,8 +147,8 @@ const IntakeReview: React.FC<Props> = ({ data, onChange }) => {
                             rows={4}
                             className="w-full border border-slate-200 rounded-lg p-3 text-sm text-slate-900 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-y"
                         />
-                        <p className={`text-xs mt-1.5 ${data.reasonForSeeking.length >= 20 ? 'text-teal-600' : 'text-slate-400'}`}>
-                            {data.reasonForSeeking.length}/20 characters minimum
+                        <p className={`text-xs mt-1.5 ${data.reasonForSeeking.length >= 50 ? 'text-teal-600' : 'text-slate-400'}`}>
+                            {data.reasonForSeeking.length}/50 characters minimum
                         </p>
                     </div>
                 </section>
