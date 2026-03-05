@@ -95,7 +95,7 @@ const IntakeModal: React.FC<IntakeModalProps> = ({ isOpen, onClose }) => {
   };
 
   const canSubmit = () => {
-    return formData.reasonForSeeking.trim().length >= 20;
+    return formData.reasonForSeeking.trim().length >= 50;
   };
 
   const next = () => { if (step < STEPS.length - 1) setStep(s => s + 1); };

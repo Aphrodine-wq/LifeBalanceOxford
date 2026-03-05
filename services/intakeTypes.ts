@@ -71,7 +71,7 @@ export interface FullIntakeData {
     familyHistoryOther: string;
 
     additionalInfo: string;
-    reasonForSeeking: string; // why the patient decided to seek help (min 20 chars)
+    reasonForSeeking: string; // why the patient decided to seek help (min 50 chars)
 
     // Measures
     phq9: number[]; // 0-3
