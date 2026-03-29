@@ -1,20 +1,62 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Life Balance Psychiatric Services -- Oxford, MS
 
-# Run and deploy your AI Studio app
+Website and patient intake system for Life Balance Psychiatric Services.
 
-This contains everything you need to run your app locally.
+## What it does
 
-View your app in AI Studio: https://ai.studio/apps/drive/1PIoEUyZmNW9d5gnRSawlKu0SnrW68e7R
+- Marketing website with services, team bios, testimonials, and contact info
+- Multi-step patient intake form with clinical screening measures (GAD-7, PHQ-9, MDQ, PCL-C, ASRS)
+- Generates a formatted PDF of intake data
+- Sends intake submissions via EmailJS (branded email + PDF attachment to clinic inbox)
+- MAT (Medication-Assisted Treatment) program information page
+- Privacy policy page
 
-## Run Locally
+## Stack
 
-**Prerequisites:**  Node.js
+| Layer | Tech |
+|-------|------|
+| Framework | React 18, TypeScript, Vite |
+| Styling | Tailwind CSS 4 |
+| Routing | React Router 6 |
+| Email | EmailJS (@emailjs/browser) |
+| PDF | jsPDF |
+| Analytics | Vercel Analytics |
+| Hosting | Vercel |
 
+## Project layout
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```
+lifebalance-oxford/
+  components/           # Page sections (Hero, Services, Team, Contact, etc.)
+    intake/             # Multi-step intake form (Step1, Step2, Review, measures)
+  hooks/                # usePageMeta, useScrollReveal
+  services/             # emailService, intakeTypes, pdfGenerator
+  public/               # Images (team photos, hero, logo)
+  App.tsx               # Main app with routing
+  index.tsx             # Entry point
+```
+
+## Development
+
+```bash
+npm install
+npm run dev        # Vite dev server
+npm run build      # Production build
+npm run preview    # Preview production build
+```
+
+## EmailJS setup
+
+See [EMAILJS_SETUP.md](EMAILJS_SETUP.md) for configuration of the intake form email delivery.
+
+Environment variables (set in .env.local and Vercel dashboard):
+
+```
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+```
+
+## Deployment
+
+Deployed to Vercel. Domain: lifebalanceoxford.com
