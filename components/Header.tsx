@@ -24,11 +24,21 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
+    { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
     { name: 'About', href: '/team' },
+  ];
+
+  const addictionPaths = [
+    '/addiction-treatment-oxford-ms',
+    '/suboxone-doctor-oxford-ms',
+    '/mat-program',
   ];
 
   const isActive = (path: string) => {
     if (path === '/' && location.pathname !== '/') return false;
+    if (path === '/addiction-treatment-oxford-ms') {
+      return addictionPaths.some((p) => location.pathname === p);
+    }
     return location.pathname.startsWith(path);
   };
 
