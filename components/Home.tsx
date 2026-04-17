@@ -105,26 +105,79 @@ const Home: React.FC = () => {
               evaluations, ongoing supportive care, and proactive treatment options that promote
               overall mental and emotional wellness.
             </p>
-            <div className="flex flex-wrap gap-4 items-center">
-              <button
-                onClick={openModal}
-                className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
-              >
-                New Client Intake
-              </button>
-              <Link
-                to="/addiction-treatment-oxford-ms"
-                className="text-cream hover:text-white underline underline-offset-4 decoration-1 transition-colors"
-              >
-                Addiction treatment in Oxford
-              </Link>
-              <span className="text-white/30">·</span>
-              <Link
-                to="/suboxone-doctor-oxford-ms"
-                className="text-cream hover:text-white underline underline-offset-4 decoration-1 transition-colors"
-              >
-                Suboxone doctor near you
-              </Link>
+            <button
+              onClick={openModal}
+              className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+            >
+              New Client Intake
+            </button>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ===== Addiction Care Section ===== */}
+      <section className="py-24 border-t border-white/10 bg-dark-green">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <p className="text-sm tracking-widest uppercase text-gold-accent mb-4">
+              Addiction Care
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-3 max-w-2xl leading-tight">
+              Real recovery care in Oxford —{' '}
+              <span className="italic text-gold-accent font-normal">not a prescription pad.</span>
+            </h2>
+            <div className="w-12 border-t-2 border-white/40 mb-10"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
+              <div className="md:col-span-3 space-y-5 text-lg leading-relaxed text-cream">
+                <p>
+                  We treat opioid use disorder, alcohol use disorder, and the anxiety or depression
+                  that often sit underneath — in the same visit, with the same provider, every time.
+                  No rotating faces. No fifteen-minute refills. No judgment.
+                </p>
+                <p>
+                  Medication-assisted treatment with Suboxone or Sublocade is the backbone for most
+                  of our addiction patients. Combined with real psychiatric care for what's
+                  underneath, it's the difference between a prescription and a recovery that
+                  actually holds.
+                </p>
+                <p className="text-cream/80 italic">
+                  You don't need to hit rock bottom. You don't need to be sure. You just need to
+                  pick up the phone.
+                </p>
+              </div>
+
+              <div className="md:col-span-2 space-y-6 md:pl-4 md:border-l md:border-white/15">
+                <Link to="/addiction-treatment-oxford-ms" className="block group md:pl-6">
+                  <span className="block font-serif text-xl text-white group-hover:text-gold-accent transition-colors">
+                    Our approach to addiction →
+                  </span>
+                  <span className="block text-sm text-cream/70 mt-1 leading-relaxed">
+                    Conditions we treat, what the first visit looks like, how recovery actually
+                    unfolds here.
+                  </span>
+                </Link>
+
+                <Link to="/suboxone-doctor-oxford-ms" className="block group md:pl-6">
+                  <span className="block font-serif text-xl text-white group-hover:text-gold-accent transition-colors">
+                    Suboxone &amp; Sublocade →
+                  </span>
+                  <span className="block text-sm text-cream/70 mt-1 leading-relaxed">
+                    How Suboxone works, the induction day walkthrough, side effects, cost
+                    transparency.
+                  </span>
+                </Link>
+
+                <Link to="/mat-program" className="block group md:pl-6">
+                  <span className="block font-serif text-xl text-white group-hover:text-gold-accent transition-colors">
+                    MAT program →
+                  </span>
+                  <span className="block text-sm text-cream/70 mt-1 leading-relaxed">
+                    All three FDA-approved medications, a realistic year-one timeline, life on
+                    MAT.
+                  </span>
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>
