@@ -105,12 +105,27 @@ const Home: React.FC = () => {
               evaluations, ongoing supportive care, and proactive treatment options that promote
               overall mental and emotional wellness.
             </p>
-            <button
-              onClick={openModal}
-              className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
-            >
-              New Client Intake
-            </button>
+            <div className="flex flex-wrap gap-4 items-center">
+              <button
+                onClick={openModal}
+                className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+              >
+                New Client Intake
+              </button>
+              <Link
+                to="/addiction-treatment-oxford-ms"
+                className="text-cream hover:text-white underline underline-offset-4 decoration-1 transition-colors"
+              >
+                Addiction treatment in Oxford
+              </Link>
+              <span className="text-white/30">·</span>
+              <Link
+                to="/suboxone-doctor-oxford-ms"
+                className="text-cream hover:text-white underline underline-offset-4 decoration-1 transition-colors"
+              >
+                Suboxone doctor near you
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>

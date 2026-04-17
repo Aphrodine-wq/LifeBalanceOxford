@@ -8,6 +8,8 @@ import MatProgram from './components/MatProgram'; // Re-purposed as MAT Page
 import Team from './components/Team'; // Re-purposed as Team Page
 import Contact from './components/Contact'; // Re-purposed as Contact Page
 import PrivacyPolicy from './components/PrivacyPolicy';
+import AddictionTreatment from './components/AddictionTreatment';
+import SuboxoneDoctor from './components/SuboxoneDoctor';
 import Footer from './components/Footer';
 
 
@@ -30,6 +32,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/mat-program" element={<MatProgram />} />
+            <Route path="/addiction-treatment-oxford-ms" element={<AddictionTreatment />} />
+            <Route path="/suboxone-doctor-oxford-ms" element={<SuboxoneDoctor />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
