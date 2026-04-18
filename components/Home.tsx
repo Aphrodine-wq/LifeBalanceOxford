@@ -283,7 +283,7 @@ const Home: React.FC = () => {
             {/* Google Map */}
             <div className="rounded-lg overflow-hidden shadow-lg h-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.434458564253!2d-89.5663673236086!3d34.36437597305952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88807b1a2f96303d%3A0x6a0a0a0a0a0a0a0a!2s405%20Galleria%20Dr%20Ste%20E%2C%20Oxford%2C%20MS%2038655!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.4!2d-89.5607193!3d34.3655987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88807b6624e78cd5%3A0x16ad515ed93a64f0!2sLife%20Balance%2C%20PLLC!5e0!3m2!1sen!2sus!4v1744977600000!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 className="border-0"

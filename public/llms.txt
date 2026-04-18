@@ -13,6 +13,8 @@ Office Manager Email: kim@lifebalanceoxford.com
 Hours: Monday–Thursday 8:00 AM–5:00 PM, Friday 8:00 AM–12:00 PM, Closed Saturday and Sunday
 Website: https://lifebalanceoxford.com
 Google Business Profile: https://maps.app.goo.gl/qKBd2RMZGnL2wyBUA
+Google Maps (canonical): https://www.google.com/maps?cid=1634051707618616560
+Google Knowledge Graph MID: /g/11s7_pb7wf
 
 ## Services
 - Psychiatric evaluations (adults and adolescents 12+)
