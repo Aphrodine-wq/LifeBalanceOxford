@@ -4,7 +4,17 @@ import { usePageMeta } from '../hooks/usePageMeta';
 const Contact: React.FC = () => {
   usePageMeta({
     title: 'Location & Contact',
-    description: 'Life Balance Psychiatric Services is located at 405 Galleria Drive, Suite E, Oxford, MS 38655. Mon–Thu 8am–5pm, Fri 8am–12pm. Call (662) 640-4004.',
+    description: 'Life Balance Psychiatric Services is located at 405 Galleria Drive, Suite E, Oxford, MS 38655. Phone (662) 640-4004, fax (662) 238-4122. Open Mon–Thu 8am–5pm, Fri 8am–12pm.',
+    keywords: [
+      'Life Balance Oxford address',
+      'psychiatric office Oxford MS',
+      '405 Galleria Drive Oxford',
+      'Life Balance phone fax',
+    ],
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Location & Contact', path: '/contact' },
+    ],
   });
   return (
     <div className="bg-white min-h-screen">

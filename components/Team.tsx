@@ -5,6 +5,33 @@ const Team: React.FC = () => {
   usePageMeta({
     title: 'Our Team — Casey Hester & Kim Underwood',
     description: 'Meet Casey Hester, PMHNP-BC, and Kim Underwood at Life Balance Psychiatric Services in Oxford, MS. Oxford\'s elite team that genuinely cares.',
+    keywords: [
+      'Casey Hester PMHNP',
+      'psychiatric nurse practitioner Oxford MS',
+      'mental health provider Oxford Mississippi',
+    ],
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Our Team', path: '/team' },
+    ],
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Physician',
+      '@id': 'https://lifebalanceoxford.com/#casey-hester',
+      name: 'Casey Hester',
+      honorificSuffix: 'PMHNP-BC',
+      jobTitle: 'Psychiatric Mental Health Nurse Practitioner, Board-Certified',
+      image: 'https://lifebalanceoxford.com/casey.png',
+      url: 'https://lifebalanceoxford.com/team',
+      medicalSpecialty: ['Psychiatric', 'Addiction'],
+      worksFor: { '@id': 'https://lifebalanceoxford.com/#business' },
+      memberOf: { '@id': 'https://lifebalanceoxford.com/#business' },
+      availableService: [
+        { '@type': 'MedicalTherapy', name: 'Psychiatric Evaluation' },
+        { '@type': 'MedicalTherapy', name: 'Medication Management' },
+        { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment' },
+      ],
+    },
   });
   return (
     <div className="bg-white min-h-screen">

@@ -38,7 +38,17 @@ const Referrals: React.FC = () => {
   usePageMeta({
     title: 'Provider Referrals',
     description:
-      'Refer a patient to Life Balance, PLLC in Oxford, MS. Submit a secure electronic referral, fax to 662-238-4122, or download the printable referral form.',
+      'Refer a patient to Life Balance, PLLC in Oxford, MS. Submit an electronic referral, fax to (662) 238-4122, or download the printable referral form. Psychiatric and addiction care for adults and adolescents.',
+    keywords: [
+      'psychiatric referral Oxford MS',
+      'refer patient Oxford Mississippi',
+      'Life Balance referral form',
+      'provider referrals North Mississippi',
+    ],
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Provider Referrals', path: '/referrals' },
+    ],
   });
 
   const [form, setForm] = useState<FormState>(initialState);

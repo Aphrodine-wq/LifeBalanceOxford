@@ -8,6 +8,38 @@ const AddictionTreatment: React.FC = () => {
         title: 'Addiction Treatment in Oxford, MS',
         description: 'Addiction treatment in Oxford, Mississippi for opioid use disorder, alcohol use disorder, and substance recovery. Medication-assisted treatment, counseling, and ongoing care from a board-certified psychiatric provider. Call (662) 640-4004.',
         path: '/addiction-treatment-oxford-ms',
+        keywords: [
+            'addiction treatment Oxford MS',
+            'opioid use disorder Mississippi',
+            'alcohol use disorder Oxford',
+            'substance abuse treatment Oxford Mississippi',
+            'MAT program North Mississippi',
+            'outpatient addiction treatment Oxford',
+        ],
+        breadcrumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
+        ],
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'MedicalWebPage',
+            '@id': 'https://lifebalanceoxford.com/addiction-treatment-oxford-ms#page',
+            name: 'Addiction Treatment in Oxford, MS',
+            url: 'https://lifebalanceoxford.com/addiction-treatment-oxford-ms',
+            inLanguage: 'en-US',
+            isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
+            about: [
+                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                { '@type': 'MedicalCondition', name: 'Alcohol Use Disorder' },
+                { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
+            ],
+            mainContentOfPage: {
+                '@type': 'WebPageElement',
+                cssSelector: 'main',
+            },
+            publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
+        },
     });
 
     return (

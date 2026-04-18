@@ -36,21 +36,43 @@
 
   <link rel="icon" type="image/png" href="/logo.png">
 
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://lifebalanceoxford.com/#website",
+    "url": "https://lifebalanceoxford.com/",
+    "name": "Life Balance Psychiatric Services",
+    "description": "Psychiatric services and addiction treatment in Oxford, Mississippi.",
+    "publisher": { "@id": "https://lifebalanceoxford.com/#business" },
+    "inLanguage": "en-US"
+  }
+  </script>
+
   <!-- JSON-LD: MedicalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness"],
     "@id": "https://lifebalanceoxford.com/#business",
     "name": "Life Balance Psychiatric Services",
-    "alternateName": "Life Balance, PLLC",
-    "description": "Psychiatric services, medication management, and medication-assisted treatment (MAT) for adults and adolescents in Oxford, Mississippi.",
+    "alternateName": ["Life Balance, PLLC", "Life Balance Oxford"],
+    "description": "Outpatient psychiatric practice in Oxford, Mississippi providing psychiatric evaluations, medication management, GeneSight testing, and medication-assisted treatment (Suboxone and Sublocade) for adults and adolescents.",
+    "slogan": "Personalized psychiatric care for a balanced life.",
     "url": "https://lifebalanceoxford.com/",
-    "logo": "https://lifebalanceoxford.com/logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lifebalanceoxford.com/logo.png"
+    },
     "image": "https://lifebalanceoxford.com/logo.png",
     "telephone": "+1-662-640-4004",
-    "email": "kim@lifebalanceoxford.com",
+    "faxNumber": "+1-662-238-4122",
+    "email": "casey@lifebalancems.com",
     "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Credit Card", "Insurance"],
+    "currenciesAccepted": "USD",
+    "hasMap": "https://www.google.com/maps/place/405+Galleria+Dr+Ste+E,+Oxford,+MS+38655",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "405 Galleria Drive, Suite E",
@@ -79,14 +101,16 @@
       }
     ],
     "areaServed": [
-      { "@type": "City", "name": "Oxford" },
-      { "@type": "City", "name": "Batesville" },
-      { "@type": "City", "name": "New Albany" },
-      { "@type": "City", "name": "Water Valley" },
+      { "@type": "City", "name": "Oxford, Mississippi" },
+      { "@type": "City", "name": "Batesville, Mississippi" },
+      { "@type": "City", "name": "New Albany, Mississippi" },
+      { "@type": "City", "name": "Water Valley, Mississippi" },
+      { "@type": "City", "name": "Holly Springs, Mississippi" },
+      { "@type": "City", "name": "Tupelo, Mississippi" },
       { "@type": "AdministrativeArea", "name": "Lafayette County, Mississippi" },
       { "@type": "AdministrativeArea", "name": "North Mississippi" }
     ],
-    "medicalSpecialty": ["Psychiatric", "Addiction"],
+    "medicalSpecialty": ["Psychiatric", "Addiction", "Mental Health", "Behavioral Health"],
     "availableService": [
       {
         "@type": "MedicalTherapy",
@@ -96,24 +120,62 @@
       {
         "@type": "MedicalTherapy",
         "name": "Medication Management",
-        "description": "Ongoing medication management for anxiety, depression, and related conditions."
+        "description": "Ongoing medication management for anxiety, depression, bipolar disorder, ADHD, and related conditions."
       },
       {
         "@type": "MedicalTherapy",
         "name": "Medication-Assisted Treatment",
         "alternateName": "MAT",
         "description": "Suboxone and Sublocade-based treatment for opioid use disorder, combined with counseling."
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Suboxone Treatment",
+        "description": "Office-based buprenorphine/naloxone (Suboxone) treatment for opioid use disorder."
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Sublocade Treatment",
+        "description": "Monthly Sublocade injection for long-acting buprenorphine treatment of opioid use disorder."
+      },
+      {
+        "@type": "MedicalTest",
+        "name": "GeneSight Testing",
+        "description": "Pharmacogenomic testing to guide psychiatric medication selection."
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "ADHD Assessment Coordination",
+        "description": "Coordinated ADHD evaluation and treatment planning with local partners."
       }
     ],
-    "employee": {
-      "@type": "Person",
-      "name": "Casey Hester",
-      "jobTitle": "Psychiatric Mental Health Nurse Practitioner, Board-Certified",
-      "honorificSuffix": "PMHNP-BC"
-    },
-    "sameAs": [
-      "https://www.facebook.com",
-      "https://www.instagram.com"
+    "employee": [
+      {
+        "@type": "Physician",
+        "@id": "https://lifebalanceoxford.com/#casey-hester",
+        "name": "Casey Hester",
+        "jobTitle": "Psychiatric Mental Health Nurse Practitioner, Board-Certified",
+        "honorificSuffix": "PMHNP-BC",
+        "image": "https://lifebalanceoxford.com/casey.png",
+        "url": "https://lifebalanceoxford.com/team",
+        "medicalSpecialty": ["Psychiatric", "Addiction"],
+        "worksFor": { "@id": "https://lifebalanceoxford.com/#business" },
+        "memberOf": { "@id": "https://lifebalanceoxford.com/#business" }
+      },
+      {
+        "@type": "Person",
+        "name": "Kim Underwood",
+        "jobTitle": "Office Manager",
+        "image": "https://lifebalanceoxford.com/kim.png",
+        "url": "https://lifebalanceoxford.com/team",
+        "worksFor": { "@id": "https://lifebalanceoxford.com/#business" }
+      }
+    ],
+    "founder": { "@id": "https://lifebalanceoxford.com/#casey-hester" },
+    "knowsAbout": [
+      "Anxiety", "Depression", "Opioid Use Disorder", "Alcohol Use Disorder",
+      "Bipolar Disorder", "ADHD", "PTSD", "Suboxone", "Sublocade",
+      "Medication-Assisted Treatment", "Psychiatric Medication Management"
     ]
   }
   </script>

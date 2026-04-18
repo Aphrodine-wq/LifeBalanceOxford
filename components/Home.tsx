@@ -11,7 +11,17 @@ const Home: React.FC = () => {
 
   usePageMeta({
     title: 'Psychiatric Services in Oxford, MS',
-    description: 'Life Balance Psychiatric Services in Oxford, MS. Psychiatric evaluations, medication management, addiction medicine, and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
+    description: 'Life Balance Psychiatric Services in Oxford, MS — psychiatric evaluations, medication management, addiction treatment (Suboxone & Sublocade), and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
+    keywords: [
+      'psychiatrist Oxford MS',
+      'psychiatric services Oxford Mississippi',
+      'mental health Oxford MS',
+      'medication management Oxford',
+      'Suboxone Oxford Mississippi',
+      'addiction treatment North Mississippi',
+      'Casey Hester PMHNP',
+      'Life Balance Oxford',
+    ],
   });
 
   const openModal = () => setIsModalOpen(true);

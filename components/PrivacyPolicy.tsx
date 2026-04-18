@@ -7,6 +7,10 @@ const PrivacyPolicy: React.FC = () => {
     title: 'Notice of Privacy Practices',
     description:
       'Notice of Privacy Practices for Life Balance, PLLC — how we use, disclose, and protect your protected health information (PHI) as required by HIPAA.',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Notice of Privacy Practices', path: '/privacy' },
+    ],
   });
 
   return (

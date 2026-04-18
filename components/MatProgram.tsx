@@ -8,6 +8,33 @@ const MatProgram: React.FC = () => {
         title: 'Medication-Assisted Treatment (MAT) Program',
         description: 'Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone and Sublocade combined with counseling, medication management for co-occurring conditions, and long-term recovery support. Private, respectful, judgment-free. Call (662) 640-4004.',
         path: '/mat-program',
+        keywords: [
+            'MAT program Oxford MS',
+            'medication-assisted treatment Mississippi',
+            'MAT clinic North Mississippi',
+            'opioid recovery Oxford',
+            'outpatient MAT program Mississippi',
+        ],
+        breadcrumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
+            { name: 'MAT Program', path: '/mat-program' },
+        ],
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'MedicalWebPage',
+            '@id': 'https://lifebalanceoxford.com/mat-program#page',
+            name: 'Medication-Assisted Treatment (MAT) Program',
+            url: 'https://lifebalanceoxford.com/mat-program',
+            inLanguage: 'en-US',
+            isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
+            about: [
+                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
+                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+            ],
+            publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
+        },
     });
 
     return (

@@ -14,6 +14,17 @@ const Services: React.FC = () => {
   usePageMeta({
     title: 'Services',
     description: 'Psychiatric evaluations, medication management, addiction treatment, Suboxone and Sublocade prescribing, GeneSight testing, and ADHD assessment coordination at Life Balance in Oxford, MS.',
+    keywords: [
+      'psychiatric services Oxford MS',
+      'medication management Oxford Mississippi',
+      'GeneSight testing Oxford',
+      'ADHD assessment Mississippi',
+      'psychiatric evaluation Oxford',
+    ],
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+    ],
   });
 
   const services: Service[] = [
