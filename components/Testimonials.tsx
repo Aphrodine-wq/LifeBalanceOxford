@@ -122,8 +122,25 @@ const Testimonials: React.FC = () => {
                                 <StarIcon key={i} />
                             ))}
                         </div>
-                        <p className="text-cream text-sm">
-                            5.0 · {testimonials.length} reviews on Google
+                        <a
+                            href="https://maps.app.goo.gl/qKBd2RMZGnL2wyBUA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-cream text-sm hover:text-white underline decoration-1 underline-offset-4 transition-colors"
+                        >
+                            5.0 · {testimonials.length} reviews on Google →
+                        </a>
+                        <p className="text-cream/60 text-xs mt-2">
+                            Seen on Google?{' '}
+                            <a
+                                href="https://maps.app.goo.gl/qKBd2RMZGnL2wyBUA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline decoration-1 underline-offset-4 hover:text-cream"
+                            >
+                                Leave a review
+                            </a>
+                            .
                         </p>
                     </div>
 
