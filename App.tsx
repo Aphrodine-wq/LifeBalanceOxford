@@ -10,6 +10,7 @@ import Contact from './components/Contact'; // Re-purposed as Contact Page
 import PrivacyPolicy from './components/PrivacyPolicy';
 import AddictionTreatment from './components/AddictionTreatment';
 import SuboxoneDoctor from './components/SuboxoneDoctor';
+import Referrals from './components/Referrals';
 import AdminPage from './components/admin/AdminPage';
 import Footer from './components/Footer';
 
@@ -34,6 +35,7 @@ const PublicSite: React.FC = () => (
         <Route path="/suboxone-doctor-oxford-ms" element={<SuboxoneDoctor />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/referrals" element={<Referrals />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </main>

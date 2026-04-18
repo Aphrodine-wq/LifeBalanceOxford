@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Printer } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -30,6 +30,10 @@ const Footer: React.FC = () => {
                   <Phone size={15} className="mt-0.5 flex-shrink-0" />
                   (662) 640-4004
                 </a>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Printer size={15} className="mt-0.5 flex-shrink-0" />
+                <span>Fax: (662) 238-4122</span>
               </li>
               <li>
                 <a href="mailto:kim@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
@@ -89,6 +93,7 @@ const Footer: React.FC = () => {
               <li><Link to="/mat-program" className="hover:text-white transition-colors">MAT Program</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>
+              <li><Link to="/referrals" className="hover:text-white transition-colors">Provider Referrals</Link></li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Practices</Link></li>
             </ul>
           </div>

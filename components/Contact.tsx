@@ -40,6 +40,11 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
+              <h3 className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-3">Fax</h3>
+              <p className="text-lg text-slate-800">(662) 238-4122</p>
+            </div>
+
+            <div>
               <h3 className="text-sm text-slate-400 font-medium uppercase tracking-wider mb-3">Email</h3>
               <a href="mailto:kim@lifebalanceoxford.com" className="text-lg text-slate-800 hover:text-teal-700 transition-colors break-all">
                 kim@lifebalanceoxford.com
