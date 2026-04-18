@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { PlantSketch, PathSketch, HandSketch, WaveRule, ArrowSketch } from './Sketches';
+import FAQ from './FAQ';
 
 const AddictionTreatment: React.FC = () => {
     usePageMeta({
@@ -34,11 +35,23 @@ const AddictionTreatment: React.FC = () => {
                 { '@type': 'MedicalCondition', name: 'Alcohol Use Disorder' },
                 { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
             ],
-            mainContentOfPage: {
-                '@type': 'WebPageElement',
-                cssSelector: 'main',
+            audience: {
+                '@type': 'MedicalAudience',
+                audienceType: 'Patient',
+                geographicArea: {
+                    '@type': 'AdministrativeArea',
+                    name: 'North Mississippi',
+                },
             },
+            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
+            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
             publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
+            lastReviewed: '2026-04-18',
+            dateModified: '2026-04-18',
+            speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2'],
+            },
         },
     });
 
@@ -437,6 +450,99 @@ const AddictionTreatment: React.FC = () => {
                 </div>
             </section>
 
+            {/* FAQ — visible + schema auto-generated */}
+            <FAQ
+                theme="light"
+                eyebrow="Questions people ask"
+                title="Common questions about addiction treatment"
+                items={[
+                    {
+                        q: 'Do I have to go to rehab first to start outpatient treatment?',
+                        aText:
+                            'No. Most patients begin outpatient addiction treatment with us directly, without a prior rehab or detox stay. If a higher level of care is clinically appropriate, we help coordinate it.',
+                        a: (
+                            <>
+                                No. Most patients begin outpatient treatment with us directly, without a prior rehab or detox
+                                stay. If a higher level of care is clinically appropriate for your situation, we help coordinate it.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'What conditions do you treat?',
+                        aText:
+                            'We treat opioid use disorder, alcohol use disorder, and the co-occurring anxiety, depression, PTSD, and trauma that often sit underneath substance use.',
+                        a: (
+                            <>
+                                Opioid use disorder, alcohol use disorder, and the co-occurring anxiety, depression, PTSD,
+                                and trauma that often sit underneath substance use — all treated in the same visit by the
+                                same provider.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'What happens at the first visit?',
+                        aText:
+                            'The first appointment is a 60 to 90 minute psychiatric evaluation. We go through your history — what you\'ve used, what\'s worked, what hasn\'t, and what is going on in your life right now. This is a conversation, not a checklist.',
+                        a: (
+                            <>
+                                Sixty to ninety minutes. A real psychiatric evaluation — your history, what you've used, what's
+                                worked, what hasn't, and what's actually going on right now. Conversation, not a checklist.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Do you see the same provider every visit?',
+                        aText:
+                            'Yes. You see Casey Hester, PMHNP-BC, every visit. No rotating roster of providers.',
+                        a: <>Yes. You see Casey Hester, PMHNP-BC, every time. No rotating roster.</>,
+                    },
+                    {
+                        q: 'Is addiction treatment confidential?',
+                        aText:
+                            'Yes. Substance use treatment records are protected by 42 CFR Part 2, a federal confidentiality rule that is stricter than standard HIPAA. Employers, family members, and law enforcement cannot access your records without your written consent.',
+                        a: (
+                            <>
+                                Yes. Substance use treatment is protected by <strong>42 CFR Part 2</strong>, a federal rule
+                                stricter than standard HIPAA. Employers, family members, and law enforcement cannot access your
+                                records without your written consent.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Do you accept insurance?',
+                        aText:
+                            'We accept most major insurance plans and offer self-pay pricing. Generic buprenorphine/naloxone is on almost every formulary. Call (662) 640-4004 to verify your specific plan.',
+                        a: (
+                            <>
+                                Most major plans, plus self-pay pricing. Generic buprenorphine/naloxone is on almost every
+                                formulary. Call{' '}
+                                <a href="tel:6626404004" className="text-teal-700 underline decoration-1 underline-offset-4">
+                                    (662) 640-4004
+                                </a>{' '}
+                                to verify your plan.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Do you treat adolescents?',
+                        aText:
+                            'Yes. We see patients twelve years and older for psychiatric care, including adolescents with co-occurring substance use concerns.',
+                        a: (
+                            <>
+                                Yes — patients <strong>twelve years and older</strong>, including adolescents with co-occurring
+                                substance use concerns.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'How soon can I be seen?',
+                        aText:
+                            'Same-week appointments are typically available for new patients. Call (662) 640-4004 to check current availability.',
+                        a: <>Same-week appointments are typically available. Call to check.</>,
+                    },
+                ]}
+            />
+
             {/* Closing CTA */}
             <section className="py-24 bg-dark-green">
                 <div className="max-w-3xl mx-auto px-6 text-center">
@@ -460,59 +566,6 @@ const AddictionTreatment: React.FC = () => {
                 </div>
             </section>
 
-            {/* Page-level schema */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'MedicalWebPage',
-                        name: 'Addiction Treatment in Oxford, MS',
-                        url: 'https://lifebalanceoxford.com/addiction-treatment-oxford-ms',
-                        about: {
-                            '@type': 'MedicalCondition',
-                            name: 'Substance Use Disorder',
-                            alternateName: ['Opioid Use Disorder', 'Alcohol Use Disorder', 'Addiction'],
-                        },
-                        mainContentOfPage: {
-                            '@type': 'MedicalTherapy',
-                            name: 'Outpatient Addiction Treatment',
-                            description:
-                                'Outpatient addiction treatment including medication-assisted treatment, medication management, and coordinated counseling.',
-                        },
-                        provider: { '@id': 'https://lifebalanceoxford.com/#business' },
-                        mainEntity: {
-                            '@type': 'FAQPage',
-                            mainEntity: [
-                                {
-                                    '@type': 'Question',
-                                    name: 'Do I have to go to rehab first?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'No. Most patients begin outpatient treatment directly with us. If a higher level of care is clinically appropriate, we will coordinate it.',
-                                    },
-                                },
-                                {
-                                    '@type': 'Question',
-                                    name: 'Is addiction treatment confidential?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'Yes. Treatment is protected by federal privacy law (42 CFR Part 2 and HIPAA).',
-                                    },
-                                },
-                                {
-                                    '@type': 'Question',
-                                    name: 'Do you accept insurance for addiction treatment?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'We accept most major insurance plans and offer self-pay options. Call (662) 640-4004 to verify coverage.',
-                                    },
-                                },
-                            ],
-                        },
-                    }),
-                }}
-            />
         </div>
     );
 };

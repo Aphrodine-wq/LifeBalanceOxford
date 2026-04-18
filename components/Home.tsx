@@ -3,6 +3,7 @@ import Hero from './Hero';
 import IntakeModal from './IntakeModal';
 import ScrollReveal from './ScrollReveal';
 import Testimonials from './Testimonials';
+import FAQ from './FAQ';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -22,6 +23,21 @@ const Home: React.FC = () => {
       'Casey Hester PMHNP',
       'Life Balance Oxford',
     ],
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': 'https://lifebalanceoxford.com/#webpage',
+      url: 'https://lifebalanceoxford.com/',
+      name: 'Life Balance Psychiatric Services | Oxford, MS',
+      isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
+      about: { '@id': 'https://lifebalanceoxford.com/#business' },
+      primaryImageOfPage: { '@id': 'https://lifebalanceoxford.com/#logo' },
+      inLanguage: 'en-US',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', 'h2', '[data-speakable]'],
+      },
+    },
   });
 
   const openModal = () => setIsModalOpen(true);
@@ -280,6 +296,164 @@ const Home: React.FC = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ===== Service Areas ===== */}
+      <section className="py-16 bg-white border-t border-slate-100" aria-labelledby="service-areas-heading">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <p className="text-sm tracking-widest uppercase text-teal-700 mb-3">Serving North Mississippi</p>
+            <h2 id="service-areas-heading" className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+              Psychiatric and addiction care for Oxford and the surrounding communities.
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
+              Our office on Galleria Drive in Oxford sees patients from across Lafayette County and the wider
+              North Mississippi region — including Batesville, New Albany, Water Valley, Holly Springs, Pontotoc,
+              Bruce, Tupelo, and the Ole Miss community.
+            </p>
+            <p className="text-lg text-slate-600 leading-relaxed max-w-3xl">
+              Life Balance, PLLC is located at 405 Galleria Drive, Suite E, Oxford, MS 38655. Call{' '}
+              <a href="tel:6626404004" className="text-teal-700 font-semibold underline decoration-1 underline-offset-4 hover:text-teal-800">
+                (662) 640-4004
+              </a>{' '}
+              or fax (662) 238-4122.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ===== FAQ — logistical, schema-rich ===== */}
+      <FAQ
+        theme="dark"
+        eyebrow="Common Questions"
+        title="What people ask us most"
+        items={[
+          {
+            q: 'Where is Life Balance located?',
+            aText:
+              'Life Balance, PLLC is located at 405 Galleria Drive, Suite E, Oxford, MS 38655 — in the Galleria shopping center off Jackson Avenue. We serve patients across Lafayette County and North Mississippi.',
+            a: (
+              <>
+                Our office is at <strong>405 Galleria Drive, Suite E, Oxford, MS 38655</strong> — in the Galleria shopping
+                center off Jackson Avenue. We see patients from Lafayette County, Batesville, New Albany, Water Valley,
+                Holly Springs, Tupelo, and the Ole Miss community.
+              </>
+            ),
+          },
+          {
+            q: 'How do I schedule an appointment?',
+            aText:
+              'Call (662) 640-4004 and Kim, our office manager, will answer. She will confirm your insurance, walk through self-pay pricing if needed, and get you on the schedule — usually the same week.',
+            a: (
+              <>
+                Call{' '}
+                <a href="tel:6626404004" className="text-gold-accent underline decoration-1 underline-offset-4">
+                  (662) 640-4004
+                </a>{' '}
+                and Kim will answer. She'll confirm your insurance, walk through self-pay pricing if needed, and get
+                you on the schedule — usually the same week.
+              </>
+            ),
+          },
+          {
+            q: 'What are your office hours?',
+            aText:
+              'Monday through Thursday 8:00 AM to 5:00 PM, Friday 8:00 AM to 12:00 PM. Closed Saturday and Sunday.',
+            a: (
+              <>
+                Monday – Thursday, 8:00 AM – 5:00 PM. Friday, 8:00 AM – 12:00 PM. Closed weekends.
+              </>
+            ),
+          },
+          {
+            q: 'What ages do you see?',
+            aText:
+              'Life Balance provides psychiatric care for patients aged 12 and older, including adolescents, Ole Miss students, faculty and staff, and adults of all ages.',
+            a: (
+              <>
+                We see patients <strong>twelve years and older</strong> — including adolescents, Ole Miss students,
+                faculty and staff, and adults of all ages.
+              </>
+            ),
+          },
+          {
+            q: 'What services do you offer?',
+            aText:
+              'Psychiatric evaluations, medication management for anxiety, depression, bipolar disorder, and ADHD, GeneSight genetic testing, ADHD assessment coordination, and medication-assisted treatment (Suboxone and Sublocade) for opioid use disorder.',
+            a: (
+              <>
+                Psychiatric evaluations, medication management for anxiety, depression, bipolar disorder, and ADHD;
+                <Link to="/services" className="text-gold-accent underline decoration-1 underline-offset-4 ml-1">GeneSight genetic testing</Link>;
+                ADHD assessment coordination; and{' '}
+                <Link to="/addiction-treatment-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
+                  addiction treatment
+                </Link>{' '}
+                with Suboxone and Sublocade.
+              </>
+            ),
+          },
+          {
+            q: 'Do you prescribe Suboxone?',
+            aText:
+              'Yes. Casey Hester, PMHNP-BC, prescribes Suboxone (buprenorphine/naloxone) and Sublocade (monthly buprenorphine injection) for opioid use disorder, combined with ongoing psychiatric care.',
+            a: (
+              <>
+                Yes — Casey prescribes both{' '}
+                <Link to="/suboxone-doctor-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
+                  Suboxone and Sublocade
+                </Link>{' '}
+                for opioid use disorder, combined with ongoing psychiatric care in the same visit.
+              </>
+            ),
+          },
+          {
+            q: 'Is addiction treatment confidential?',
+            aText:
+              'Yes. Substance use treatment records are protected by 42 CFR Part 2, a federal confidentiality rule stricter than standard HIPAA. Employers, family members, and law enforcement cannot access your records without your written consent.',
+            a: (
+              <>
+                Yes. Substance use treatment is protected by <strong>42 CFR Part 2</strong>, a federal rule stricter than
+                standard HIPAA. Employers, family members, and law enforcement cannot access your records without your
+                written consent.
+              </>
+            ),
+          },
+          {
+            q: 'Do you accept insurance?',
+            aText:
+              'Most major insurance plans are accepted. Generic buprenorphine/naloxone is on almost every formulary. Self-pay pricing is also available. Call (662) 640-4004 to verify your specific plan.',
+            a: (
+              <>
+                We accept most major insurance plans and offer self-pay pricing. Generic buprenorphine/naloxone is on
+                almost every formulary. Call{' '}
+                <a href="tel:6626404004" className="text-gold-accent underline decoration-1 underline-offset-4">
+                  (662) 640-4004
+                </a>{' '}
+                to verify your specific plan.
+              </>
+            ),
+          },
+          {
+            q: 'How soon can I be seen?',
+            aText:
+              'Same-week appointments are typically available for new patients. Call (662) 640-4004 to check current availability.',
+            a: <>Same-week appointments are typically available for new patients. Call to check current availability.</>,
+          },
+          {
+            q: 'How do providers refer a patient?',
+            aText:
+              'Providers can submit a referral electronically at lifebalanceoxford.com/referrals, fax the printable referral form to (662) 238-4122, or call (662) 640-4004.',
+            a: (
+              <>
+                Submit a referral electronically at{' '}
+                <Link to="/referrals" className="text-gold-accent underline decoration-1 underline-offset-4">
+                  lifebalanceoxford.com/referrals
+                </Link>
+                , fax to (662) 238-4122, or call (662) 640-4004.
+              </>
+            ),
+          },
+        ]}
+      />
 
       {/* ===== Footer CTA ===== */}
       <section className="py-14 border-t border-white/10 bg-grey-green">

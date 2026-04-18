@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { PlantSketch, WaveRule, PathSketch, ArrowSketch } from './Sketches';
+import FAQ from './FAQ';
 
 const MatProgram: React.FC = () => {
     usePageMeta({
@@ -32,8 +33,22 @@ const MatProgram: React.FC = () => {
             about: [
                 { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                { '@type': 'Drug', name: 'Buprenorphine' },
             ],
+            audience: {
+                '@type': 'MedicalAudience',
+                audienceType: 'Patient',
+                geographicArea: { '@type': 'AdministrativeArea', name: 'North Mississippi' },
+            },
+            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
+            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
             publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
+            lastReviewed: '2026-04-18',
+            dateModified: '2026-04-18',
+            speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2'],
+            },
         },
     });
 
@@ -350,6 +365,97 @@ const MatProgram: React.FC = () => {
                     </Link>
                 </div>
             </section>
+
+            {/* FAQ */}
+            <FAQ
+                theme="light"
+                eyebrow="Questions people ask"
+                title="Common questions about our MAT program"
+                items={[
+                    {
+                        q: 'What is Medication-Assisted Treatment (MAT)?',
+                        aText:
+                            'MAT combines FDA-approved medications (usually buprenorphine in the form of Suboxone or Sublocade) with psychiatric care and counseling to treat opioid use disorder. The medication quiets cravings and withdrawal so the rest of recovery can happen.',
+                        a: (
+                            <>
+                                MAT combines FDA-approved medication — usually{' '}
+                                <strong>buprenorphine</strong> in the form of Suboxone or Sublocade — with psychiatric care and
+                                counseling to treat opioid use disorder. The medication quiets cravings and withdrawal so the
+                                rest of recovery can actually happen.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'What medications are used in MAT?',
+                        aText:
+                            'We primarily prescribe buprenorphine — either as Suboxone (daily dissolvable film taken under the tongue) or Sublocade (monthly injection of extended-release buprenorphine). Naltrexone and acamprosate are also used for alcohol use disorder when indicated.',
+                        a: (
+                            <>
+                                Primarily buprenorphine — <strong>Suboxone</strong> (daily dissolvable film) or{' '}
+                                <strong>Sublocade</strong> (monthly injection). For alcohol use disorder we also prescribe
+                                naltrexone or acamprosate when indicated.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'How long does MAT last?',
+                        aText:
+                            'As long as it works for you. Some patients taper off after a year, many stay engaged long-term. Research consistently shows that longer engagement with MAT reduces relapse risk. The timeline is decided together between you and Casey.',
+                        a: (
+                            <>
+                                As long as it works for you. Some patients taper off after a year, many stay engaged long-term.
+                                Research consistently shows longer engagement reduces relapse risk. The timeline is decided
+                                between you and Casey.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Is MAT confidential?',
+                        aText:
+                            'Yes. MAT records are protected by 42 CFR Part 2, a federal confidentiality rule stricter than standard HIPAA. Employers, family members, law enforcement, and insurance actuaries cannot access your records without your written consent.',
+                        a: (
+                            <>
+                                Yes — protected by <strong>42 CFR Part 2</strong>, stricter than HIPAA. Employers, family,
+                                law enforcement, and insurance actuaries cannot access your records without your written consent.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Do you combine MAT with counseling?',
+                        aText:
+                            'Yes. Casey provides psychiatric care in the same visit as your MAT, including treatment for anxiety, depression, PTSD, and trauma that often sit underneath substance use. For dedicated therapy, we coordinate counseling referrals.',
+                        a: (
+                            <>
+                                Yes. Casey treats the psychiatric conditions that often underlie substance use — anxiety,
+                                depression, PTSD, trauma — in the same visit. For dedicated therapy, we coordinate counseling
+                                referrals.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Will insurance cover MAT?',
+                        aText:
+                            'Most major insurance plans cover generic buprenorphine/naloxone and MAT visits at the standard specialist copay. Sublocade often requires a prior authorization, which our office handles. Self-pay pricing is available.',
+                        a: (
+                            <>
+                                Most plans cover generic buprenorphine/naloxone and MAT visits at your specialist copay.
+                                Sublocade usually needs a prior auth, which we handle. Self-pay pricing is available.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Can I switch from Suboxone to Sublocade later?',
+                        aText:
+                            'Yes. Many patients begin with daily Suboxone and transition to monthly Sublocade once they are stable, to simplify daily life. We will discuss what fits your circumstances.',
+                        a: (
+                            <>
+                                Yes — many patients start on daily Suboxone and switch to monthly Sublocade once stable, to
+                                simplify daily life. We'll talk about what fits your circumstances.
+                            </>
+                        ),
+                    },
+                ]}
+            />
 
             {/* Closing CTA */}
             <section className="py-24 bg-dark-green">

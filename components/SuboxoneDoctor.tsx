@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { PillSketch, ClockSketch, PathSketch, HandSketch, WaveRule, ArrowSketch } from './Sketches';
+import FAQ from './FAQ';
 
 const SuboxoneDoctor: React.FC = () => {
     usePageMeta({
@@ -33,8 +34,22 @@ const SuboxoneDoctor: React.FC = () => {
                 { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
                 { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
             ],
+            audience: {
+                '@type': 'MedicalAudience',
+                audienceType: 'Patient',
+                geographicArea: { '@type': 'AdministrativeArea', name: 'North Mississippi' },
+            },
+            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
+            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
             publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
+            lastReviewed: '2026-04-18',
+            dateModified: '2026-04-18',
+            speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1', 'h2'],
+            },
         },
     });
 
@@ -571,6 +586,97 @@ const SuboxoneDoctor: React.FC = () => {
                 </div>
             </section>
 
+            {/* FAQ */}
+            <FAQ
+                theme="light"
+                eyebrow="Questions people ask"
+                title="Common questions about Suboxone treatment"
+                items={[
+                    {
+                        q: 'Is Suboxone just trading one addiction for another?',
+                        aText:
+                            'No. Buprenorphine, the active ingredient in Suboxone and Sublocade, occupies opioid receptors without producing the euphoria that drives addictive use. SAMHSA, ASAM, the CDC, and the WHO all recognize medication-assisted treatment as a standard of care for opioid use disorder.',
+                        a: (
+                            <>
+                                No. Buprenorphine occupies opioid receptors without producing the euphoria that drives addictive
+                                use. <strong>SAMHSA, ASAM, the CDC, and the WHO</strong> all recognize medication-assisted
+                                treatment as a standard of care for opioid use disorder.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'What is the difference between Suboxone and Sublocade?',
+                        aText:
+                            'Both contain buprenorphine. Suboxone is a daily dissolvable film taken under the tongue. Sublocade is a monthly injection of extended-release buprenorphine, usually given in the office. Same medicine, different delivery.',
+                        a: (
+                            <>
+                                Both contain buprenorphine. <strong>Suboxone</strong> is a daily film under the tongue.{' '}
+                                <strong>Sublocade</strong> is a monthly injection of extended-release buprenorphine given in the
+                                office. Same medicine, different delivery. We'll talk about which fits you.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Do I need to be in withdrawal to start Suboxone?',
+                        aText:
+                            'You need to be in mild to moderate opioid withdrawal before your first Suboxone dose to avoid precipitated withdrawal. Your provider will walk you through the timing before induction.',
+                        a: (
+                            <>
+                                You need to be in mild to moderate withdrawal before your first dose to avoid precipitated
+                                withdrawal. Casey walks you through the timing before induction.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'How long will I be on Suboxone?',
+                        aText:
+                            'As long as it works for you. Some patients taper off after a year or more, others remain on maintenance long-term. The decision is made together with your provider based on your stability, goals, and life circumstances.',
+                        a: (
+                            <>
+                                As long as it works for you. Some patients taper off after a year or more, others stay on
+                                maintenance long-term. That decision is yours to make with Casey based on stability and life
+                                circumstances.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Will insurance cover Suboxone?',
+                        aText:
+                            'Most insurance plans cover generic buprenorphine/naloxone without argument. Sublocade often requires a prior authorization, which our office handles. Visits are usually covered at your normal specialist copay. Self-pay pricing is also available.',
+                        a: (
+                            <>
+                                Most plans cover generic buprenorphine/naloxone without argument. <strong>Sublocade</strong> often
+                                needs a prior auth, which our office handles. Visits are usually at your specialist copay. Self-pay
+                                pricing is available.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'Is Suboxone treatment confidential?',
+                        aText:
+                            'Yes. Substance use treatment records are protected by 42 CFR Part 2, a federal confidentiality rule stricter than HIPAA. Employers, family members, and law enforcement cannot access your records without your written consent.',
+                        a: (
+                            <>
+                                Yes. Substance use treatment is protected by <strong>42 CFR Part 2</strong>, stricter than standard
+                                HIPAA. Employers, family, and law enforcement cannot access your records without your written
+                                consent.
+                            </>
+                        ),
+                    },
+                    {
+                        q: 'What should I bring to my first appointment?',
+                        aText:
+                            'Bring your insurance card if you have one, a list of the medications you currently take with doses when possible, and a rough list of what you have been using recently — names, amounts, and timing.',
+                        a: (
+                            <>
+                                Insurance card if you have one, a list of current medications with doses when possible, and a
+                                rough list of what you've been using recently — names, amounts, timing.
+                            </>
+                        ),
+                    },
+                ]}
+            />
+
             {/* Closing CTA */}
             <section className="py-24 bg-dark-green">
                 <div className="max-w-3xl mx-auto px-6 text-center">
@@ -593,58 +699,6 @@ const SuboxoneDoctor: React.FC = () => {
                 </div>
             </section>
 
-            {/* Page-level schema */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'MedicalWebPage',
-                        name: 'Suboxone Doctor in Oxford, MS',
-                        url: 'https://lifebalanceoxford.com/suboxone-doctor-oxford-ms',
-                        about: { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
-                        mainContentOfPage: {
-                            '@type': 'MedicalTherapy',
-                            name: 'Medication-Assisted Treatment',
-                            alternateName: ['MAT', 'Suboxone Treatment', 'Buprenorphine Treatment'],
-                            drug: [
-                                { '@type': 'Drug', name: 'Suboxone', activeIngredient: 'Buprenorphine/Naloxone' },
-                                { '@type': 'Drug', name: 'Sublocade', activeIngredient: 'Buprenorphine extended-release' },
-                            ],
-                        },
-                        provider: { '@id': 'https://lifebalanceoxford.com/#business' },
-                        mainEntity: {
-                            '@type': 'FAQPage',
-                            mainEntity: [
-                                {
-                                    '@type': 'Question',
-                                    name: 'Is Suboxone just trading one addiction for another?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'No. Buprenorphine occupies opioid receptors without producing euphoria. The WHO, SAMHSA, ASAM, and the CDC all recognize medication-assisted treatment as the standard of care for opioid use disorder.',
-                                    },
-                                },
-                                {
-                                    '@type': 'Question',
-                                    name: 'How long will I be on Suboxone?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'As long as it works for you. Some patients taper off after a year, others remain on maintenance indefinitely. The decision is made together with your provider.',
-                                    },
-                                },
-                                {
-                                    '@type': 'Question',
-                                    name: 'Do I need to be in withdrawal to start Suboxone?',
-                                    acceptedAnswer: {
-                                        '@type': 'Answer',
-                                        text: 'You need to be in mild to moderate withdrawal before your first dose to avoid precipitated withdrawal. Your provider will guide timing before induction.',
-                                    },
-                                },
-                            ],
-                        },
-                    }),
-                }}
-            />
         </div>
     );
 };
