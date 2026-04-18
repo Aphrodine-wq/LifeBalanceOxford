@@ -53,10 +53,13 @@ const Team: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="aspect-[3/4] rounded-xl overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200">
               <img
-                src="/casey.png"
+                src="/casey.webp"
                 alt="Casey Hester"
+                width="960"
+                height="960"
                 className="w-full h-full object-cover object-top"
                 loading="eager"
+                decoding="async"
               />
             </div>
           </div>
@@ -89,10 +92,13 @@ const Team: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200">
               <img
-                src="/kim.png"
+                src="/kim.webp"
                 alt="Kim Underwood"
+                width="720"
+                height="816"
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

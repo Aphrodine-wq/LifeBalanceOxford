@@ -92,7 +92,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu — full screen overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-[80px] z-40 transition-all duration-300 ease-in-out bg-dark-green ${isMenuOpen
+        className={`md:hidden fixed inset-0 top-[80px] z-40 transition-[opacity,transform] duration-300 ease-in-out bg-dark-green ${isMenuOpen
           ? 'opacity-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 -translate-y-2 pointer-events-none'
           }`}
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
             <Link
               key={link.name}
               to={link.href}
-              className={`block px-4 py-4 rounded-lg text-xl font-medium transition-all duration-300 ${isActive(link.href)
+              className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors duration-300 ${isActive(link.href)
                 ? 'text-white bg-white/10'
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}

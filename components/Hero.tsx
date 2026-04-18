@@ -9,12 +9,15 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
     <section className="relative min-h-hero overflow-hidden">
       {/* Background image — native <img> for highest quality */}
       <img
-        src="/hero-top.jpg"
+        src="/hero-top.webp"
         alt="Balanced zen stones along a sunlit riverbank"
+        width="1024"
+        height="764"
         fetchPriority="high"
         loading="eager"
-        decoding="sync"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+        style={{ willChange: 'transform' }}
       />
 
       {/* Dark overlay for text readability */}
@@ -27,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
         </h1>
         <button
           onClick={onBookAppointment}
-          className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+          className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"
         >
           New Client Intake
         </button>

@@ -132,7 +132,7 @@ const Testimonials: React.FC = () => {
                         {visible.map((t) => (
                             <div
                                 key={t.name}
-                                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 flex flex-col transition-all duration-300 hover:bg-white/10"
+                                className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col transition-colors duration-300 hover:bg-white/10"
                             >
                                 {/* Stars */}
                                 <div className="flex gap-0.5 mb-4">
@@ -175,7 +175,7 @@ const Testimonials: React.FC = () => {
                                     key={i}
                                     onClick={() => setPage(i)}
                                     aria-label={`Go to page ${i + 1}`}
-                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === page ? 'bg-gold-accent scale-110' : 'bg-white/30 hover:bg-white/50'
+                                    className={`w-2.5 h-2.5 rounded-full transition-[transform,background-color] duration-300 ${i === page ? 'bg-gold-accent scale-110' : 'bg-white/30 hover:bg-white/50'
                                         }`}
                                 />
                             ))}

@@ -86,10 +86,13 @@ const Home: React.FC = () => {
               </div>
               <div className="md:w-2/5 flex justify-center">
                 <img
-                  src="/casey.png"
+                  src="/casey.webp"
                   alt="Casey Hester, PMHNP-BC"
+                  width="224"
+                  height="224"
                   className="w-48 h-48 md:w-56 md:h-56 object-cover object-top rounded"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -117,7 +120,7 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={openModal}
-              className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+              className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"
             >
               New Client Intake
             </button>
@@ -286,7 +289,7 @@ const Home: React.FC = () => {
           </p>
           <button
             onClick={openModal}
-            className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 bg-gold-accent"
+            className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"
           >
             New Client Intake
           </button>

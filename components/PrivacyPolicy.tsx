@@ -33,7 +33,7 @@ const PrivacyPolicy: React.FC = () => {
       <section className="pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 md:p-12 space-y-10 text-cream leading-relaxed">
+            <div className="bg-white/5 rounded-2xl border border-white/10 p-8 md:p-12 space-y-10 text-cream leading-relaxed">
 
               {/* Preamble */}
               <div className="space-y-4">
