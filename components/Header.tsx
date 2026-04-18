@@ -26,6 +26,7 @@ const Header: React.FC = () => {
     { name: 'Services', href: '/services' },
     { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
     { name: 'About', href: '/team' },
+    { name: 'Referrals', href: '/referrals' },
   ];
 
   const addictionPaths = [
