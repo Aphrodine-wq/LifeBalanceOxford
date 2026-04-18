@@ -41,6 +41,12 @@ const Footer: React.FC = () => {
                   kim@lifebalanceoxford.com
                 </a>
               </li>
+              <li>
+                <a href="mailto:office@lifebalancems.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
+                  <Mail size={15} className="mt-0.5 flex-shrink-0" />
+                  office@lifebalancems.com
+                </a>
+              </li>
               <li className="flex items-start gap-2.5">
                 <MapPin size={15} className="mt-0.5 flex-shrink-0" />
                 <span>
