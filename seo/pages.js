@@ -175,8 +175,9 @@ export const pageMeta = {
         path: '/referrals',
     },
     '/privacy': {
-        title: 'Privacy Policy',
-        description: 'Privacy policy for Life Balance Psychiatric Services in Oxford, MS.',
+        title: 'Privacy Policy & Notice of Privacy Practices',
+        description:
+            'Privacy policy for lifebalanceoxford.com and the HIPAA Notice of Privacy Practices for Life Balance, PLLC — what we collect, how we use it, your rights, and who to contact.',
         path: '/privacy',
     },
 };

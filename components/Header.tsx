@@ -72,11 +72,14 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Phone CTA */}
-          <div className="hidden md:block">
+          {/* Phone + Fax */}
+          <div className="hidden md:flex flex-col items-end leading-tight">
             <a href="tel:6626404004" className="text-base font-semibold transition-colors text-gold-accent">
               (662) 640-4004
             </a>
+            <span className="text-xs text-gray-300 mt-0.5">
+              Fax (662) 238-4122
+            </span>
           </div>
 
           {/* Mobile Menu Button */}
@@ -112,13 +115,16 @@ const Header: React.FC = () => {
             </Link>
           ))}
 
-          <div className="pt-6 mt-4 border-t border-white/20 space-y-3">
+          <div className="pt-6 mt-4 border-t border-white/20 space-y-1">
             <a
               href="tel:6626404004"
-              className="flex items-center gap-3 px-4 py-4 text-xl font-semibold text-gold-accent"
+              className="flex items-center gap-3 px-4 py-3 text-xl font-semibold text-gold-accent"
             >
               (662) 640-4004
             </a>
+            <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300">
+              Fax (662) 238-4122
+            </div>
           </div>
         </div>
       </div>
