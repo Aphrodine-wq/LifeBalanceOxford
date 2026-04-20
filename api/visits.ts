@@ -69,6 +69,8 @@ async function createVisit(req: VercelRequest, res: VercelResponse) {
         sentAt: null,
         smsResult: null,
         smsError: null,
+        emailResult: null,
+        emailError: null,
         expireAt: Timestamp.fromDate(daysFromNow(30)),
     };
 
@@ -97,6 +99,8 @@ async function listToday(_req: VercelRequest, res: VercelResponse) {
             sentAt: data.sentAt ? data.sentAt.toMillis() : null,
             smsResult: data.smsResult,
             smsError: data.smsError,
+            emailResult: data.emailResult ?? null,
+            emailError: data.emailError ?? null,
         };
     });
 

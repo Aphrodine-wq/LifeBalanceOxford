@@ -26,6 +26,8 @@ export function getDb(): Firestore {
     return db;
 }
 
+export type ChannelResult = 'sent' | 'skipped' | 'error' | 'opted_out' | null;
+
 export type VisitRecord = {
     firstName: string;
     phone: string | null;
@@ -36,8 +38,10 @@ export type VisitRecord = {
     createdAt: FirebaseFirestore.Timestamp;
     sent: boolean;
     sentAt: FirebaseFirestore.Timestamp | null;
-    smsResult: 'sent' | 'skipped' | 'error' | 'opted_out' | null;
+    smsResult: ChannelResult;
     smsError: string | null;
+    emailResult: ChannelResult;
+    emailError: string | null;
     expireAt: FirebaseFirestore.Timestamp;
 };
 
