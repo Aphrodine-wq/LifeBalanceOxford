@@ -1,56 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { pageMeta } from '../seo/pages.js';
 import { PlantSketch, WaveRule, PathSketch, ArrowSketch } from './Sketches';
 import FAQ from './FAQ';
 
 const MatProgram: React.FC = () => {
-    usePageMeta({
-        title: 'Medication-Assisted Treatment (MAT) Program',
-        description: 'Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone and Sublocade combined with counseling, medication management for co-occurring conditions, and long-term recovery support. Private, respectful, judgment-free. Call (662) 640-4004.',
-        path: '/mat-program',
-        keywords: [
-            'MAT program Oxford MS',
-            'medication-assisted treatment Mississippi',
-            'MAT clinic North Mississippi',
-            'opioid recovery Oxford',
-            'outpatient MAT program Mississippi',
-        ],
-        breadcrumbs: [
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
-            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
-            { name: 'MAT Program', path: '/mat-program' },
-        ],
-        jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'MedicalWebPage',
-            '@id': 'https://lifebalanceoxford.com/mat-program#page',
-            name: 'Medication-Assisted Treatment (MAT) Program',
-            url: 'https://lifebalanceoxford.com/mat-program',
-            inLanguage: 'en-US',
-            isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
-            about: [
-                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
-                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
-                { '@type': 'Drug', name: 'Buprenorphine' },
-            ],
-            audience: {
-                '@type': 'MedicalAudience',
-                audienceType: 'Patient',
-                geographicArea: { '@type': 'AdministrativeArea', name: 'North Mississippi' },
-            },
-            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
-            lastReviewed: '2026-04-18',
-            dateModified: '2026-04-18',
-            speakable: {
-                '@type': 'SpeakableSpecification',
-                cssSelector: ['h1', 'h2'],
-            },
-        },
-    });
+    usePageMeta(pageMeta['/mat-program']);
 
     return (
         <div className="bg-white min-h-screen animate-fade-in">

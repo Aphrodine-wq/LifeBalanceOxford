@@ -1,57 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { pageMeta } from '../seo/pages.js';
 import { PillSketch, ClockSketch, PathSketch, HandSketch, WaveRule, ArrowSketch } from './Sketches';
 import FAQ from './FAQ';
 
 const SuboxoneDoctor: React.FC = () => {
-    usePageMeta({
-        title: 'Suboxone Doctor in Oxford, MS',
-        description: 'Suboxone and Sublocade treatment for opioid use disorder in Oxford, Mississippi. Medication-assisted treatment (MAT) and buprenorphine prescribing from a board-certified psychiatric provider. Call (662) 640-4004.',
-        path: '/suboxone-doctor-oxford-ms',
-        keywords: [
-            'Suboxone doctor Oxford MS',
-            'Sublocade Oxford Mississippi',
-            'buprenorphine prescriber Oxford',
-            'Suboxone clinic North Mississippi',
-            'opioid treatment Oxford MS',
-        ],
-        breadcrumbs: [
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
-            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
-            { name: 'Suboxone Treatment', path: '/suboxone-doctor-oxford-ms' },
-        ],
-        jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'MedicalWebPage',
-            '@id': 'https://lifebalanceoxford.com/suboxone-doctor-oxford-ms#page',
-            name: 'Suboxone Doctor in Oxford, MS',
-            url: 'https://lifebalanceoxford.com/suboxone-doctor-oxford-ms',
-            inLanguage: 'en-US',
-            isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
-            about: [
-                { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
-                { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
-                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
-                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
-            ],
-            audience: {
-                '@type': 'MedicalAudience',
-                audienceType: 'Patient',
-                geographicArea: { '@type': 'AdministrativeArea', name: 'North Mississippi' },
-            },
-            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
-            lastReviewed: '2026-04-18',
-            dateModified: '2026-04-18',
-            speakable: {
-                '@type': 'SpeakableSpecification',
-                cssSelector: ['h1', 'h2'],
-            },
-        },
-    });
+    usePageMeta(pageMeta['/suboxone-doctor-oxford-ms']);
 
     return (
         <div className="bg-white min-h-screen animate-fade-in">

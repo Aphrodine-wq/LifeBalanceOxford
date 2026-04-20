@@ -1,59 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { pageMeta } from '../seo/pages.js';
 import { PlantSketch, PathSketch, HandSketch, WaveRule, ArrowSketch } from './Sketches';
 import FAQ from './FAQ';
 
 const AddictionTreatment: React.FC = () => {
-    usePageMeta({
-        title: 'Addiction Treatment in Oxford, MS',
-        description: 'Addiction treatment in Oxford, Mississippi for opioid use disorder, alcohol use disorder, and substance recovery. Medication-assisted treatment, counseling, and ongoing care from a board-certified psychiatric provider. Call (662) 640-4004.',
-        path: '/addiction-treatment-oxford-ms',
-        keywords: [
-            'addiction treatment Oxford MS',
-            'opioid use disorder Mississippi',
-            'alcohol use disorder Oxford',
-            'substance abuse treatment Oxford Mississippi',
-            'MAT program North Mississippi',
-            'outpatient addiction treatment Oxford',
-        ],
-        breadcrumbs: [
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
-            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
-        ],
-        jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'MedicalWebPage',
-            '@id': 'https://lifebalanceoxford.com/addiction-treatment-oxford-ms#page',
-            name: 'Addiction Treatment in Oxford, MS',
-            url: 'https://lifebalanceoxford.com/addiction-treatment-oxford-ms',
-            inLanguage: 'en-US',
-            isPartOf: { '@id': 'https://lifebalanceoxford.com/#website' },
-            about: [
-                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
-                { '@type': 'MedicalCondition', name: 'Alcohol Use Disorder' },
-                { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
-            ],
-            audience: {
-                '@type': 'MedicalAudience',
-                audienceType: 'Patient',
-                geographicArea: {
-                    '@type': 'AdministrativeArea',
-                    name: 'North Mississippi',
-                },
-            },
-            author: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            reviewedBy: { '@id': 'https://lifebalanceoxford.com/#casey-hester' },
-            publisher: { '@id': 'https://lifebalanceoxford.com/#business' },
-            lastReviewed: '2026-04-18',
-            dateModified: '2026-04-18',
-            speakable: {
-                '@type': 'SpeakableSpecification',
-                cssSelector: ['h1', 'h2'],
-            },
-        },
-    });
+    usePageMeta(pageMeta['/addiction-treatment-oxford-ms']);
 
     return (
         <div className="bg-white min-h-screen animate-fade-in">
