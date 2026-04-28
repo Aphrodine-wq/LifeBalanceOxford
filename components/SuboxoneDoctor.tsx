@@ -540,6 +540,17 @@ const SuboxoneDoctor: React.FC = () => {
                         <ArrowSketch className="w-8 text-gold-accent" />
                     </Link>
                     <p className="text-lg text-slate-600 leading-relaxed mb-6 mt-12">
+                        Connected to the Ole Miss community — student, faculty, staff, or family — and want a private,
+                        off-campus practice?
+                    </p>
+                    <Link
+                        to="/ole-miss-suboxone-doctor"
+                        className="inline-flex items-center gap-3 text-lg text-slate-900 font-serif underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-gold-accent transition-colors mb-10"
+                    >
+                        Private Suboxone care near Ole Miss
+                        <ArrowSketch className="w-8 text-gold-accent" />
+                    </Link>
+                    <p className="text-lg text-slate-600 leading-relaxed mb-6 mt-12">
                         If you're looking at addiction treatment more broadly — not just the Suboxone piece — start here.
                     </p>
                     <Link

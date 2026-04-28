@@ -97,6 +97,7 @@ const Footer: React.FC = () => {
               <li><Link to="/addiction-treatment-oxford-ms" className="hover:text-white transition-colors">Addiction Treatment</Link></li>
               <li><Link to="/suboxone-doctor-oxford-ms" className="hover:text-white transition-colors">Suboxone Treatment</Link></li>
               <li><Link to="/suboxone-telehealth-mississippi" className="hover:text-white transition-colors">Telehealth Suboxone (MS)</Link></li>
+              <li><Link to="/ole-miss-suboxone-doctor" className="hover:text-white transition-colors">Ole Miss &amp; North MS</Link></li>
               <li><Link to="/mat-program" className="hover:text-white transition-colors">MAT Program</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>
