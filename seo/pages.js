@@ -575,6 +575,14 @@ export const pageMeta = {
     ...buildTownMeta('olive-branch', 'Olive Branch', 'DeSoto County'),
     ...buildTownMeta('horn-lake', 'Horn Lake', 'DeSoto County'),
     ...buildTownMeta('hernando', 'Hernando', 'DeSoto County'),
+    ...buildTownMeta('grenada', 'Grenada', 'Grenada County'),
+    ...buildTownMeta('corinth', 'Corinth', 'Alcorn County'),
+    ...buildTownMeta('clarksdale', 'Clarksdale', 'Coahoma County'),
+    ...buildTownMeta('ripley', 'Ripley', 'Tippah County'),
+    ...buildTownMeta('booneville', 'Booneville', 'Prentiss County'),
+    ...buildTownMeta('sardis', 'Sardis', 'Panola County'),
+    ...buildTownMeta('byhalia', 'Byhalia', 'Marshall County'),
+    ...buildTownMeta('saltillo', 'Saltillo', 'Lee County'),
 
     // Lightweight entries — just title/description for prerender so each
     // sitemap URL gets unique crawler-visible meta. Runtime meta continues
