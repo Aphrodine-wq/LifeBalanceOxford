@@ -42,9 +42,9 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:casey@lifebalancems.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
+                <a href="mailto:casey@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
                   <Mail size={15} className="mt-0.5 flex-shrink-0" />
-                  casey@lifebalancems.com
+                  casey@lifebalanceoxford.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

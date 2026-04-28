@@ -30,7 +30,7 @@ const initialState: FormState = {
   reason: '',
 };
 
-const OFFICE_EMAIL = 'office@lifebalancems.com';
+const OFFICE_EMAIL = 'kim@lifebalanceoxford.com';
 const FAX = '662-238-4122';
 const PHONE = '662-640-4004';
 
