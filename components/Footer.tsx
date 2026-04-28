@@ -96,8 +96,13 @@ const Footer: React.FC = () => {
               <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
               <li><Link to="/addiction-treatment-oxford-ms" className="hover:text-white transition-colors">Addiction Treatment</Link></li>
               <li><Link to="/suboxone-doctor-oxford-ms" className="hover:text-white transition-colors">Suboxone Treatment</Link></li>
+              <li><Link to="/sublocade-doctor-oxford-ms" className="hover:text-white transition-colors">Sublocade Injection</Link></li>
+              <li><Link to="/same-day-suboxone-oxford-ms" className="hover:text-white transition-colors">Same-Day Suboxone</Link></li>
               <li><Link to="/suboxone-telehealth-mississippi" className="hover:text-white transition-colors">Telehealth Suboxone (MS)</Link></li>
               <li><Link to="/ole-miss-suboxone-doctor" className="hover:text-white transition-colors">Ole Miss &amp; North MS</Link></li>
+              <li><Link to="/fentanyl-addiction-treatment-mississippi" className="hover:text-white transition-colors">Fentanyl Treatment</Link></li>
+              <li><Link to="/adderall-addiction-treatment-oxford-ms" className="hover:text-white transition-colors">Adderall &amp; Stimulants</Link></li>
+              <li><Link to="/blue-cross-suboxone-mississippi" className="hover:text-white transition-colors">BCBS Coverage</Link></li>
               <li><Link to="/mat-program" className="hover:text-white transition-colors">MAT Program</Link></li>
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>

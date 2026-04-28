@@ -14,6 +14,11 @@ const AddictionTreatment = lazy(() => import('./components/AddictionTreatment'))
 const SuboxoneDoctor = lazy(() => import('./components/SuboxoneDoctor'));
 const SuboxoneTelehealth = lazy(() => import('./components/SuboxoneTelehealth'));
 const OleMissSuboxone = lazy(() => import('./components/OleMissSuboxone'));
+const Sublocade = lazy(() => import('./components/Sublocade'));
+const BcbsSuboxone = lazy(() => import('./components/BcbsSuboxone'));
+const SameDaySuboxone = lazy(() => import('./components/SameDaySuboxone'));
+const FentanylTreatment = lazy(() => import('./components/FentanylTreatment'));
+const AdderallTreatment = lazy(() => import('./components/AdderallTreatment'));
 const Referrals = lazy(() => import('./components/Referrals'));
 const TownLanding = lazy(() => import('./components/TownLanding'));
 const AdminPage = lazy(() => import('./components/admin/AdminPage'));
@@ -47,6 +52,11 @@ const PublicSite: React.FC = () => (
           <Route path="/suboxone-doctor-oxford-ms" element={<SuboxoneDoctor />} />
           <Route path="/suboxone-telehealth-mississippi" element={<SuboxoneTelehealth />} />
           <Route path="/ole-miss-suboxone-doctor" element={<OleMissSuboxone />} />
+          <Route path="/sublocade-doctor-oxford-ms" element={<Sublocade />} />
+          <Route path="/blue-cross-suboxone-mississippi" element={<BcbsSuboxone />} />
+          <Route path="/same-day-suboxone-oxford-ms" element={<SameDaySuboxone />} />
+          <Route path="/fentanyl-addiction-treatment-mississippi" element={<FentanylTreatment />} />
+          <Route path="/adderall-addiction-treatment-oxford-ms" element={<AdderallTreatment />} />
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/referrals" element={<Referrals />} />
@@ -59,6 +69,10 @@ const PublicSite: React.FC = () => (
           <Route path="/suboxone-doctor-tupelo-ms" element={<TownLanding town={townList.find(t => t.slug === 'tupelo')!} />} />
           <Route path="/suboxone-doctor-bruce-ms" element={<TownLanding town={townList.find(t => t.slug === 'bruce')!} />} />
           <Route path="/suboxone-doctor-senatobia-ms" element={<TownLanding town={townList.find(t => t.slug === 'senatobia')!} />} />
+          <Route path="/suboxone-doctor-southaven-ms" element={<TownLanding town={townList.find(t => t.slug === 'southaven')!} />} />
+          <Route path="/suboxone-doctor-olive-branch-ms" element={<TownLanding town={townList.find(t => t.slug === 'olive-branch')!} />} />
+          <Route path="/suboxone-doctor-horn-lake-ms" element={<TownLanding town={townList.find(t => t.slug === 'horn-lake')!} />} />
+          <Route path="/suboxone-doctor-hernando-ms" element={<TownLanding town={townList.find(t => t.slug === 'hernando')!} />} />
         </Routes>
       </Suspense>
     </main>
