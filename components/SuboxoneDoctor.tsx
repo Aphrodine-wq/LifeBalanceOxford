@@ -528,7 +528,18 @@ const SuboxoneDoctor: React.FC = () => {
             <section className="py-20">
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <PathSketch className="text-slate-400 w-60 mx-auto mb-8" />
-                    <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                    <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                        If the drive to Oxford is the reason you haven't started, we see telehealth Suboxone patients
+                        anywhere in Mississippi.
+                    </p>
+                    <Link
+                        to="/suboxone-telehealth-mississippi"
+                        className="inline-flex items-center gap-3 text-lg text-slate-900 font-serif underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-gold-accent transition-colors mb-10"
+                    >
+                        Telehealth Suboxone across Mississippi
+                        <ArrowSketch className="w-8 text-gold-accent" />
+                    </Link>
+                    <p className="text-lg text-slate-600 leading-relaxed mb-6 mt-12">
                         If you're looking at addiction treatment more broadly — not just the Suboxone piece — start here.
                     </p>
                     <Link

@@ -181,6 +181,68 @@ export const pageMeta = {
         },
     },
 
+    '/suboxone-telehealth-mississippi': {
+        title: 'Telehealth Suboxone Doctor in Mississippi',
+        description:
+            'Online Suboxone treatment by video for patients anywhere in Mississippi — buprenorphine prescribing, induction, and ongoing MAT from a board-certified psychiatric provider. Same-week appointments, BCBS / Medicaid / Magnolia accepted. 42 CFR Part 2 confidentiality. Call (662) 640-4004.',
+        path: '/suboxone-telehealth-mississippi',
+        keywords: [
+            'telehealth Suboxone Mississippi',
+            'online Suboxone doctor Mississippi',
+            'virtual Suboxone clinic MS',
+            'telemedicine buprenorphine Mississippi',
+            'video Suboxone visit MS',
+            'online MAT Mississippi',
+            'telehealth buprenorphine Mississippi',
+            'remote Suboxone prescribing MS',
+            'Suboxone online Mississippi',
+            'telehealth opioid use disorder Mississippi',
+            'BCBS Mississippi telehealth Suboxone',
+            'Mississippi Medicaid telehealth MAT',
+            'same-day telehealth Suboxone Mississippi',
+            'online Subutex doctor Mississippi',
+        ],
+        breadcrumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
+            { name: 'Telehealth Suboxone', path: '/suboxone-telehealth-mississippi' },
+        ],
+        jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'MedicalWebPage',
+            '@id': `${SITE_URL}/suboxone-telehealth-mississippi#page`,
+            name: 'Telehealth Suboxone Doctor in Mississippi',
+            url: `${SITE_URL}/suboxone-telehealth-mississippi`,
+            inLanguage: 'en-US',
+            isPartOf: websiteRef,
+            about: [
+                { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
+                { '@type': 'Drug', name: 'Subutex', alternateName: 'Buprenorphine' },
+                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
+                { '@type': 'MedicalTherapy', name: 'Telehealth Substance Use Treatment' },
+            ],
+            audience: medicalAudience('Mississippi'),
+            author: caseyRef,
+            reviewedBy: caseyRef,
+            publisher: businessRef,
+            lastReviewed: '2026-04-28',
+            dateModified: '2026-04-28',
+            speakable,
+            spatialCoverage: {
+                '@type': 'State',
+                name: 'Mississippi',
+            },
+            availableService: {
+                '@type': 'MedicalTherapy',
+                name: 'Telehealth Suboxone Treatment',
+                medicineSystem: 'WesternConventional',
+                relevantSpecialty: { '@type': 'MedicalSpecialty', name: 'Psychiatry' },
+            },
+        },
+    },
+
     '/mat-program': {
         title: 'Medication-Assisted Treatment (MAT) Program',
         description:

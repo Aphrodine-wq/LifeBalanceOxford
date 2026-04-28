@@ -97,13 +97,23 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                                 without your written consent. This matters in a small town. We take it seriously.
                             </p>
                         </div>
-                        <div className="pt-4">
-                            <Link
-                                to="/suboxone-doctor-oxford-ms"
-                                className="inline-flex items-center gap-2 text-teal-700 font-semibold text-lg hover:text-teal-800 underline decoration-1 underline-offset-4"
-                            >
-                                Read the full Suboxone &amp; Sublocade walkthrough &rarr;
-                            </Link>
+                        <div className="pt-4 space-y-3">
+                            <div>
+                                <Link
+                                    to="/suboxone-doctor-oxford-ms"
+                                    className="inline-flex items-center gap-2 text-teal-700 font-semibold text-lg hover:text-teal-800 underline decoration-1 underline-offset-4"
+                                >
+                                    Read the full Suboxone &amp; Sublocade walkthrough &rarr;
+                                </Link>
+                            </div>
+                            <div>
+                                <Link
+                                    to="/suboxone-telehealth-mississippi"
+                                    className="inline-flex items-center gap-2 text-teal-700 font-semibold text-lg hover:text-teal-800 underline decoration-1 underline-offset-4"
+                                >
+                                    Prefer not to drive? Telehealth Suboxone in {town.name} &rarr;
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
