@@ -60,30 +60,18 @@ const Footer: React.FC = () => {
           {/* Hours */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Office Hours</h4>
-            <ul className="space-y-2 text-sm">
-              <li className="flex justify-between">
-                <span>Monday</span>
-                <span className="text-neutral-300">8:00am – 5:00pm</span>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <div className="text-neutral-500 text-xs uppercase tracking-wider">Mon – Thu</div>
+                <div className="text-neutral-300">8:00am – 5:00pm</div>
               </li>
-              <li className="flex justify-between">
-                <span>Tuesday</span>
-                <span className="text-neutral-300">8:00am – 5:00pm</span>
+              <li>
+                <div className="text-neutral-500 text-xs uppercase tracking-wider">Friday</div>
+                <div className="text-neutral-300">8:00am – 12:00pm</div>
               </li>
-              <li className="flex justify-between">
-                <span>Wednesday</span>
-                <span className="text-neutral-300">8:00am – 5:00pm</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Thursday</span>
-                <span className="text-neutral-300">8:00am – 5:00pm</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Friday</span>
-                <span className="text-neutral-300">8:00am – 12:00pm</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sat – Sun</span>
-                <span className="text-red-400">Closed</span>
+              <li>
+                <div className="text-neutral-500 text-xs uppercase tracking-wider">Sat – Sun</div>
+                <div className="text-red-400">Closed</div>
               </li>
             </ul>
           </div>
