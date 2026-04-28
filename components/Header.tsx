@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTreatmentOpen, setIsTreatmentOpen] = useState(false);
+  const [isMobileTreatmentOpen, setIsMobileTreatmentOpen] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsTreatmentOpen(false);
+    setIsMobileTreatmentOpen(false);
   }, [location.pathname]);
 
   // Prevent body scroll when menu is open
@@ -21,26 +26,49 @@ const Header: React.FC = () => {
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
-    { name: 'Referrals', href: '/referrals' },
-    { name: 'About', href: '/team' },
+  const treatmentGroups = [
+    {
+      section: 'Programs',
+      items: [
+        { name: 'Suboxone Treatment', href: '/suboxone-doctor-oxford-ms' },
+        { name: 'Sublocade Injection', href: '/sublocade-doctor-oxford-ms' },
+        { name: 'Same-Day Suboxone', href: '/same-day-suboxone-oxford-ms' },
+        { name: 'MAT Program', href: '/mat-program' },
+        { name: 'Telehealth (Mississippi)', href: '/suboxone-telehealth-mississippi' },
+      ],
+    },
+    {
+      section: 'Specialty & Coverage',
+      items: [
+        { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
+        { name: 'Fentanyl Recovery', href: '/fentanyl-addiction-treatment-mississippi' },
+        { name: 'Stimulant & ADHD Care', href: '/adderall-addiction-treatment-oxford-ms' },
+        { name: 'Ole Miss & North MS', href: '/ole-miss-suboxone-doctor' },
+        { name: 'BCBS Coverage', href: '/blue-cross-suboxone-mississippi' },
+      ],
+    },
   ];
 
-  const addictionPaths = [
-    '/addiction-treatment-oxford-ms',
-    '/suboxone-doctor-oxford-ms',
-    '/mat-program',
-  ];
+  const treatmentPaths = treatmentGroups.flatMap((g) => g.items.map((i) => i.href));
 
   const isActive = (path: string) => {
     if (path === '/' && location.pathname !== '/') return false;
-    if (path === '/addiction-treatment-oxford-ms') {
-      return addictionPaths.some((p) => location.pathname === p);
-    }
     return location.pathname.startsWith(path);
+  };
+
+  const isTreatmentActive = treatmentPaths.some((p) => location.pathname === p);
+
+  const openTreatment = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setIsTreatmentOpen(true);
+  };
+
+  const scheduleCloseTreatment = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setIsTreatmentOpen(false), 120);
   };
 
   return (
@@ -58,18 +86,101 @@ const Header: React.FC = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`text-base font-medium transition-colors ${isActive(link.href)
+            <Link
+              to="/"
+              className={`text-base font-medium transition-colors ${isActive('/')
+                ? 'text-white'
+                : 'text-gray-300 hover:text-white'
+                }`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/services"
+              className={`text-base font-medium transition-colors ${isActive('/services')
+                ? 'text-white'
+                : 'text-gray-300 hover:text-white'
+                }`}
+            >
+              Services
+            </Link>
+
+            {/* Treatment dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={openTreatment}
+              onMouseLeave={scheduleCloseTreatment}
+            >
+              <button
+                type="button"
+                onClick={() => setIsTreatmentOpen((v) => !v)}
+                aria-expanded={isTreatmentOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1 text-base font-medium transition-colors ${isTreatmentActive
                   ? 'text-white'
                   : 'text-gray-300 hover:text-white'
                   }`}
               >
-                {link.name}
-              </Link>
-            ))}
+                Treatment
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${isTreatmentOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {isTreatmentOpen && (
+                <div
+                  className="absolute right-0 top-full pt-3"
+                  onMouseEnter={openTreatment}
+                  onMouseLeave={scheduleCloseTreatment}
+                >
+                  <div className="w-[520px] bg-white rounded-lg shadow-xl border border-neutral-200 p-5 grid grid-cols-2 gap-x-6 gap-y-1">
+                    {treatmentGroups.map((group) => (
+                      <div key={group.section}>
+                        <h5 className="text-[11px] uppercase tracking-wider font-semibold text-neutral-500 px-3 pb-2 pt-1">
+                          {group.section}
+                        </h5>
+                        <ul className="space-y-0.5">
+                          {group.items.map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                to={item.href}
+                                onClick={() => setIsTreatmentOpen(false)}
+                                className={`block px-3 py-2 rounded-md text-sm transition-colors ${location.pathname === item.href
+                                  ? 'bg-neutral-100 text-neutral-900 font-medium'
+                                  : 'text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900'
+                                  }`}
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/referrals"
+              className={`text-base font-medium transition-colors ${isActive('/referrals')
+                ? 'text-white'
+                : 'text-gray-300 hover:text-white'
+                }`}
+            >
+              Referrals
+            </Link>
+            <Link
+              to="/team"
+              className={`text-base font-medium transition-colors ${isActive('/team')
+                ? 'text-white'
+                : 'text-gray-300 hover:text-white'
+                }`}
+            >
+              About
+            </Link>
           </nav>
 
           {/* Phone + Fax */}
@@ -100,20 +211,90 @@ const Header: React.FC = () => {
           : 'opacity-0 -translate-y-2 pointer-events-none'
           }`}
       >
-        <div className="px-6 py-6 space-y-1">
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.name}
-              to={link.href}
-              className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors duration-300 ${isActive(link.href)
+        <div className="px-6 py-6 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)] pb-12">
+          <Link
+            to="/"
+            className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isActive('/')
+              ? 'text-white bg-white/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/services"
+            className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isActive('/services')
+              ? 'text-white bg-white/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+          >
+            Services
+          </Link>
+
+          {/* Mobile Treatment collapsible */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setIsMobileTreatmentOpen((v) => !v)}
+              aria-expanded={isMobileTreatmentOpen}
+              className={`w-full flex items-center justify-between px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isTreatmentActive
                 ? 'text-white bg-white/10'
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
-              style={{ transitionDelay: isMenuOpen ? `${i * 50}ms` : '0ms' }}
             >
-              {link.name}
-            </Link>
-          ))}
+              <span>Treatment</span>
+              <ChevronDown
+                size={20}
+                className={`transition-transform duration-200 ${isMobileTreatmentOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {isMobileTreatmentOpen && (
+              <div className="mt-1 ml-2 pl-3 border-l border-white/15 space-y-3 py-2">
+                {treatmentGroups.map((group) => (
+                  <div key={group.section}>
+                    <h5 className="px-3 text-[11px] uppercase tracking-wider font-semibold text-gray-400 mb-1">
+                      {group.section}
+                    </h5>
+                    <ul className="space-y-0.5">
+                      {group.items.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            to={item.href}
+                            className={`block px-3 py-2.5 rounded-md text-base transition-colors ${location.pathname === item.href
+                              ? 'text-white bg-white/10'
+                              : 'text-gray-300 hover:text-white hover:bg-white/5'
+                              }`}
+                          >
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/referrals"
+            className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isActive('/referrals')
+              ? 'text-white bg-white/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+          >
+            Referrals
+          </Link>
+          <Link
+            to="/team"
+            className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isActive('/team')
+              ? 'text-white bg-white/10'
+              : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+          >
+            About
+          </Link>
 
           <div className="pt-6 mt-4 border-t border-white/20 space-y-1">
             <a
