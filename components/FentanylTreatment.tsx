@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { pageMeta } from '../seo/pages.js';
 import { ClockSketch, HandSketch, PathSketch, PillSketch, WaveRule, ArrowSketch } from './Sketches';
 import FAQ from './FAQ';
+import IntakeModal from './IntakeModal';
 
 const FentanylTreatment: React.FC = () => {
     usePageMeta(pageMeta['/fentanyl-addiction-treatment-mississippi']);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="bg-white min-h-screen animate-fade-in">
@@ -278,17 +280,22 @@ const FentanylTreatment: React.FC = () => {
                         Stay alive long enough to call.
                     </h2>
                     <p className="text-lg text-cream mb-10 max-w-xl mx-auto leading-relaxed">
-                        Carry Narcan. Use test strips. When you're ready, call us. Most fentanyl patients are seen
-                        within the same week.
+                        Carry Narcan. Use test strips. When you're ready, start a new client intake. Most fentanyl
+                        patients are seen within the same week.
                     </p>
-                    <a
-                        href="tel:6626404004"
-                        className="inline-block font-serif text-3xl text-gold-accent underline decoration-2 underline-offset-[10px] hover:text-white transition-colors"
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="inline-block px-10 py-4 bg-gold-accent text-white font-serif font-semibold text-lg rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200"
                     >
-                        (662) 640-4004
-                    </a>
+                        New Client Intake
+                    </button>
+                    <p className="text-sm text-cream/70 mt-6">
+                        Or call <a href="tel:6626404004" className="underline underline-offset-2 hover:text-white">(662) 640-4004</a> &nbsp;·&nbsp; Mon – Thu 8 to 5, Fri 8 to noon
+                    </p>
                 </div>
             </section>
+
+            <IntakeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };

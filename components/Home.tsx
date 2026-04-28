@@ -407,7 +407,7 @@ const Home: React.FC = () => {
       />
 
       {/* ===== Footer CTA ===== */}
-      <section className="py-14 border-t border-white/10 bg-grey-green">
+      <section className="py-14 bg-dark-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-serif text-xl font-medium mb-6 text-white">
             Prioritize your mental health today.

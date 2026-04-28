@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { pageMeta } from '../seo/pages.js';
 import FAQ from './FAQ';
+import IntakeModal from './IntakeModal';
 import type { TownData } from './towns';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 
 const TownLanding: React.FC<Props> = ({ town }) => {
     usePageMeta(pageMeta[`/suboxone-doctor-${town.slug}-ms`]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="bg-white min-h-screen animate-fade-in">
@@ -334,19 +336,24 @@ const TownLanding: React.FC<Props> = ({ town }) => {
             </section>
 
             {/* Closing CTA */}
-            <section className="py-16 bg-grey-green border-t border-white/10">
+            <section className="py-16 bg-dark-green">
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <p className="font-serif text-xl font-medium mb-6 text-white">
-                        From {town.name}? Pick up the phone.
+                        From {town.name}? Start a new client intake.
                     </p>
-                    <a
-                        href="tel:6626404004"
-                        className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"
                     >
-                        Call (662) 640-4004
-                    </a>
+                        New Client Intake
+                    </button>
+                    <p className="text-sm text-cream/70 mt-5">
+                        Or call <a href="tel:6626404004" className="underline underline-offset-2 hover:text-white">(662) 640-4004</a> &nbsp;·&nbsp; Mon – Thu 8 to 5, Fri 8 to noon
+                    </p>
                 </div>
             </section>
+
+            <IntakeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };
