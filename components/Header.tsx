@@ -49,7 +49,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-[80px]">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-            <img src="/logo.png" alt="Life Balance" className="h-14 w-auto object-contain" />
+            <img src="/logo.png" alt="Life Balance" className="h-20 w-auto object-contain" />
             <div>
               <span className="font-semibold text-lg text-white leading-none block">Life Balance</span>
               <span className="text-xs text-gray-300 font-medium block mt-0.5">Casey Hester, PMHNP-BC</span>
