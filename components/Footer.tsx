@@ -100,6 +100,16 @@ const Footer: React.FC = () => {
               <li><Link to="/team" className="hover:text-white transition-colors">Our Team</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Location & Contact</Link></li>
               <li><Link to="/referrals" className="hover:text-white transition-colors">Provider Referrals</Link></li>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/qKBd2RMZGnL2wyBUA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Leave a Google Review
+                </a>
+              </li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Practices</Link></li>
             </ul>
           </div>
