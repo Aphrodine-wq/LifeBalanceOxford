@@ -31,7 +31,6 @@ const Header: React.FC = () => {
       section: 'Programs',
       items: [
         { name: 'Suboxone Treatment', href: '/suboxone-doctor-oxford-ms' },
-        { name: 'Sublocade Injection', href: '/sublocade-doctor-oxford-ms' },
         { name: 'Same-Day Suboxone', href: '/same-day-suboxone-oxford-ms' },
         { name: 'MAT Program', href: '/mat-program' },
         { name: 'Telehealth (Mississippi)', href: '/suboxone-telehealth-mississippi' },

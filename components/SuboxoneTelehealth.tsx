@@ -317,13 +317,11 @@ const SuboxoneTelehealth: React.FC = () => {
                             <p className="text-sm text-slate-500 mb-5 italic">405 Galleria Drive, Suite E</p>
                             <div className="border-l-2 border-gold-accent pl-5 space-y-3 text-slate-700 leading-relaxed">
                                 <p>
-                                    Best for the first visit if you're nearby, for Sublocade injections (which require the
-                                    office), and for patients who want the room to feel real. Some people just sit
-                                    differently in a chair than on a screen.
+                                    Best for the first visit if you're nearby and for patients who want the room to
+                                    feel real. Some people just sit differently in a chair than on a screen.
                                 </p>
                                 <p>
-                                    Many patients do a hybrid — first visit in the office, follow-ups by video, monthly
-                                    Sublocade in person.
+                                    Many patients do a hybrid — first visit in the office, follow-ups by video.
                                 </p>
                             </div>
                         </div>
@@ -339,7 +337,7 @@ const SuboxoneTelehealth: React.FC = () => {
                     <PathSketch className="text-slate-400 w-60 mx-auto mb-8" />
                     <p className="text-lg text-slate-600 leading-relaxed mb-6">
                         For a deeper walk through the medicine itself — what Suboxone does, the induction protocol,
-                        side effects, and the choice between film and Sublocade — start here.
+                        and side effects — start here.
                     </p>
                     <Link
                         to="/suboxone-doctor-oxford-ms"
@@ -424,17 +422,6 @@ const SuboxoneTelehealth: React.FC = () => {
                             <>
                                 A phone, tablet, or computer with a camera and mic. The platform is HIPAA-compliant and works on
                                 cellular. No special app — we send a secure link.
-                            </>
-                        ),
-                    },
-                    {
-                        q: 'Can I get Sublocade by telehealth?',
-                        aText:
-                            'The monthly Sublocade injection has to be administered in a clinical setting because it is an in-office injection. Many patients who live far from Oxford handle daily Suboxone film by telehealth and drive in once a month for the Sublocade shot.',
-                        a: (
-                            <>
-                                The Sublocade injection has to be given in person — it's an in-office shot. Many telehealth patients
-                                handle daily Suboxone film by video and drive in once a month for the Sublocade.
                             </>
                         ),
                     },

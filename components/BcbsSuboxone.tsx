@@ -21,8 +21,8 @@ const BcbsSuboxone: React.FC = () => {
                         <span className="text-gold-accent italic font-normal">Here's what to expect.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
-                        Blue Cross Blue Shield of Mississippi and most out-of-state BCBS plans cover Suboxone, Sublocade,
-                        and MAT visits at Life Balance, PLLC in Oxford. We're in network. The honest details on copays,
+                        Blue Cross Blue Shield of Mississippi and most out-of-state BCBS plans cover Suboxone and MAT
+                        visits at Life Balance, PLLC in Oxford. We're in network. The honest details on copays,
                         prior auths, and the EOB question are below.
                     </p>
                     <div className="flex flex-wrap items-center gap-5 text-cream">
@@ -62,7 +62,7 @@ const BcbsSuboxone: React.FC = () => {
                         <div>
                             <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">One — what BCBS covers</p>
                             <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
-                                The four things your benefit pays for.
+                                The three things your benefit pays for.
                             </h2>
                         </div>
                     </div>
@@ -83,15 +83,6 @@ const BcbsSuboxone: React.FC = () => {
                                 Covered on virtually every BCBS formulary. Tier 1 or Tier 2 in most cases. Pharmacy
                                 copay is what you'd pay for any generic. No prior authorization required for
                                 buprenorphine/naloxone film at standard maintenance doses on most plans.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-serif text-xl text-slate-900 mb-2">Sublocade injection.</h3>
-                            <p>
-                                Covered with prior authorization on most BCBS plans. Our office submits the PA. Approval
-                                typically lands in three to seven business days. Once approved, the injection is billed
-                                as a medical benefit — not a pharmacy benefit — and applies toward your medical
-                                deductible and out-of-pocket max.
                             </p>
                         </div>
                         <div>
@@ -130,8 +121,7 @@ const BcbsSuboxone: React.FC = () => {
                         </p>
                         <p>
                             <span className="font-semibold text-slate-900">Federal Employee Program (FEP)</span> — BCBS
-                            FEP covers Suboxone and Sublocade as a federal benefit. Strong telehealth and behavioral
-                            health coverage.
+                            FEP covers Suboxone as a federal benefit. Strong telehealth and behavioral health coverage.
                         </p>
                         <p>
                             <span className="font-semibold text-slate-900">Anthem BCBS plans (multi-state)</span> — same
@@ -179,8 +169,8 @@ const BcbsSuboxone: React.FC = () => {
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <PathSketch className="text-slate-400 w-60 mx-auto mb-8" />
                     <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                        For the full walk through Suboxone treatment itself — protocol, side effects, and the choice
-                        between film and Sublocade — start here.
+                        For the full walk through Suboxone treatment itself — protocol, side effects, and induction —
+                        start here.
                     </p>
                     <Link
                         to="/suboxone-doctor-oxford-ms"
@@ -200,7 +190,7 @@ const BcbsSuboxone: React.FC = () => {
                     {
                         q: 'Is Life Balance in network with Blue Cross Blue Shield of Mississippi?',
                         aText:
-                            'Yes. Life Balance, PLLC is in network with Blue Cross Blue Shield of Mississippi for psychiatric and substance use disorder services, including Suboxone and Sublocade treatment. Out-of-state BCBS plans are processed through the BlueCard program at the same in-network rates.',
+                            'Yes. Life Balance, PLLC is in network with Blue Cross Blue Shield of Mississippi for psychiatric and substance use disorder services, including Suboxone treatment. Out-of-state BCBS plans are processed through the BlueCard program at the same in-network rates.',
                         a: (
                             <>
                                 Yes. We are in network with <strong>BCBS Mississippi</strong>. Out-of-state BCBS plans process
@@ -222,11 +212,12 @@ const BcbsSuboxone: React.FC = () => {
                     {
                         q: 'Does BCBS require prior authorization for Suboxone?',
                         aText:
-                            'For generic buprenorphine/naloxone film at standard maintenance doses, no prior authorization is required on most BCBS plans. For Sublocade injection and for some non-generic formulations, prior authorization is required. Our office handles the PA paperwork — you do not.',
+                            'For generic buprenorphine/naloxone film at standard maintenance doses, no prior authorization is required on most BCBS plans. For some non-generic formulations, prior authorization is required. Our office handles the PA paperwork — you do not.',
                         a: (
                             <>
-                                <strong>Generic buprenorphine/naloxone film</strong> — no PA on most plans. <strong>Sublocade and
-                                some non-generic forms</strong> — PA required, we handle it. Approval typically 3–7 business days.
+                                <strong>Generic buprenorphine/naloxone film</strong> — no PA on most plans.{' '}
+                                <strong>Some non-generic forms</strong> — PA required, we handle it. Approval typically
+                                3–7 business days.
                             </>
                         ),
                     },
@@ -263,17 +254,6 @@ const BcbsSuboxone: React.FC = () => {
                                 Pre-deductible, you pay the <strong>contracted in-network rate</strong> — lower than billed. After
                                 deductible, regular copay. For some patients, self-pay runs similar to pre-deductible cost. Kim
                                 compares numbers on the first call.
-                            </>
-                        ),
-                    },
-                    {
-                        q: 'Does BCBS cover Sublocade injection?',
-                        aText:
-                            'Yes, with prior authorization on most plans. Sublocade is billed as a medical benefit (not pharmacy), so it applies toward your medical deductible and out-of-pocket maximum. Indivior, the manufacturer, runs a patient assistance program (inSupport) that can further reduce out-of-pocket cost for qualifying patients.',
-                        a: (
-                            <>
-                                Yes — with prior authorization. Sublocade is a <strong>medical benefit</strong>, applies to medical
-                                deductible. Indivior's <strong>inSupport</strong> program helps qualifying patients further.
                             </>
                         ),
                     },

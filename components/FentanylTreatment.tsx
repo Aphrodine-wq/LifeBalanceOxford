@@ -21,8 +21,8 @@ const FentanylTreatment: React.FC = () => {
                         <span className="text-gold-accent italic font-normal">The medicine is the same.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
-                        Buprenorphine works for fentanyl-driven opioid use disorder — but the induction timing,
-                        microdosing options, and Sublocade strategy are not the same as for heroin or pills. We treat
+                        Buprenorphine works for fentanyl-driven opioid use disorder — but the induction timing and
+                        microdosing protocol are not the same as for heroin or pills. We treat
                         what's actually in front of us.
                     </p>
                     <div className="flex flex-wrap items-center gap-5 text-cream">
@@ -44,11 +44,11 @@ const FentanylTreatment: React.FC = () => {
                     </div>
                     <p className="text-lg text-slate-600 leading-relaxed mb-5">
                         That changes how addiction looks, how withdrawal looks, and how induction has to be timed. The
-                        medicine itself — buprenorphine — works exactly the same. Sublocade works exactly the same.
-                        What changes is the protocol getting onto it.
+                        medicine itself — buprenorphine — works exactly the same. What changes is the protocol getting
+                        onto it.
                     </p>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                        We have inducted hundreds of fentanyl patients onto Suboxone and Sublocade. Some same-day, some
+                        We have inducted hundreds of fentanyl patients onto Suboxone. Some same-day, some
                         with a microdosing protocol over a week. The plan depends on you, not on the textbook.
                     </p>
                 </div>
@@ -137,49 +137,12 @@ const FentanylTreatment: React.FC = () => {
 
             <WaveRule className="text-slate-300 w-40 mx-auto my-4" />
 
-            <section className="py-20 bg-[#faf7f1]">
-                <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Three — Sublocade and fentanyl</p>
-                    <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
-                        The monthly shot is especially useful for fentanyl.
-                    </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                        For patients with a history of fentanyl use, Sublocade often works better than daily Suboxone
-                        film. Two reasons.
-                    </p>
-                    <p className="text-lg text-slate-700 leading-relaxed mb-5">
-                        <span className="font-semibold text-slate-900">Steady receptor occupancy.</span> Sublocade
-                        produces a constant blood level for thirty days. Most fentanyl patients describe this as
-                        meaningfully better at suppressing cravings than the peaks-and-troughs of daily film,
-                        particularly in the first few months of recovery.
-                    </p>
-                    <p className="text-lg text-slate-700 leading-relaxed mb-5">
-                        <span className="font-semibold text-slate-900">Receptor protection.</span> The high
-                        bupreonorphine occupancy from Sublocade makes it physically difficult for fentanyl to cause
-                        meaningful effect if relapse happens. That doesn't make relapse safe — it can still cause
-                        overdose at high doses — but the protective effect is real and reduces mortality.
-                    </p>
-                    <p className="text-lg text-slate-700 leading-relaxed">
-                        We typically start patients on daily Suboxone film, stabilize for one to two weeks, then move
-                        to monthly Sublocade if it's a good fit.
-                    </p>
-                    <div className="pt-4">
-                        <Link
-                            to="/sublocade-doctor-oxford-ms"
-                            className="inline-flex items-center gap-2 text-teal-700 font-semibold text-base hover:text-teal-800 underline decoration-1 underline-offset-4"
-                        >
-                            More on Sublocade injection &rarr;
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
             <section className="py-20">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="flex items-start gap-8 mb-10">
                         <HandSketch className="hidden md:block text-slate-900 w-20 flex-shrink-0 mt-1" />
                         <div>
-                            <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Four — staying alive while you decide</p>
+                            <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Three — staying alive while you decide</p>
                             <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight max-w-2xl">
                                 Naloxone and fentanyl test strips. Free at most Mississippi pharmacies.
                             </h2>
@@ -238,7 +201,7 @@ const FentanylTreatment: React.FC = () => {
                     {
                         q: 'Does Suboxone work for fentanyl addiction?',
                         aText:
-                            'Yes. Buprenorphine, the active ingredient in Suboxone and Sublocade, works the same way for fentanyl-driven opioid use disorder as it does for heroin or pill addiction. The medicine is the same. The induction timing is what differs because fentanyl stores in fat tissue and clears more slowly.',
+                            'Yes. Buprenorphine, the active ingredient in Suboxone, works the same way for fentanyl-driven opioid use disorder as it does for heroin or pill addiction. The medicine is the same. The induction timing is what differs because fentanyl stores in fat tissue and clears more slowly.',
                         a: (
                             <>
                                 Yes. <strong>Buprenorphine</strong> works for fentanyl. Same medicine, same outcomes — the only
@@ -284,24 +247,23 @@ const FentanylTreatment: React.FC = () => {
                     {
                         q: 'I keep relapsing on fentanyl after starting Suboxone. What should I change?',
                         aText:
-                            'Three common adjustments: increase the daily dose (most patients underdose initially — 16 to 24 mg is common), switch to Sublocade for steady receptor occupancy, and address co-occurring anxiety or depression that may be driving relapse. Relapse is information about the plan, not a reason to quit treatment.',
+                            'Two common adjustments: increase the daily dose (most patients underdose initially — 16 to 24 mg is common), and address co-occurring anxiety or depression that may be driving relapse. Relapse is information about the plan, not a reason to quit treatment.',
                         a: (
                             <>
-                                Three adjustments: <strong>raise the dose</strong> (16–24 mg is common — most patients underdose),{' '}
-                                <strong>switch to Sublocade</strong> for steady levels, <strong>treat co-occurring</strong> anxiety
-                                or depression. Relapse is information, not failure.
+                                Two adjustments: <strong>raise the dose</strong> (16–24 mg is common — most patients underdose)
+                                and <strong>treat co-occurring</strong> anxiety or depression. Relapse is information,
+                                not failure.
                             </>
                         ),
                     },
                     {
                         q: 'Will Suboxone protect me from fentanyl overdose if I relapse?',
                         aText:
-                            'Partially. Buprenorphine has high affinity for opioid receptors, so when receptors are well occupied (especially on Sublocade) it makes it physically harder for fentanyl to cause effect. This reduces overdose risk substantially but does not eliminate it. Always carry naloxone.',
+                            'Partially. Buprenorphine has high affinity for opioid receptors, so when receptors are well occupied it makes it physically harder for fentanyl to cause effect. This reduces overdose risk substantially but does not eliminate it. Always carry naloxone.',
                         a: (
                             <>
-                                Partially. Buprenorphine has high receptor affinity — especially on{' '}
-                                <Link to="/sublocade-doctor-oxford-ms" className="text-teal-700 underline decoration-1 underline-offset-2">Sublocade</Link>{' '}
-                                — making it physically harder for fentanyl to cause effect. Risk is reduced, not eliminated. Always
+                                Partially. Buprenorphine has high receptor affinity, making it physically harder for fentanyl
+                                to cause effect when receptors are well occupied. Risk is reduced, not eliminated. Always
                                 carry naloxone.
                             </>
                         ),

@@ -22,7 +22,7 @@ const MatProgram: React.FC = () => {
                         <span className="text-gold-accent italic font-normal">not a prescription pad.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed">
-                        Suboxone and Sublocade combined with real psychiatric care — for the anxiety, depression, and
+                        Suboxone combined with real psychiatric care — for the anxiety, depression, and
                         trauma that often sit underneath. Same provider, every visit. Private, respectful,
                         judgment-free.
                     </p>
@@ -37,8 +37,8 @@ const MatProgram: React.FC = () => {
                         The medicine is <span className="italic">half</span> the work.
                     </div>
                     <p className="text-lg text-slate-600 leading-relaxed mb-5">
-                        Suboxone and Sublocade fix the brain-chemistry piece — the cravings, the withdrawal, the static
-                        in your head. What they don't fix is the anxiety, the depression, the trauma, or the life
+                        Suboxone fixes the brain-chemistry piece — the cravings, the withdrawal, the static
+                        in your head. What it doesn't fix is the anxiety, the depression, the trauma, or the life
                         stress that was there before you started using. That's the other half. It takes conversation,
                         follow-up, sometimes different medication, sometimes therapy — and it takes time with a provider
                         who knows you.
@@ -64,7 +64,7 @@ const MatProgram: React.FC = () => {
                     <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
                         <p>
                             The medications used in MAT — usually <span className="font-semibold text-slate-900">buprenorphine</span>,
-                            in the form of Suboxone or Sublocade — occupy the same brain receptors that opioids bind to,
+                            in the form of Suboxone — occupy the same brain receptors that opioids bind to,
                             but in a way that quiets cravings and blocks withdrawal without producing the euphoria
                             that drives addictive use.
                         </p>
@@ -99,7 +99,7 @@ const MatProgram: React.FC = () => {
 
                     <div className="space-y-12">
                         <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Buprenorphine — Suboxone or Sublocade</h3>
+                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Buprenorphine — Suboxone</h3>
                             <p className="text-sm text-gold-accent uppercase tracking-wide mb-4">
                                 What we prescribe &nbsp;·&nbsp; Partial opioid agonist
                             </p>
@@ -107,8 +107,7 @@ const MatProgram: React.FC = () => {
                                 Binds strongly to opioid receptors but only partially activates them. Cravings stop,
                                 withdrawal stops, and there's a built-in ceiling — higher doses don't produce euphoria,
                                 which makes it much harder to misuse than full opioids. Taken daily as a film under the
-                                tongue (Suboxone) or as a monthly injection (Sublocade). Safe long-term. Works for most
-                                patients.
+                                tongue. Safe long-term. Works for most patients.
                             </p>
                             <Link
                                 to="/suboxone-doctor-oxford-ms"
@@ -195,8 +194,7 @@ const MatProgram: React.FC = () => {
                         <div>
                             <p className="font-serif text-lg text-gold-accent mb-2">Months four through twelve</p>
                             <p className="text-lg text-slate-700 leading-relaxed">
-                                Monthly visits. Some patients switch from daily Suboxone to monthly Sublocade here to
-                                simplify life. Relapse risk drops the longer you stay engaged. This is when recovery
+                                Monthly visits. Relapse risk drops the longer you stay engaged. This is when recovery
                                 stops feeling like a fight and starts feeling like a routine.
                             </p>
                         </div>
@@ -331,11 +329,11 @@ const MatProgram: React.FC = () => {
                     {
                         q: 'What is Medication-Assisted Treatment (MAT)?',
                         aText:
-                            'MAT combines FDA-approved medications (usually buprenorphine in the form of Suboxone or Sublocade) with psychiatric care and counseling to treat opioid use disorder. The medication quiets cravings and withdrawal so the rest of recovery can happen.',
+                            'MAT combines FDA-approved medication (usually buprenorphine in the form of Suboxone) with psychiatric care and counseling to treat opioid use disorder. The medication quiets cravings and withdrawal so the rest of recovery can happen.',
                         a: (
                             <>
                                 MAT combines FDA-approved medication — usually{' '}
-                                <strong>buprenorphine</strong> in the form of Suboxone or Sublocade — with psychiatric care and
+                                <strong>buprenorphine</strong> in the form of Suboxone — with psychiatric care and
                                 counseling to treat opioid use disorder. The medication quiets cravings and withdrawal so the
                                 rest of recovery can actually happen.
                             </>
@@ -344,12 +342,11 @@ const MatProgram: React.FC = () => {
                     {
                         q: 'What medications are used in MAT?',
                         aText:
-                            'We primarily prescribe buprenorphine — either as Suboxone (daily dissolvable film taken under the tongue) or Sublocade (monthly injection of extended-release buprenorphine). Naltrexone and acamprosate are also used for alcohol use disorder when indicated.',
+                            'We primarily prescribe buprenorphine as Suboxone (daily dissolvable film taken under the tongue). Naltrexone and acamprosate are also used for alcohol use disorder when indicated.',
                         a: (
                             <>
-                                Primarily buprenorphine — <strong>Suboxone</strong> (daily dissolvable film) or{' '}
-                                <strong>Sublocade</strong> (monthly injection). For alcohol use disorder we also prescribe
-                                naltrexone or acamprosate when indicated.
+                                Primarily buprenorphine as <strong>Suboxone</strong> (daily dissolvable film). For alcohol
+                                use disorder we also prescribe naltrexone or acamprosate when indicated.
                             </>
                         ),
                     },
@@ -391,22 +388,11 @@ const MatProgram: React.FC = () => {
                     {
                         q: 'Will insurance cover MAT?',
                         aText:
-                            'Most major insurance plans cover generic buprenorphine/naloxone and MAT visits at the standard specialist copay. Sublocade often requires a prior authorization, which our office handles. Self-pay pricing is available.',
+                            'Most major insurance plans cover generic buprenorphine/naloxone and MAT visits at the standard specialist copay. Self-pay pricing is available.',
                         a: (
                             <>
                                 Most plans cover generic buprenorphine/naloxone and MAT visits at your specialist copay.
-                                Sublocade usually needs a prior auth, which we handle. Self-pay pricing is available.
-                            </>
-                        ),
-                    },
-                    {
-                        q: 'Can I switch from Suboxone to Sublocade later?',
-                        aText:
-                            'Yes. Many patients begin with daily Suboxone and transition to monthly Sublocade once they are stable, to simplify daily life. We will discuss what fits your circumstances.',
-                        a: (
-                            <>
-                                Yes — many patients start on daily Suboxone and switch to monthly Sublocade once stable, to
-                                simplify daily life. We'll talk about what fits your circumstances.
+                                Self-pay pricing is available.
                             </>
                         ),
                     },

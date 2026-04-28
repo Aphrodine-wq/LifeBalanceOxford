@@ -26,7 +26,7 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                         <span className="text-gold-accent italic font-normal">{town.name}, Mississippi.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
-                        Suboxone and Sublocade for opioid use disorder, prescribed by a board-certified psychiatric
+                        Suboxone for opioid use disorder, prescribed by a board-certified psychiatric
                         provider. About {town.distanceMin} minutes from {town.name} via {town.route}. Same provider
                         every visit. Federal 42 CFR Part 2 confidentiality &mdash; stricter than HIPAA.
                     </p>
@@ -50,8 +50,8 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                     <p className="text-lg text-slate-600 leading-relaxed mb-5">
                         {town.name} is {town.notable}. It is also one of dozens of north Mississippi communities where
                         a person looking for medication-assisted treatment has to leave their own town to get it.
-                        Life Balance, PLLC sees patients from {town.name} and across {town.county} for Suboxone,
-                        Sublocade, and the psychiatric care that usually sits underneath the substance use.
+                        Life Balance, PLLC sees patients from {town.name} and across {town.county} for Suboxone
+                        and the psychiatric care that usually sits underneath the substance use.
                     </p>
                     <p className="text-lg text-slate-600 leading-relaxed">
                         We are roughly {town.distanceMin} minutes from {town.name}. Same-week appointments are usually
@@ -65,7 +65,7 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                 <div className="max-w-4xl mx-auto px-6">
                     <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">One &mdash; the medicine</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight max-w-2xl">
-                        Suboxone &amp; Sublocade for {town.name} patients.
+                        Suboxone for {town.name} patients.
                     </h2>
                     <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">
                         Casey Hester, PMHNP-BC, is board-certified in psychiatric mental health and prescribes
@@ -82,14 +82,6 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                             </p>
                         </div>
                         <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-2">Sublocade (extended-release buprenorphine).</h3>
-                            <p className="text-slate-700 text-lg leading-relaxed">
-                                A monthly injection &mdash; same medicine, no daily film. For patients who want fewer
-                                touchpoints with their addiction or have struggled with adherence on the daily form.
-                                We'll talk about which fits you.
-                            </p>
-                        </div>
-                        <div>
                             <h3 className="font-serif text-2xl text-slate-900 mb-2">42 CFR Part 2 confidentiality.</h3>
                             <p className="text-slate-700 text-lg leading-relaxed">
                                 Substance use treatment records are protected by a federal rule stricter than standard
@@ -103,7 +95,7 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                                     to="/suboxone-doctor-oxford-ms"
                                     className="inline-flex items-center gap-2 text-teal-700 font-semibold text-lg hover:text-teal-800 underline decoration-1 underline-offset-4"
                                 >
-                                    Read the full Suboxone &amp; Sublocade walkthrough &rarr;
+                                    Read the full Suboxone walkthrough &rarr;
                                 </Link>
                             </div>
                             <div>
@@ -242,12 +234,11 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                     {
                         q: 'Will my insurance cover Suboxone?',
                         aText:
-                            'Generic buprenorphine/naloxone is on almost every commercial and Medicaid formulary. Sublocade is covered under most plans with prior authorization, which we handle. Self-pay pricing is also available.',
+                            'Generic buprenorphine/naloxone is on almost every commercial and Medicaid formulary. Self-pay pricing is also available.',
                         a: (
                             <>
                                 Generic buprenorphine/naloxone is on almost every commercial and Medicaid formulary.
-                                <strong> Sublocade</strong> is covered under most plans with prior authorization, which
-                                we handle. Self-pay pricing is also available.
+                                Self-pay pricing is also available.
                             </>
                         ),
                     },

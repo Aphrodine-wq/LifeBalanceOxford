@@ -50,7 +50,7 @@ const OleMissSuboxone: React.FC = () => {
                         notification.
                     </p>
                     <p className="text-lg text-slate-600 leading-relaxed mb-5">
-                        For a lot of students who land here, the medicine they need — buprenorphine, Sublocade,
+                        For a lot of students who land here, the medicine they need — buprenorphine,
                         psychiatric medication management for ADHD or anxiety, treatment for what started as Adderall
                         and turned into something else — is the kind of care that needs continuity, dose adjustments
                         across a semester, and the privacy of a small office that does not share a database with the
@@ -260,65 +260,10 @@ const OleMissSuboxone: React.FC = () => {
 
             <WaveRule className="text-slate-300 w-40 mx-auto my-4" />
 
-            {/* The medicines — for student lifestyle */}
-            <section className="py-20 bg-[#faf7f1]">
-                <div className="max-w-5xl mx-auto px-6">
-                    <div className="flex items-start gap-8 mb-10">
-                        <PillSketch className="hidden md:block text-slate-900 w-24 flex-shrink-0 mt-2" />
-                        <div>
-                            <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Five — film or shot</p>
-                            <h2 className="font-serif text-4xl text-slate-900 mb-4 leading-tight">
-                                The medicine, mapped to a student's actual life.
-                            </h2>
-                            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                                Both work. The choice is usually about the rhythm of your week, the privacy of your
-                                living situation, and whether you travel a lot.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:pl-32">
-                        <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Suboxone film</h3>
-                            <p className="text-sm text-slate-500 mb-5 italic">Daily, dissolved under the tongue</p>
-                            <div className="border-l-2 border-gold-accent pl-5 space-y-3 text-slate-700 leading-relaxed">
-                                <p>
-                                    Small. Fits in a wallet. Most students keep theirs in a locked drawer in their dorm
-                                    or apartment. Cash price is lower than the shot, and most parent insurance plans
-                                    cover the generic without argument.
-                                </p>
-                                <p>
-                                    Best for students with a steady week — same wake-up, same routine. The tradeoff is
-                                    that missing a dose tends to bring cravings back the same day, and you have to
-                                    store it carefully if there are roommates around.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Sublocade injection</h3>
-                            <p className="text-sm text-slate-500 mb-5 italic">Monthly, in our office</p>
-                            <div className="border-l-2 border-gold-accent pl-5 space-y-3 text-slate-700 leading-relaxed">
-                                <p>
-                                    One shot in our office, once a month. Nothing in your dorm. Nothing in your
-                                    suitcase over spring break or summer. Nothing to forget during finals week. A lot
-                                    of students prefer this because the daily decision goes away.
-                                </p>
-                                <p>
-                                    The tradeoff: you need to be stabilized on Suboxone for at least a week first, and
-                                    insurance usually requires a prior authorization, which we handle. We'll plan it
-                                    around your semester calendar.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Schedule realities */}
             <section className="py-20">
                 <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Six — fitting it into the week</p>
+                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Five — fitting it into the week</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
                         Between classes. Between practices. Over breaks.
                     </h2>
@@ -334,8 +279,8 @@ const OleMissSuboxone: React.FC = () => {
                     <p className="text-lg text-slate-700 leading-relaxed mb-5">
                         <span className="font-semibold text-slate-900">Over fall break, Thanksgiving, winter break, and
                         spring break,</span> if you're going home in Mississippi, telehealth keeps your continuity from
-                        wherever you are in state. If you're going out of state, we plan ahead — Sublocade timing,
-                        prescription length, and a refill plan that doesn't leave you empty in another time zone.
+                        wherever you are in state. If you're going out of state, we plan ahead — prescription length
+                        and a refill plan that doesn't leave you empty in another time zone.
                     </p>
                     <p className="text-lg text-slate-700 leading-relaxed">
                         <span className="font-semibold text-slate-900">Over summer,</span> if you're back home in
@@ -350,8 +295,8 @@ const OleMissSuboxone: React.FC = () => {
                 <div className="max-w-3xl mx-auto px-6 text-center">
                     <PathSketch className="text-slate-400 w-60 mx-auto mb-8" />
                     <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                        For the deeper walk through Suboxone itself — what it does, the induction protocol, side
-                        effects, and the choice between film and Sublocade — start here.
+                        For the deeper walk through Suboxone itself — what it does, the induction protocol, and side
+                        effects — start here.
                     </p>
                     <Link
                         to="/suboxone-doctor-oxford-ms"

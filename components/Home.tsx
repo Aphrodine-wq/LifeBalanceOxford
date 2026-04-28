@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   usePageMeta({
     title: 'Psychiatric Services in Oxford, MS',
-    description: 'Life Balance Psychiatric Services in Oxford, MS — psychiatric evaluations, medication management, addiction treatment (Suboxone & Sublocade), and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
+    description: 'Life Balance Psychiatric Services in Oxford, MS — psychiatric evaluations, medication management, addiction treatment (Suboxone), and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
     keywords: [
       'psychiatrist Oxford MS',
       'psychiatric services Oxford Mississippi',
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
               each individual's unique needs. Our care goes beyond prescriptions — we take the
               time to understand your story and create a treatment plan that supports your long-term
               well-being. From personalized medication management to Medication-Assisted Treatment
-              (MAT) with Suboxone and Sublocade for those on their recovery journey, our goal is
+              (MAT) with Suboxone for those on their recovery journey, our goal is
               to help every patient achieve stability and lasting balance. We also provide psychiatric
               evaluations, ongoing supportive care, and proactive treatment options that promote
               overall mental and emotional wellness.
@@ -165,7 +165,7 @@ const Home: React.FC = () => {
                   No rotating faces. No fifteen-minute refills. No judgment.
                 </p>
                 <p>
-                  Medication-assisted treatment with Suboxone or Sublocade is the backbone for most
+                  Medication-assisted treatment with Suboxone is the backbone for most
                   of our addiction patients. Combined with real psychiatric care for what's
                   underneath, it's the difference between a prescription and a recovery that
                   actually holds.
@@ -189,7 +189,7 @@ const Home: React.FC = () => {
 
                 <Link to="/suboxone-doctor-oxford-ms" className="block group md:pl-6">
                   <span className="block font-serif text-xl text-white group-hover:text-gold-accent transition-colors">
-                    Suboxone &amp; Sublocade →
+                    Suboxone treatment →
                   </span>
                   <span className="block text-sm text-cream/70 mt-1 leading-relaxed">
                     How Suboxone works, the induction day walkthrough, side effects, cost
@@ -329,7 +329,7 @@ const Home: React.FC = () => {
           {
             q: 'What services do you offer?',
             aText:
-              'Psychiatric evaluations, medication management for anxiety, depression, bipolar disorder, and ADHD, GeneSight genetic testing, ADHD assessment coordination, and medication-assisted treatment (Suboxone and Sublocade) for opioid use disorder.',
+              'Psychiatric evaluations, medication management for anxiety, depression, bipolar disorder, and ADHD, GeneSight genetic testing, ADHD assessment coordination, and medication-assisted treatment (Suboxone) for opioid use disorder.',
             a: (
               <>
                 Psychiatric evaluations, medication management for anxiety, depression, bipolar disorder, and ADHD;
@@ -338,19 +338,19 @@ const Home: React.FC = () => {
                 <Link to="/addiction-treatment-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
                   addiction treatment
                 </Link>{' '}
-                with Suboxone and Sublocade.
+                with Suboxone.
               </>
             ),
           },
           {
             q: 'Do you prescribe Suboxone?',
             aText:
-              'Yes. Casey Hester, PMHNP-BC, prescribes Suboxone (buprenorphine/naloxone) and Sublocade (monthly buprenorphine injection) for opioid use disorder, combined with ongoing psychiatric care.',
+              'Yes. Casey Hester, PMHNP-BC, prescribes Suboxone (buprenorphine/naloxone) for opioid use disorder, combined with ongoing psychiatric care.',
             a: (
               <>
-                Yes — Casey prescribes both{' '}
+                Yes — Casey prescribes{' '}
                 <Link to="/suboxone-doctor-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
-                  Suboxone and Sublocade
+                  Suboxone
                 </Link>{' '}
                 for opioid use disorder, combined with ongoing psychiatric care in the same visit.
               </>

@@ -30,12 +30,11 @@ function buildTownMeta(slug, name, county) {
         [path]: {
             title: `Suboxone Doctor in ${name}, MS`,
             description:
-                `Suboxone & Sublocade treatment for ${name}, Mississippi residents — medication-assisted treatment (MAT) for opioid use disorder from a board-certified psychiatric provider. Same-week appointments at Life Balance, PLLC in Oxford. 42 CFR Part 2 confidentiality. Call (662) 640-4004.`,
+                `Suboxone treatment for ${name}, Mississippi residents — medication-assisted treatment (MAT) for opioid use disorder from a board-certified psychiatric provider. Same-week appointments at Life Balance, PLLC in Oxford. 42 CFR Part 2 confidentiality. Call (662) 640-4004.`,
             path,
             keywords: [
                 `Suboxone doctor ${name} MS`,
                 `Suboxone clinic ${name} Mississippi`,
-                `Sublocade ${name} MS`,
                 `buprenorphine prescriber ${name}`,
                 `MAT clinic ${name} Mississippi`,
                 `medication-assisted treatment ${name} MS`,
@@ -60,7 +59,6 @@ function buildTownMeta(slug, name, county) {
                 isPartOf: websiteRef,
                 about: [
                     { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
-                    { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
                     { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
                     { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
                     { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
@@ -89,12 +87,11 @@ export const pageMeta = {
     '/addiction-treatment-oxford-ms': {
         title: 'Addiction Treatment in Oxford, MS — Suboxone & MAT',
         description:
-            'Outpatient addiction treatment in Oxford, Mississippi — Suboxone, Sublocade, and MAT for opioid use disorder, plus care for alcohol use disorder. Board-certified psychiatric provider, same-week appointments, 42 CFR Part 2 confidentiality. Call (662) 640-4004.',
+            'Outpatient addiction treatment in Oxford, Mississippi — Suboxone and MAT for opioid use disorder, plus care for alcohol use disorder. Board-certified psychiatric provider, same-week appointments, 42 CFR Part 2 confidentiality. Call (662) 640-4004.',
         path: '/addiction-treatment-oxford-ms',
         keywords: [
             'addiction treatment Oxford MS',
             'Suboxone Oxford MS',
-            'Sublocade Oxford Mississippi',
             'MAT program Oxford MS',
             'medication-assisted treatment Oxford',
             'opioid use disorder Oxford Mississippi',
@@ -135,12 +132,11 @@ export const pageMeta = {
     '/suboxone-doctor-oxford-ms': {
         title: 'Suboxone Doctor in Oxford, MS',
         description:
-            'Suboxone & Sublocade treatment for opioid use disorder in Oxford, Mississippi. Same-day induction available. Medication-assisted treatment (MAT) and buprenorphine prescribing from a board-certified psychiatric provider. 42 CFR Part 2 confidentiality. Same-week appointments. Call (662) 640-4004.',
+            'Suboxone treatment for opioid use disorder in Oxford, Mississippi. Same-day induction available. Medication-assisted treatment (MAT) and buprenorphine prescribing from a board-certified psychiatric provider. 42 CFR Part 2 confidentiality. Same-week appointments. Call (662) 640-4004.',
         path: '/suboxone-doctor-oxford-ms',
         keywords: [
             'Suboxone doctor Oxford MS',
             'Suboxone clinic Oxford Mississippi',
-            'Sublocade Oxford MS',
             'buprenorphine prescriber Oxford',
             'MAT clinic Oxford MS',
             'medication-assisted treatment Oxford',
@@ -167,7 +163,6 @@ export const pageMeta = {
             isPartOf: websiteRef,
             about: [
                 { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
-                { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
                 { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
             ],
@@ -181,74 +176,18 @@ export const pageMeta = {
         },
     },
 
-    '/sublocade-doctor-oxford-ms': {
-        title: 'Sublocade Doctor in Oxford, MS — Monthly Buprenorphine Injection',
-        description:
-            'Monthly Sublocade injection for opioid use disorder in Oxford, Mississippi. Extended-release buprenorphine, prior auth handled, BCBS / Medicaid / Magnolia covered. One shot a month, no daily dose. Same-week appointments. Call (662) 640-4004.',
-        path: '/sublocade-doctor-oxford-ms',
-        keywords: [
-            'Sublocade doctor Oxford MS',
-            'Sublocade injection Mississippi',
-            'monthly buprenorphine shot Mississippi',
-            'extended-release buprenorphine Oxford',
-            'Sublocade clinic North Mississippi',
-            'monthly Suboxone shot Oxford',
-            'Sublocade prior authorization Mississippi',
-            'Sublocade BCBS Mississippi',
-            'inSupport Sublocade Mississippi',
-            'depot buprenorphine North MS',
-        ],
-        breadcrumbs: [
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
-            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
-            { name: 'Sublocade Injection', path: '/sublocade-doctor-oxford-ms' },
-        ],
-        jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'MedicalWebPage',
-            '@id': `${SITE_URL}/sublocade-doctor-oxford-ms#page`,
-            name: 'Sublocade Doctor in Oxford, MS',
-            url: `${SITE_URL}/sublocade-doctor-oxford-ms`,
-            inLanguage: 'en-US',
-            isPartOf: websiteRef,
-            about: [
-                { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
-                { '@type': 'Drug', name: 'Buprenorphine' },
-                { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
-                { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
-            ],
-            audience: medicalAudience('North Mississippi'),
-            author: caseyRef,
-            reviewedBy: caseyRef,
-            publisher: businessRef,
-            lastReviewed: '2026-04-28',
-            dateModified: '2026-04-28',
-            speakable,
-            availableService: {
-                '@type': 'MedicalProcedure',
-                name: 'Sublocade Injection',
-                procedureType: 'Pharmacological',
-                bodyLocation: 'Abdomen',
-                preparation: 'Stable on transmucosal buprenorphine for at least 7 days',
-            },
-        },
-    },
-
     '/blue-cross-suboxone-mississippi': {
         title: 'Blue Cross Blue Shield Suboxone Coverage — Mississippi',
         description:
-            'BCBS Mississippi and out-of-state Blue Cross plans cover Suboxone, Sublocade, and MAT visits at Life Balance, PLLC in Oxford. In-network, telehealth-eligible, prior auth handled. Honest details on copays, EOBs, and self-pay alternatives. Call (662) 640-4004.',
+            'BCBS Mississippi and out-of-state Blue Cross plans cover Suboxone and MAT visits at Life Balance, PLLC in Oxford. In-network, telehealth-eligible, prior auth handled. Honest details on copays, EOBs, and self-pay alternatives. Call (662) 640-4004.',
         path: '/blue-cross-suboxone-mississippi',
         keywords: [
             'BCBS Suboxone Mississippi',
             'Blue Cross Suboxone Oxford MS',
             'BCBS Mississippi MAT coverage',
-            'Blue Cross Blue Shield Sublocade Mississippi',
             'BCBS in network Suboxone Oxford',
             'BlueCard Suboxone Mississippi',
             'BCBS telehealth Suboxone Mississippi',
-            'BCBS Mississippi prior authorization Sublocade',
             'BCBS FEP Suboxone Mississippi',
             'Anthem BCBS Suboxone Mississippi',
         ],
@@ -268,7 +207,6 @@ export const pageMeta = {
             isPartOf: websiteRef,
             about: [
                 { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
-                { '@type': 'Drug', name: 'Sublocade' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
                 { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
                 { '@type': 'Organization', name: 'Blue Cross Blue Shield of Mississippi' },
@@ -333,7 +271,7 @@ export const pageMeta = {
     '/fentanyl-addiction-treatment-mississippi': {
         title: 'Fentanyl Addiction Treatment in Mississippi',
         description:
-            'Fentanyl-specific Suboxone and Sublocade induction protocols — including the Bernese microdosing method — at Life Balance, PLLC in Oxford, Mississippi. Same-week start, telehealth statewide, harm reduction guidance. Call (662) 640-4004.',
+            'Fentanyl-specific Suboxone induction protocols — including the Bernese microdosing method — at Life Balance, PLLC in Oxford, Mississippi. Same-week start, telehealth statewide, harm reduction guidance. Call (662) 640-4004.',
         path: '/fentanyl-addiction-treatment-mississippi',
         keywords: [
             'fentanyl addiction treatment Mississippi',
@@ -341,7 +279,6 @@ export const pageMeta = {
             'Bernese microdosing Mississippi',
             'fentanyl buprenorphine protocol MS',
             'fentanyl detox Oxford Mississippi',
-            'fentanyl Sublocade Mississippi',
             'fentanyl rehab North Mississippi',
             'fentanyl withdrawal treatment Oxford',
             'fentanyl test strips Mississippi',
@@ -364,7 +301,6 @@ export const pageMeta = {
             about: [
                 { '@type': 'Drug', name: 'Fentanyl' },
                 { '@type': 'Drug', name: 'Buprenorphine' },
-                { '@type': 'Drug', name: 'Sublocade' },
                 { '@type': 'Drug', name: 'Naloxone', alternateName: 'Narcan' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
                 { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
@@ -439,7 +375,7 @@ export const pageMeta = {
     '/ole-miss-suboxone-doctor': {
         title: 'Private Suboxone Doctor Near Ole Miss — North Mississippi',
         description:
-            'Private Suboxone, Sublocade, and psychiatric care for the Ole Miss community — students, graduate students, faculty, and staff — and patients across North Mississippi. 42 CFR Part 2 confidentiality, same-week appointments, a mile and a half from campus. Call (662) 640-4004.',
+            'Private Suboxone and psychiatric care for the Ole Miss community — students, graduate students, faculty, and staff — and patients across North Mississippi. 42 CFR Part 2 confidentiality, same-week appointments, a mile and a half from campus. Call (662) 640-4004.',
         path: '/ole-miss-suboxone-doctor',
         keywords: [
             'Ole Miss Suboxone doctor',
@@ -472,7 +408,6 @@ export const pageMeta = {
             isPartOf: websiteRef,
             about: [
                 { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
-                { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
                 { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
                 { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
                 { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
@@ -589,7 +524,7 @@ export const pageMeta = {
     '/mat-program': {
         title: 'Medication-Assisted Treatment (MAT) Program',
         description:
-            'Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone and Sublocade combined with counseling, medication management for co-occurring conditions, and long-term recovery support. Private, respectful, judgment-free. Call (662) 640-4004.',
+            'Medication-Assisted Treatment for opioid dependence in Oxford, MS. Suboxone combined with counseling, medication management for co-occurring conditions, and long-term recovery support. Private, respectful, judgment-free. Call (662) 640-4004.',
         path: '/mat-program',
         keywords: [
             'MAT program Oxford MS',

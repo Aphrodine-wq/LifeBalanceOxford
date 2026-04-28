@@ -73,8 +73,8 @@ const AddictionTreatment: React.FC = () => {
                         <div>
                             <h3 className="font-serif text-2xl text-slate-900 mb-2">Opioid use disorder.</h3>
                             <p className="text-slate-700 text-lg leading-relaxed">
-                                Prescription opioids, heroin, fentanyl. Most of our patients start on Suboxone or
-                                Sublocade, sometimes after a rough first try somewhere else. Cravings stop, withdrawal
+                                Prescription opioids, heroin, fentanyl. Most of our patients start on Suboxone,
+                                sometimes after a rough first try somewhere else. Cravings stop, withdrawal
                                 stops, and the constant noise in your head finally quiets.
                             </p>
                         </div>
@@ -255,7 +255,7 @@ const AddictionTreatment: React.FC = () => {
                                 Most common path for opioid use disorder
                             </p>
                             <p className="text-slate-700 leading-relaxed">
-                                Suboxone or Sublocade — both forms of buprenorphine. Cravings stop. Withdrawal stops.
+                                Suboxone — buprenorphine/naloxone. Cravings stop. Withdrawal stops.
                                 Your brain chemistry lands back on level ground so the rest of the work can happen.
                             </p>
                             <div className="flex flex-wrap gap-5 mt-4">

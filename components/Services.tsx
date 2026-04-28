@@ -13,7 +13,7 @@ type Service = {
 const Services: React.FC = () => {
   usePageMeta({
     title: 'Services',
-    description: 'Psychiatric evaluations, medication management, addiction treatment, Suboxone and Sublocade prescribing, GeneSight testing, and ADHD assessment coordination at Life Balance in Oxford, MS.',
+    description: 'Psychiatric evaluations, medication management, addiction treatment, Suboxone prescribing, GeneSight testing, and ADHD assessment coordination at Life Balance in Oxford, MS.',
     keywords: [
       'psychiatric services Oxford MS',
       'medication management Oxford Mississippi',
@@ -46,7 +46,7 @@ const Services: React.FC = () => {
       tag: 'Recovery',
       primary: { label: 'Our addiction treatment approach', to: '/addiction-treatment-oxford-ms' },
       secondary: [
-        { label: 'Suboxone & Sublocade treatment', to: '/suboxone-doctor-oxford-ms' },
+        { label: 'Suboxone treatment', to: '/suboxone-doctor-oxford-ms' },
         { label: 'MAT program detail', to: '/mat-program' },
       ],
     },

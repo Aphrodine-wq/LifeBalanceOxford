@@ -22,7 +22,7 @@ const SuboxoneDoctor: React.FC = () => {
                         <span className="text-gold-accent italic font-normal">Start getting your life back.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
-                        Suboxone and Sublocade treatment with a board-certified psychiatric provider who actually sits
+                        Suboxone treatment with a board-certified psychiatric provider who actually sits
                         with you, answers the question you're too embarrassed to ask, and gives recovery the time it
                         deserves.
                     </p>
@@ -81,11 +81,6 @@ const SuboxoneDoctor: React.FC = () => {
                             stops, the restlessness quiets, the cold panic of being <em>dope sick</em> turns off. You do
                             not get high. You just feel like a person again. For a lot of patients it is the first time
                             in a long time that the constant static in their head goes silent.
-                        </p>
-                        <p>
-                            For people who would rather not think about a daily film, there is <span className="font-semibold text-slate-900">Sublocade</span> —
-                            an extended-release buprenorphine shot given once a month. Same medicine, different
-                            delivery. We'll talk about which fits you.
                         </p>
                     </div>
                 </div>
@@ -232,63 +227,12 @@ const SuboxoneDoctor: React.FC = () => {
                 </div>
             </section>
 
-            {/* Suboxone vs Sublocade — side-by-side editorial */}
-            <section className="py-20">
-                <div className="max-w-5xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Four — the choice</p>
-                    <h2 className="font-serif text-4xl text-slate-900 mb-4 leading-tight">
-                        Film or injection?
-                    </h2>
-                    <p className="text-lg text-slate-600 max-w-2xl leading-relaxed mb-14">
-                        Most people start on the film while we dial in the dose, then switch to the monthly shot once
-                        stable — <em>if</em> it fits their life better. Neither is the "right" answer. Here's how to
-                        think about it.
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-                        <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Suboxone film</h3>
-                            <p className="text-sm text-slate-500 mb-5 italic">Buprenorphine + naloxone, taken daily</p>
-                            <div className="border-l-2 border-gold-accent pl-5 space-y-3 text-slate-700 leading-relaxed">
-                                <p>
-                                    Taken under the tongue once a day. Dose is easy to adjust week to week, cash price
-                                    is lower if you're self-paying, and most insurance plans cover the generic without
-                                    argument.
-                                </p>
-                                <p>
-                                    It works best for patients who can keep a daily rhythm. The tradeoff is that you
-                                    have to store it carefully — a single film can be dangerous to a child or pet — and
-                                    missing a dose tends to bring cravings back the same day.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="font-serif text-2xl text-slate-900 mb-1">Sublocade injection</h3>
-                            <p className="text-sm text-slate-500 mb-5 italic">Extended-release buprenorphine, monthly</p>
-                            <div className="border-l-2 border-gold-accent pl-5 space-y-3 text-slate-700 leading-relaxed">
-                                <p>
-                                    One shot in our office, once a month. Nothing to remember, nothing to store, nothing
-                                    sitting in a medicine cabinet. Blood levels stay steady — no peaks or troughs — and
-                                    a lot of patients say this is when recovery stopped feeling like a daily task.
-                                </p>
-                                <p>
-                                    The tradeoff: you need to be stabilized on Suboxone first, usually a week or more,
-                                    and it's harder to adjust mid-month if the dose isn't right. Insurance usually
-                                    covers it with a prior authorization — we handle the paperwork.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <WaveRule className="text-slate-300 w-40 mx-auto my-4" />
 
             {/* Side effects — editorial, three short sections */}
             <section className="py-20 bg-[#faf7f1]">
                 <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Five — the side effects</p>
+                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Four — the side effects</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
                         What's common, what's not, what's worth a phone call.
                     </h2>
@@ -333,19 +277,17 @@ const SuboxoneDoctor: React.FC = () => {
             {/* Cost — editorial prose, no cards */}
             <section className="py-20">
                 <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Six — the money</p>
+                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Five — the money</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
                         What will this actually cost?
                     </h2>
                     <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                        The honest answer is: it depends on whether you have insurance, what kind, what dose you land
-                        on, and whether you pick the film or the shot. That's not a dodge — it's just the truth.
-                        Here's the range.
+                        The honest answer is: it depends on whether you have insurance, what kind, and what dose you
+                        land on. That's not a dodge — it's just the truth. Here's the range.
                     </p>
                     <p className="text-lg text-slate-700 leading-relaxed mb-5">
                         <span className="font-semibold text-slate-900">With insurance,</span> visits are usually covered
                         at your normal specialist copay. Generic buprenorphine/naloxone is on almost every formulary.
-                        Sublocade often needs a prior auth, which we handle.
                     </p>
                     <p className="text-lg text-slate-700 leading-relaxed mb-5">
                         <span className="font-semibold text-slate-900">Self-pay,</span> we keep it simple. Kim will
@@ -368,7 +310,7 @@ const SuboxoneDoctor: React.FC = () => {
                     <div className="flex items-start gap-10 mb-10">
                         <HandSketch className="hidden md:block text-slate-900 w-20 flex-shrink-0 mt-1" />
                         <div>
-                            <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Seven — staying safe</p>
+                            <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Six — staying safe</p>
                             <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight max-w-2xl">
                                 A few things we'll tell you on day one, and keep telling you.
                             </h2>
@@ -418,7 +360,7 @@ const SuboxoneDoctor: React.FC = () => {
             {/* FAQ — long-form Q&A typography */}
             <section className="py-20">
                 <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Eight — the questions people ask</p>
+                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Seven — the questions people ask</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-12 leading-tight">
                         The questions we hear most, answered plainly.
                     </h2>
@@ -470,7 +412,7 @@ const SuboxoneDoctor: React.FC = () => {
                             <p className="text-slate-700 leading-relaxed">
                                 Take it as soon as you remember that day. If it's close to your next scheduled dose,
                                 skip the missed one — don't double up. If you're missing doses regularly, tell us so
-                                we can problem-solve, or we move you to Sublocade.
+                                we can problem-solve.
                             </p>
                         </div>
                         <div>
@@ -498,7 +440,7 @@ const SuboxoneDoctor: React.FC = () => {
             {/* First visit checklist — looser, not bullet cards */}
             <section className="py-20 bg-[#faf7f1]">
                 <div className="max-w-3xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Nine — the first visit</p>
+                    <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Eight — the first visit</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight">
                         What to bring. What not to stress about.
                     </h2>
@@ -572,24 +514,12 @@ const SuboxoneDoctor: React.FC = () => {
                     {
                         q: 'Is Suboxone just trading one addiction for another?',
                         aText:
-                            'No. Buprenorphine, the active ingredient in Suboxone and Sublocade, occupies opioid receptors without producing the euphoria that drives addictive use. SAMHSA, ASAM, the CDC, and the WHO all recognize medication-assisted treatment as a standard of care for opioid use disorder.',
+                            'No. Buprenorphine, the active ingredient in Suboxone, occupies opioid receptors without producing the euphoria that drives addictive use. SAMHSA, ASAM, the CDC, and the WHO all recognize medication-assisted treatment as a standard of care for opioid use disorder.',
                         a: (
                             <>
                                 No. Buprenorphine occupies opioid receptors without producing the euphoria that drives addictive
                                 use. <strong>SAMHSA, ASAM, the CDC, and the WHO</strong> all recognize medication-assisted
                                 treatment as a standard of care for opioid use disorder.
-                            </>
-                        ),
-                    },
-                    {
-                        q: 'What is the difference between Suboxone and Sublocade?',
-                        aText:
-                            'Both contain buprenorphine. Suboxone is a daily dissolvable film taken under the tongue. Sublocade is a monthly injection of extended-release buprenorphine, usually given in the office. Same medicine, different delivery.',
-                        a: (
-                            <>
-                                Both contain buprenorphine. <strong>Suboxone</strong> is a daily film under the tongue.{' '}
-                                <strong>Sublocade</strong> is a monthly injection of extended-release buprenorphine given in the
-                                office. Same medicine, different delivery. We'll talk about which fits you.
                             </>
                         ),
                     },
@@ -619,12 +549,11 @@ const SuboxoneDoctor: React.FC = () => {
                     {
                         q: 'Will insurance cover Suboxone?',
                         aText:
-                            'Most insurance plans cover generic buprenorphine/naloxone without argument. Sublocade often requires a prior authorization, which our office handles. Visits are usually covered at your normal specialist copay. Self-pay pricing is also available.',
+                            'Most insurance plans cover generic buprenorphine/naloxone without argument. Visits are usually covered at your normal specialist copay. Self-pay pricing is also available.',
                         a: (
                             <>
-                                Most plans cover generic buprenorphine/naloxone without argument. <strong>Sublocade</strong> often
-                                needs a prior auth, which our office handles. Visits are usually at your specialist copay. Self-pay
-                                pricing is available.
+                                Most plans cover generic buprenorphine/naloxone without argument. Visits are usually at your
+                                specialist copay. Self-pay pricing is available.
                             </>
                         ),
                     },
