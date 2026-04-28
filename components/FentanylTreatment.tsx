@@ -11,23 +11,23 @@ const FentanylTreatment: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener — stark, harm reduction */}
-            <section className="bg-[#0e1311] pt-20 pb-24 border-b border-amber-500/30">
+            {/* Opener — restrained editorial, harm reduction */}
+            <section className="bg-dark-green pt-20 pb-24">
                 <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-xs tracking-[0.25em] uppercase text-amber-400 mb-8 flex items-center gap-3">
-                        <span className="w-8 h-px bg-amber-400"></span>
+                    <p className="text-xs tracking-[0.25em] uppercase text-gold-accent mb-10 flex items-center gap-3">
+                        <span className="w-8 h-px bg-gold-accent"></span>
                         Fentanyl Addiction Treatment &middot; Mississippi
                     </p>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
                         Fentanyl is a different problem. The medicine is the same.
                     </h1>
-                    <p className="text-xl text-slate-300 max-w-2xl leading-relaxed mb-10">
+                    <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
                         Buprenorphine works for fentanyl-driven opioid use disorder — but the induction timing and
                         microdosing protocol are not the same as for heroin or pills. We treat
                         what's actually in front of us.
                     </p>
-                    <div className="flex flex-wrap items-center gap-5 text-slate-200">
-                        <a href="tel:6626404004" className="text-lg underline decoration-amber-400 decoration-2 underline-offset-[6px] hover:text-white transition-colors">
+                    <div className="pt-6 border-t border-white/15 flex flex-wrap items-center gap-5 text-cream">
+                        <a href="tel:6626404004" className="text-lg underline decoration-[#c8b560] decoration-2 underline-offset-[6px] hover:text-white transition-colors">
                             Call (662) 640-4004
                         </a>
                         <span className="opacity-50">·</span>

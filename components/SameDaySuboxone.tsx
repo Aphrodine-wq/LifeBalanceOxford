@@ -11,11 +11,11 @@ const SameDaySuboxone: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener — urgent, today */}
+            {/* Opener — urgent, on-brand */}
             <section className="bg-dark-green pt-20 pb-24">
                 <div className="max-w-4xl mx-auto px-6">
-                    <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-red-600 text-white text-xs tracking-[0.25em] uppercase font-semibold rounded-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-gold-accent text-[#3d5a4c] text-xs tracking-[0.25em] uppercase font-semibold rounded-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#3d5a4c] animate-pulse"></span>
                         Today
                     </div>
                     <p className="text-sm tracking-widest uppercase text-cream/70 mb-6">
@@ -23,7 +23,7 @@ const SameDaySuboxone: React.FC = () => {
                     </p>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
                         You don't have to wait two weeks to start.<br />
-                        <span className="text-red-400 italic font-normal">Most days, we can see you today.</span>
+                        <span className="text-gold-accent italic font-normal">Most days, we can see you today.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
                         If you are in withdrawal — or about to be — call us. Same-day and next-day Suboxone induction is
@@ -31,7 +31,7 @@ const SameDaySuboxone: React.FC = () => {
                     </p>
                     <a
                         href="tel:6626404004"
-                        className="inline-flex items-center gap-3 px-7 py-4 bg-red-600 hover:bg-red-700 text-white font-serif text-xl rounded-sm transition-colors"
+                        className="inline-flex items-center gap-3 px-7 py-4 bg-gold-accent hover:bg-[#b8a554] text-[#3d5a4c] font-serif text-xl rounded-sm transition-colors"
                     >
                         Call (662) 640-4004 now
                     </a>
