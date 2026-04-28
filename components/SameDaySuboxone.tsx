@@ -11,24 +11,30 @@ const SameDaySuboxone: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
+            {/* Opener — urgent, today */}
             <section className="bg-dark-green pt-20 pb-24">
                 <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-6">
+                    <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-red-600 text-white text-xs tracking-[0.25em] uppercase font-semibold rounded-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                        Today
+                    </div>
+                    <p className="text-sm tracking-widest uppercase text-cream/70 mb-6">
                         Same-Day Suboxone &nbsp;·&nbsp; Oxford &amp; North Mississippi
                     </p>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
                         You don't have to wait two weeks to start.<br />
-                        <span className="text-gold-accent italic font-normal">Most days, we can see you today.</span>
+                        <span className="text-red-400 italic font-normal">Most days, we can see you today.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
                         If you are in withdrawal — or about to be — call us. Same-day and next-day Suboxone induction is
                         the rule, not the exception, at Life Balance in Oxford.
                     </p>
-                    <div className="flex flex-wrap items-center gap-5 text-cream">
-                        <a href="tel:6626404004" className="text-lg underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-white transition-colors">
-                            Call (662) 640-4004 now
-                        </a>
-                    </div>
+                    <a
+                        href="tel:6626404004"
+                        className="inline-flex items-center gap-3 px-7 py-4 bg-red-600 hover:bg-red-700 text-white font-serif text-xl rounded-sm transition-colors"
+                    >
+                        Call (662) 640-4004 now
+                    </a>
                 </div>
             </section>
 

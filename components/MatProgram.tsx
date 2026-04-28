@@ -11,21 +11,40 @@ const MatProgram: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener */}
+            {/* Opener — two-column meta + headline */}
             <section className="bg-dark-green pt-20 pb-24">
-                <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-6">
-                        Medication-Assisted Treatment &nbsp;·&nbsp; Oxford, MS
-                    </p>
-                    <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
-                        Recovery is a relationship,<br />
-                        <span className="text-gold-accent italic font-normal">not a prescription pad.</span>
-                    </h1>
-                    <p className="text-xl text-cream max-w-2xl leading-relaxed">
-                        Suboxone combined with real psychiatric care — for the anxiety, depression, and
-                        trauma that often sit underneath. Same provider, every visit. Private, respectful,
-                        judgment-free.
-                    </p>
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+                        <div className="md:col-span-4 space-y-6 md:border-r md:border-white/15 md:pr-10">
+                            <div>
+                                <p className="text-xs tracking-[0.25em] uppercase text-gold-accent mb-2">Program</p>
+                                <p className="font-serif text-2xl text-white leading-tight">Medication-Assisted Treatment</p>
+                            </div>
+                            <div>
+                                <p className="text-xs tracking-[0.25em] uppercase text-gold-accent mb-2">Medication</p>
+                                <p className="text-cream text-base leading-relaxed">Buprenorphine — Suboxone</p>
+                            </div>
+                            <div>
+                                <p className="text-xs tracking-[0.25em] uppercase text-gold-accent mb-2">Provider</p>
+                                <p className="text-cream text-base leading-relaxed">Casey Hester, PMHNP-BC</p>
+                            </div>
+                            <div>
+                                <p className="text-xs tracking-[0.25em] uppercase text-gold-accent mb-2">Confidentiality</p>
+                                <p className="text-cream text-base leading-relaxed">42 CFR Part 2 protected</p>
+                            </div>
+                        </div>
+                        <div className="md:col-span-8">
+                            <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8">
+                                Recovery is a relationship,<br />
+                                <span className="text-gold-accent italic font-normal">not a prescription pad.</span>
+                            </h1>
+                            <p className="text-xl text-cream max-w-2xl leading-relaxed">
+                                Suboxone combined with real psychiatric care — for the anxiety, depression, and
+                                trauma that often sit underneath. Same provider, every visit. Private, respectful,
+                                judgment-free.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

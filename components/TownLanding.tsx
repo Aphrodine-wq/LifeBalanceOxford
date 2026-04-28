@@ -15,10 +15,10 @@ const TownLanding: React.FC<Props> = ({ town }) => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener — Suboxone-led */}
+            {/* Opener — town-specific data row */}
             <section className="bg-dark-green pt-20 pb-24">
-                <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-6">
+                <div className="max-w-5xl mx-auto px-6">
+                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-10">
                         Suboxone Doctor &nbsp;·&nbsp; {town.fullName}
                     </p>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
@@ -27,11 +27,29 @@ const TownLanding: React.FC<Props> = ({ town }) => {
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
                         Suboxone for opioid use disorder, prescribed by a board-certified psychiatric
-                        provider. About {town.distanceMin} minutes from {town.name} via {town.route}. Same provider
-                        every visit. Federal 42 CFR Part 2 confidentiality &mdash; stricter than HIPAA.
+                        provider. Same provider every visit. Federal 42 CFR Part 2 confidentiality &mdash; stricter
+                        than HIPAA.
                     </p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 pt-8 border-t border-white/15">
+                        <div>
+                            <p className="text-[11px] tracking-[0.2em] uppercase text-gold-accent mb-1">Distance</p>
+                            <p className="font-serif text-xl text-white">{town.distanceMin} min</p>
+                        </div>
+                        <div>
+                            <p className="text-[11px] tracking-[0.2em] uppercase text-gold-accent mb-1">County</p>
+                            <p className="font-serif text-xl text-white">{town.county.replace(' County', '')}</p>
+                        </div>
+                        <div>
+                            <p className="text-[11px] tracking-[0.2em] uppercase text-gold-accent mb-1">Direction</p>
+                            <p className="font-serif text-xl text-white capitalize">{town.direction}</p>
+                        </div>
+                        <div>
+                            <p className="text-[11px] tracking-[0.2em] uppercase text-gold-accent mb-1">Route</p>
+                            <p className="font-serif text-xl text-white">{town.route.split(' ').slice(0, 2).join(' ')}</p>
+                        </div>
+                    </div>
                     <div className="flex flex-wrap items-center gap-5 text-cream">
-                        <a href="tel:6626404004" className="text-lg underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-white transition-colors">
+                        <a href="tel:6626404004" className="text-lg underline decoration-[#c8b560] decoration-2 underline-offset-[6px] hover:text-white transition-colors">
                             Call (662) 640-4004
                         </a>
                         <span className="opacity-50">·</span>

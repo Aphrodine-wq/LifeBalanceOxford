@@ -11,23 +11,26 @@ const OleMissSuboxone: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener */}
+            {/* Opener — collegiate / off-campus */}
             <section className="bg-dark-green pt-20 pb-24">
                 <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-6">
-                        Suboxone Care &nbsp;·&nbsp; Ole Miss &amp; North Mississippi
-                    </p>
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-10 text-xs tracking-[0.2em] uppercase text-cream/70">
+                        <span>1.5 mi from The Square</span>
+                        <span className="opacity-40">·</span>
+                        <span>Off-Campus</span>
+                        <span className="opacity-40">·</span>
+                        <span>42 CFR Part 2</span>
+                    </div>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
-                        You don't have to drive to Memphis<br />
-                        <span className="text-gold-accent italic font-normal">to keep this private.</span>
+                        <span className="text-gold-accent italic font-normal">To keep this private,</span><br />
+                        you don't have to drive to Memphis.
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
                         Quiet, continuous Suboxone and psychiatric care for the Ole Miss community — students,
-                        graduate students, faculty, staff, and the rest of North Mississippi. A mile and a half from
-                        campus. Records that stay with us.
+                        graduate students, faculty, staff, and the rest of North Mississippi. Records that stay with us.
                     </p>
                     <div className="flex flex-wrap items-center gap-5 text-cream">
-                        <a href="tel:6626404004" className="text-lg underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-white transition-colors">
+                        <a href="tel:6626404004" className="text-lg underline decoration-[#c8b560] decoration-2 underline-offset-[6px] hover:text-white transition-colors">
                             Call (662) 640-4004
                         </a>
                         <span className="opacity-50">·</span>

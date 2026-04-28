@@ -11,23 +11,23 @@ const AddictionTreatment: React.FC = () => {
     return (
         <div className="bg-white min-h-screen animate-fade-in">
 
-            {/* Opener */}
-            <section className="bg-dark-green pt-20 pb-24">
-                <div className="max-w-4xl mx-auto px-6">
-                    <p className="text-sm tracking-widest uppercase text-gold-accent mb-6">
+            {/* Opener — manifesto, centered */}
+            <section className="bg-dark-green pt-24 pb-28">
+                <div className="max-w-3xl mx-auto px-6 text-center">
+                    <div className="w-12 h-px bg-gold-accent mx-auto mb-8"></div>
+                    <p className="text-sm tracking-[0.25em] uppercase text-gold-accent mb-8">
                         Addiction Treatment &nbsp;·&nbsp; Oxford, MS
                     </p>
-                    <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
-                        You don't have to hit rock bottom.<br />
-                        <span className="text-gold-accent italic font-normal">You just have to pick up the phone.</span>
+                    <h1 className="font-serif text-[2.8rem] md:text-[3.6rem] leading-[1.05] font-semibold text-white mb-10">
+                        You don't have to hit rock bottom. You just have to pick up the phone.
                     </h1>
-                    <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
+                    <p className="text-xl text-cream max-w-2xl mx-auto leading-relaxed mb-10">
                         Outpatient addiction treatment for adults and adolescents in North Mississippi — opioid use
                         disorder, alcohol use disorder, and the anxiety, depression, or trauma that often sit
                         underneath. One provider. Real conversation. No judgment.
                     </p>
-                    <div className="flex flex-wrap items-center gap-5 text-cream">
-                        <a href="tel:6626404004" className="text-lg underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-white transition-colors">
+                    <div className="flex flex-wrap items-center justify-center gap-5 text-cream">
+                        <a href="tel:6626404004" className="text-lg underline decoration-[#c8b560] decoration-2 underline-offset-[6px] hover:text-white transition-colors">
                             Call (662) 640-4004
                         </a>
                         <span className="opacity-50">·</span>
