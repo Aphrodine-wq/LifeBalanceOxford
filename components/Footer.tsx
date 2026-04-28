@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
           {/* Brand / About */}
           <div className="lg:col-span-1">
@@ -111,6 +111,21 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Practices</Link></li>
+            </ul>
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Service Areas</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/psychiatric-care-batesville-ms" className="hover:text-white transition-colors">Batesville, MS</Link></li>
+              <li><Link to="/psychiatric-care-new-albany-ms" className="hover:text-white transition-colors">New Albany, MS</Link></li>
+              <li><Link to="/psychiatric-care-water-valley-ms" className="hover:text-white transition-colors">Water Valley, MS</Link></li>
+              <li><Link to="/psychiatric-care-holly-springs-ms" className="hover:text-white transition-colors">Holly Springs, MS</Link></li>
+              <li><Link to="/psychiatric-care-pontotoc-ms" className="hover:text-white transition-colors">Pontotoc, MS</Link></li>
+              <li><Link to="/psychiatric-care-tupelo-ms" className="hover:text-white transition-colors">Tupelo, MS</Link></li>
+              <li><Link to="/psychiatric-care-bruce-ms" className="hover:text-white transition-colors">Bruce, MS</Link></li>
+              <li><Link to="/psychiatric-care-senatobia-ms" className="hover:text-white transition-colors">Senatobia, MS</Link></li>
             </ul>
           </div>
 

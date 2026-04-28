@@ -22,6 +22,64 @@ const speakable = {
     cssSelector: ['h1', 'h2'],
 };
 
+// Generate a town landing page meta entry. Returns an object with a single
+// keyed entry for the route path. Spread into pageMeta for inclusion.
+function buildTownMeta(slug, name, county) {
+    const path = `/psychiatric-care-${slug}-ms`;
+    return {
+        [path]: {
+            title: `Psychiatric Care for ${name}, MS`,
+            description:
+                `Psychiatric services for ${name}, Mississippi residents — psychiatric evaluations, medication management, and Suboxone / Sublocade addiction treatment. Same-week appointments at Life Balance, PLLC in Oxford. Call (662) 640-4004.`,
+            path,
+            keywords: [
+                `psychiatrist ${name} MS`,
+                `psychiatric services ${name} Mississippi`,
+                `mental health ${name} MS`,
+                `Suboxone doctor ${name} MS`,
+                `addiction treatment ${name} Mississippi`,
+                `medication management ${name}`,
+                `${county} psychiatrist`,
+            ],
+            breadcrumbs: [
+                { name: 'Home', path: '/' },
+                { name: 'Service Areas', path: '/' },
+                { name: `${name}, MS`, path },
+            ],
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': 'MedicalWebPage',
+                '@id': `${SITE_URL}${path}#page`,
+                name: `Psychiatric Care for ${name}, MS`,
+                url: `${SITE_URL}${path}`,
+                inLanguage: 'en-US',
+                isPartOf: websiteRef,
+                about: [
+                    { '@type': 'MedicalCondition', name: 'Anxiety Disorder' },
+                    { '@type': 'MedicalCondition', name: 'Depressive Disorder' },
+                    { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                    { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
+                ],
+                audience: medicalAudience(`${name}, ${county}, Mississippi`),
+                author: caseyRef,
+                reviewedBy: caseyRef,
+                publisher: businessRef,
+                lastReviewed: '2026-04-28',
+                dateModified: '2026-04-28',
+                speakable,
+                spatialCoverage: {
+                    '@type': 'AdministrativeArea',
+                    name: `${name}, ${county}, Mississippi`,
+                    containedInPlace: {
+                        '@type': 'State',
+                        name: 'Mississippi',
+                    },
+                },
+            },
+        },
+    };
+}
+
 export const pageMeta = {
     '/addiction-treatment-oxford-ms': {
         title: 'Addiction Treatment in Oxford, MS',
@@ -146,6 +204,16 @@ export const pageMeta = {
             speakable,
         },
     },
+
+    // ─── Town landing pages — local SEO for surrounding North MS communities ───
+    ...buildTownMeta('batesville', 'Batesville', 'Panola County'),
+    ...buildTownMeta('new-albany', 'New Albany', 'Union County'),
+    ...buildTownMeta('water-valley', 'Water Valley', 'Yalobusha County'),
+    ...buildTownMeta('holly-springs', 'Holly Springs', 'Marshall County'),
+    ...buildTownMeta('pontotoc', 'Pontotoc', 'Pontotoc County'),
+    ...buildTownMeta('tupelo', 'Tupelo', 'Lee County'),
+    ...buildTownMeta('bruce', 'Bruce', 'Calhoun County'),
+    ...buildTownMeta('senatobia', 'Senatobia', 'Tate County'),
 
     // Lightweight entries — just title/description for prerender so each
     // sitemap URL gets unique crawler-visible meta. Runtime meta continues

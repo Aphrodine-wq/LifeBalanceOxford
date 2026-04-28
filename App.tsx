@@ -13,7 +13,10 @@ const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const AddictionTreatment = lazy(() => import('./components/AddictionTreatment'));
 const SuboxoneDoctor = lazy(() => import('./components/SuboxoneDoctor'));
 const Referrals = lazy(() => import('./components/Referrals'));
+const TownLanding = lazy(() => import('./components/TownLanding'));
 const AdminPage = lazy(() => import('./components/admin/AdminPage'));
+
+import { townList } from './components/towns';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +47,14 @@ const PublicSite: React.FC = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/psychiatric-care-batesville-ms" element={<TownLanding town={townList.find(t => t.slug === 'batesville')!} />} />
+          <Route path="/psychiatric-care-new-albany-ms" element={<TownLanding town={townList.find(t => t.slug === 'new-albany')!} />} />
+          <Route path="/psychiatric-care-water-valley-ms" element={<TownLanding town={townList.find(t => t.slug === 'water-valley')!} />} />
+          <Route path="/psychiatric-care-holly-springs-ms" element={<TownLanding town={townList.find(t => t.slug === 'holly-springs')!} />} />
+          <Route path="/psychiatric-care-pontotoc-ms" element={<TownLanding town={townList.find(t => t.slug === 'pontotoc')!} />} />
+          <Route path="/psychiatric-care-tupelo-ms" element={<TownLanding town={townList.find(t => t.slug === 'tupelo')!} />} />
+          <Route path="/psychiatric-care-bruce-ms" element={<TownLanding town={townList.find(t => t.slug === 'bruce')!} />} />
+          <Route path="/psychiatric-care-senatobia-ms" element={<TownLanding town={townList.find(t => t.slug === 'senatobia')!} />} />
         </Routes>
       </Suspense>
     </main>
