@@ -20,6 +20,19 @@ const IntakeFormStep1: React.FC<Props> = ({ data, onChange }) => {
         onChange({ [e.target.name]: e.target.checked } as any);
     };
 
+    const handleConsentCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, checked } = e.target;
+        const otherKey = name === 'smsOptIn' ? 'emailOptIn' : 'smsOptIn';
+        const otherChecked = (data as any)[otherKey] as boolean;
+        const stampNeeded = checked || otherChecked;
+        onChange({
+            [name]: checked,
+            communicationsOptInDate: stampNeeded
+                ? (data.communicationsOptInDate || new Date().toISOString())
+                : '',
+        } as any);
+    };
+
     return (
         <div>
             {/* Patient Information */}
@@ -316,10 +329,55 @@ const IntakeFormStep1: React.FC<Props> = ({ data, onChange }) => {
                 </div>
             </div>
 
-            {/* PCP & Pharmacy */}
+            {/* Communication Consent (TCPA / CAN-SPAM) */}
             <div className={sectionClass}>
                 <h3 className={sectionTitleClass}>
                     <span className="w-5 h-5 bg-slate-500 text-white rounded text-xs flex items-center justify-center font-bold">6</span>
+                    Communication Preferences
+                </h3>
+                <div className="bg-stone-50 rounded-xl p-4 space-y-4">
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                        Life Balance, PLLC will only send messages related to your care — appointment reminders, scheduling, billing, intake paperwork, and clinical communications. We never sell or share your contact information. Consent is <strong>not required</strong> to receive services, and you can opt out at any time.
+                    </p>
+
+                    <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            name="smsOptIn"
+                            checked={data.smsOptIn}
+                            onChange={handleConsentCheckbox}
+                            className="mt-0.5 w-4 h-4 accent-teal-700"
+                        />
+                        <span className="text-sm text-slate-700 leading-relaxed">
+                            <strong>Text messages (SMS).</strong> I expressly consent to receive automated and non-automated text messages from Life Balance, PLLC at the phone number(s) provided above. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.
+                        </span>
+                    </label>
+
+                    <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            name="emailOptIn"
+                            checked={data.emailOptIn}
+                            onChange={handleConsentCheckbox}
+                            className="mt-0.5 w-4 h-4 accent-teal-700"
+                        />
+                        <span className="text-sm text-slate-700 leading-relaxed">
+                            <strong>Email.</strong> I consent to receive emails from Life Balance, PLLC at the email address provided above. I can unsubscribe at any time by replying or contacting the office.
+                        </span>
+                    </label>
+
+                    {(data.smsOptIn || data.emailOptIn) && data.communicationsOptInDate && (
+                        <p className="text-[11px] text-slate-400 pt-1">
+                            Consent recorded {new Date(data.communicationsOptInDate).toLocaleString()}
+                        </p>
+                    )}
+                </div>
+            </div>
+
+            {/* PCP & Pharmacy */}
+            <div className={sectionClass}>
+                <h3 className={sectionTitleClass}>
+                    <span className="w-5 h-5 bg-slate-500 text-white rounded text-xs flex items-center justify-center font-bold">7</span>
                     Primary Care Provider & Pharmacy
                 </h3>
                 <div className="space-y-4">

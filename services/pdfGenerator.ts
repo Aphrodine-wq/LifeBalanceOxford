@@ -214,6 +214,16 @@ export function generateIntakePdf(data: FullIntakeData): string {
     h2 = drawField('Policy Accepted', data.cancellationPolicyAcknowledged ? 'Yes' : 'No', contentW * 0.5, contentW * 0.5);
     y += Math.max(h1, h2) + 6;
 
+    // Communication Consent (TCPA / CAN-SPAM record)
+    checkPageBreak(12);
+    const consentStamp = data.communicationsOptInDate
+        ? new Date(data.communicationsOptInDate).toLocaleString()
+        : '—';
+    h1 = drawField('SMS Opt-In', data.smsOptIn ? 'Yes' : 'No', 0, contentW * 0.25);
+    h2 = drawField('Email Opt-In', data.emailOptIn ? 'Yes' : 'No', contentW * 0.25, contentW * 0.25);
+    h3 = drawField('Consent Recorded', consentStamp, contentW * 0.5, contentW * 0.5);
+    y += Math.max(h1, h2, h3) + 6;
+
     // Medical History
     drawSectionTitle('Medical History');
 

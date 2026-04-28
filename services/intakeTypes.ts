@@ -41,6 +41,11 @@ export interface FullIntakeData {
     creditCardCompany: string; // Visa, Mastercard, etc.
     cancellationPolicyAcknowledged: boolean;
 
+    // Communication consent (TCPA / CAN-SPAM)
+    smsOptIn: boolean;
+    emailOptIn: boolean;
+    communicationsOptInDate: string; // ISO date stamped when either box is checked
+
     pcpName: string;
     pcpPhone: string;
     pcpPermissionToContact: string; // 'yes' | 'no'
@@ -98,6 +103,9 @@ export const defaultIntakeData: FullIntakeData = {
     policyholderRelationship: '', policyholderEmployer: '',
     creditCardCompany: '',
     cancellationPolicyAcknowledged: false,
+    smsOptIn: false,
+    emailOptIn: false,
+    communicationsOptInDate: '',
     pcpName: '', pcpPhone: '', pcpPermissionToContact: '', pharmacyName: '', pharmacyCityState: '',
     email: '',
     reasonForVisit: '', currentSymptoms: [], suicidalThoughts: '', suicidalThoughtsDetail: '',

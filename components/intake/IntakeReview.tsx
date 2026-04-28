@@ -170,6 +170,18 @@ const IntakeReview: React.FC<Props> = ({ data, onChange }) => {
                             <span>Information Release Consent Signed ({data.emergencyConsentSignature})</span>
                         </div>
                     )}
+                    <div className="flex items-center gap-2 text-sm text-slate-700 mt-2">
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center ${data.smsOptIn ? 'bg-teal-600 text-white' : 'bg-slate-200'}`}>
+                            {data.smsOptIn && <CheckIcon size={10} />}
+                        </div>
+                        <span>SMS Communications Opt-In{data.smsOptIn ? '' : ' (declined)'}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-slate-700 mt-2">
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center ${data.emailOptIn ? 'bg-teal-600 text-white' : 'bg-slate-200'}`}>
+                            {data.emailOptIn && <CheckIcon size={10} />}
+                        </div>
+                        <span>Email Communications Opt-In{data.emailOptIn ? '' : ' (declined)'}</span>
+                    </div>
                 </section>
             </div>
         </div>
