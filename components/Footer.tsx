@@ -10,10 +10,10 @@ const Footer: React.FC = () => {
 
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10">
 
           {/* Brand / About */}
-          <div className="lg:col-span-1">
+          <div>
             <h3 className="text-white font-bold text-lg mb-1 font-serif">Life Balance</h3>
             <p className="text-sm mb-4">Psychiatric Services</p>
             <p className="text-sm leading-relaxed">
@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               <li>
                 <a href="tel:6626404004" className="flex items-start gap-2.5 hover:text-white transition-colors">
                   <Phone size={15} className="mt-0.5 flex-shrink-0" />
-                  <span>Phone: (662) 640-4004</span>
+                  <span>(662) 640-4004</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -36,15 +36,15 @@ const Footer: React.FC = () => {
                 <span>Fax: (662) 238-4122</span>
               </li>
               <li>
-                <a href="mailto:kim@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
+                <a href="mailto:kim@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors break-all">
                   <Mail size={15} className="mt-0.5 flex-shrink-0" />
-                  kim@lifebalanceoxford.com
+                  <span>kim@lifebalanceoxford.com</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:casey@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors">
+                <a href="mailto:casey@lifebalanceoxford.com" className="flex items-start gap-2.5 hover:text-white transition-colors break-all">
                   <Mail size={15} className="mt-0.5 flex-shrink-0" />
-                  casey@lifebalanceoxford.com
+                  <span>casey@lifebalanceoxford.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -90,33 +90,33 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Service Areas — Mississippi */}
-          <div className="md:col-span-2 lg:col-span-2">
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Service Areas — Mississippi</h4>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
-              <li><Link to="/suboxone-doctor-batesville-ms" className="hover:text-white transition-colors">Batesville</Link></li>
-              <li><Link to="/suboxone-doctor-new-albany-ms" className="hover:text-white transition-colors">New Albany</Link></li>
-              <li><Link to="/suboxone-doctor-booneville-ms" className="hover:text-white transition-colors">Booneville</Link></li>
-              <li><Link to="/suboxone-doctor-olive-branch-ms" className="hover:text-white transition-colors">Olive Branch</Link></li>
-              <li><Link to="/suboxone-doctor-bruce-ms" className="hover:text-white transition-colors">Bruce</Link></li>
-              <li><Link to="/suboxone-doctor-pontotoc-ms" className="hover:text-white transition-colors">Pontotoc</Link></li>
-              <li><Link to="/suboxone-doctor-byhalia-ms" className="hover:text-white transition-colors">Byhalia</Link></li>
-              <li><Link to="/suboxone-doctor-ripley-ms" className="hover:text-white transition-colors">Ripley</Link></li>
-              <li><Link to="/suboxone-doctor-clarksdale-ms" className="hover:text-white transition-colors">Clarksdale</Link></li>
-              <li><Link to="/suboxone-doctor-saltillo-ms" className="hover:text-white transition-colors">Saltillo</Link></li>
-              <li><Link to="/suboxone-doctor-corinth-ms" className="hover:text-white transition-colors">Corinth</Link></li>
-              <li><Link to="/suboxone-doctor-sardis-ms" className="hover:text-white transition-colors">Sardis</Link></li>
-              <li><Link to="/suboxone-doctor-grenada-ms" className="hover:text-white transition-colors">Grenada</Link></li>
-              <li><Link to="/suboxone-doctor-senatobia-ms" className="hover:text-white transition-colors">Senatobia</Link></li>
-              <li><Link to="/suboxone-doctor-hernando-ms" className="hover:text-white transition-colors">Hernando</Link></li>
-              <li><Link to="/suboxone-doctor-southaven-ms" className="hover:text-white transition-colors">Southaven</Link></li>
-              <li><Link to="/suboxone-doctor-holly-springs-ms" className="hover:text-white transition-colors">Holly Springs</Link></li>
-              <li><Link to="/suboxone-doctor-tupelo-ms" className="hover:text-white transition-colors">Tupelo</Link></li>
-              <li><Link to="/suboxone-doctor-horn-lake-ms" className="hover:text-white transition-colors">Horn Lake</Link></li>
-              <li><Link to="/suboxone-doctor-water-valley-ms" className="hover:text-white transition-colors">Water Valley</Link></li>
-            </ul>
-          </div>
+        </div>
 
+        {/* Service Areas — Mississippi (full-width strip) */}
+        <div className="mt-12 pt-10 border-t border-neutral-700/60">
+          <h4 className="text-white font-semibold text-sm mb-5 uppercase tracking-wider">Service Areas — Mississippi</h4>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-3 text-sm">
+            <li><Link to="/suboxone-doctor-batesville-ms" className="hover:text-white transition-colors">Batesville</Link></li>
+            <li><Link to="/suboxone-doctor-booneville-ms" className="hover:text-white transition-colors">Booneville</Link></li>
+            <li><Link to="/suboxone-doctor-bruce-ms" className="hover:text-white transition-colors">Bruce</Link></li>
+            <li><Link to="/suboxone-doctor-byhalia-ms" className="hover:text-white transition-colors">Byhalia</Link></li>
+            <li><Link to="/suboxone-doctor-clarksdale-ms" className="hover:text-white transition-colors">Clarksdale</Link></li>
+            <li><Link to="/suboxone-doctor-corinth-ms" className="hover:text-white transition-colors">Corinth</Link></li>
+            <li><Link to="/suboxone-doctor-grenada-ms" className="hover:text-white transition-colors">Grenada</Link></li>
+            <li><Link to="/suboxone-doctor-hernando-ms" className="hover:text-white transition-colors">Hernando</Link></li>
+            <li><Link to="/suboxone-doctor-holly-springs-ms" className="hover:text-white transition-colors">Holly Springs</Link></li>
+            <li><Link to="/suboxone-doctor-horn-lake-ms" className="hover:text-white transition-colors">Horn Lake</Link></li>
+            <li><Link to="/suboxone-doctor-new-albany-ms" className="hover:text-white transition-colors">New Albany</Link></li>
+            <li><Link to="/suboxone-doctor-olive-branch-ms" className="hover:text-white transition-colors">Olive Branch</Link></li>
+            <li><Link to="/suboxone-doctor-pontotoc-ms" className="hover:text-white transition-colors">Pontotoc</Link></li>
+            <li><Link to="/suboxone-doctor-ripley-ms" className="hover:text-white transition-colors">Ripley</Link></li>
+            <li><Link to="/suboxone-doctor-saltillo-ms" className="hover:text-white transition-colors">Saltillo</Link></li>
+            <li><Link to="/suboxone-doctor-sardis-ms" className="hover:text-white transition-colors">Sardis</Link></li>
+            <li><Link to="/suboxone-doctor-senatobia-ms" className="hover:text-white transition-colors">Senatobia</Link></li>
+            <li><Link to="/suboxone-doctor-southaven-ms" className="hover:text-white transition-colors">Southaven</Link></li>
+            <li><Link to="/suboxone-doctor-tupelo-ms" className="hover:text-white transition-colors">Tupelo</Link></li>
+            <li><Link to="/suboxone-doctor-water-valley-ms" className="hover:text-white transition-colors">Water Valley</Link></li>
+          </ul>
         </div>
       </div>
 
