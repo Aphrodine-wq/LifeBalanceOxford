@@ -82,6 +82,18 @@ const Team: React.FC = () => {
                 "Outside of work, I enjoy trout fishing, golfing, and spending time with my Rottweiler, Steve."
               </p>
             </div>
+
+            <p className="mt-6 text-sm text-slate-500">
+              Featured in{' '}
+              <a
+                href="https://boldjourney.com/meet-casey-hester/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal-700 hover:text-teal-800 underline underline-offset-2"
+              >
+                Bold Journey: Meet Casey Hester
+              </a>
+            </p>
           </div>
         </div>
 
