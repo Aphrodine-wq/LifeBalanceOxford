@@ -118,14 +118,14 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Service Areas</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/psychiatric-care-batesville-ms" className="hover:text-white transition-colors">Batesville, MS</Link></li>
-              <li><Link to="/psychiatric-care-new-albany-ms" className="hover:text-white transition-colors">New Albany, MS</Link></li>
-              <li><Link to="/psychiatric-care-water-valley-ms" className="hover:text-white transition-colors">Water Valley, MS</Link></li>
-              <li><Link to="/psychiatric-care-holly-springs-ms" className="hover:text-white transition-colors">Holly Springs, MS</Link></li>
-              <li><Link to="/psychiatric-care-pontotoc-ms" className="hover:text-white transition-colors">Pontotoc, MS</Link></li>
-              <li><Link to="/psychiatric-care-tupelo-ms" className="hover:text-white transition-colors">Tupelo, MS</Link></li>
-              <li><Link to="/psychiatric-care-bruce-ms" className="hover:text-white transition-colors">Bruce, MS</Link></li>
-              <li><Link to="/psychiatric-care-senatobia-ms" className="hover:text-white transition-colors">Senatobia, MS</Link></li>
+              <li><Link to="/suboxone-doctor-batesville-ms" className="hover:text-white transition-colors">Batesville, MS</Link></li>
+              <li><Link to="/suboxone-doctor-new-albany-ms" className="hover:text-white transition-colors">New Albany, MS</Link></li>
+              <li><Link to="/suboxone-doctor-water-valley-ms" className="hover:text-white transition-colors">Water Valley, MS</Link></li>
+              <li><Link to="/suboxone-doctor-holly-springs-ms" className="hover:text-white transition-colors">Holly Springs, MS</Link></li>
+              <li><Link to="/suboxone-doctor-pontotoc-ms" className="hover:text-white transition-colors">Pontotoc, MS</Link></li>
+              <li><Link to="/suboxone-doctor-tupelo-ms" className="hover:text-white transition-colors">Tupelo, MS</Link></li>
+              <li><Link to="/suboxone-doctor-bruce-ms" className="hover:text-white transition-colors">Bruce, MS</Link></li>
+              <li><Link to="/suboxone-doctor-senatobia-ms" className="hover:text-white transition-colors">Senatobia, MS</Link></li>
             </ul>
           </div>
 

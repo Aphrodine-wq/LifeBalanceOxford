@@ -22,43 +22,48 @@ const speakable = {
     cssSelector: ['h1', 'h2'],
 };
 
-// Generate a town landing page meta entry. Returns an object with a single
-// keyed entry for the route path. Spread into pageMeta for inclusion.
+// Generate a town landing page meta entry — Suboxone-led targeting.
+// Returns an object with a single keyed entry for the route path.
 function buildTownMeta(slug, name, county) {
-    const path = `/psychiatric-care-${slug}-ms`;
+    const path = `/suboxone-doctor-${slug}-ms`;
     return {
         [path]: {
-            title: `Psychiatric Care for ${name}, MS`,
+            title: `Suboxone Doctor in ${name}, MS`,
             description:
-                `Psychiatric services for ${name}, Mississippi residents — psychiatric evaluations, medication management, and Suboxone / Sublocade addiction treatment. Same-week appointments at Life Balance, PLLC in Oxford. Call (662) 640-4004.`,
+                `Suboxone & Sublocade treatment for ${name}, Mississippi residents — medication-assisted treatment (MAT) for opioid use disorder from a board-certified psychiatric provider. Same-week appointments at Life Balance, PLLC in Oxford. 42 CFR Part 2 confidentiality. Call (662) 640-4004.`,
             path,
             keywords: [
-                `psychiatrist ${name} MS`,
-                `psychiatric services ${name} Mississippi`,
-                `mental health ${name} MS`,
                 `Suboxone doctor ${name} MS`,
-                `addiction treatment ${name} Mississippi`,
-                `medication management ${name}`,
-                `${county} psychiatrist`,
+                `Suboxone clinic ${name} Mississippi`,
+                `Sublocade ${name} MS`,
+                `buprenorphine prescriber ${name}`,
+                `MAT clinic ${name} Mississippi`,
+                `medication-assisted treatment ${name} MS`,
+                `opioid use disorder ${name} Mississippi`,
+                `addiction treatment ${name} MS`,
+                `${county} Suboxone doctor`,
+                `${county} addiction treatment`,
+                `psychiatrist ${name} MS`,
             ],
             breadcrumbs: [
                 { name: 'Home', path: '/' },
-                { name: 'Service Areas', path: '/' },
+                { name: 'Suboxone Treatment', path: '/suboxone-doctor-oxford-ms' },
                 { name: `${name}, MS`, path },
             ],
             jsonLd: {
                 '@context': 'https://schema.org',
                 '@type': 'MedicalWebPage',
                 '@id': `${SITE_URL}${path}#page`,
-                name: `Psychiatric Care for ${name}, MS`,
+                name: `Suboxone Doctor in ${name}, MS`,
                 url: `${SITE_URL}${path}`,
                 inLanguage: 'en-US',
                 isPartOf: websiteRef,
                 about: [
-                    { '@type': 'MedicalCondition', name: 'Anxiety Disorder' },
-                    { '@type': 'MedicalCondition', name: 'Depressive Disorder' },
-                    { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                    { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
+                    { '@type': 'Drug', name: 'Sublocade', alternateName: 'Buprenorphine Extended-Release' },
                     { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
+                    { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                    { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
                 ],
                 audience: medicalAudience(`${name}, ${county}, Mississippi`),
                 author: caseyRef,
@@ -82,17 +87,22 @@ function buildTownMeta(slug, name, county) {
 
 export const pageMeta = {
     '/addiction-treatment-oxford-ms': {
-        title: 'Addiction Treatment in Oxford, MS',
+        title: 'Addiction Treatment in Oxford, MS — Suboxone & MAT',
         description:
-            'Addiction treatment in Oxford, Mississippi for opioid use disorder, alcohol use disorder, and substance recovery. Medication-assisted treatment, counseling, and ongoing care from a board-certified psychiatric provider. Call (662) 640-4004.',
+            'Outpatient addiction treatment in Oxford, Mississippi — Suboxone, Sublocade, and MAT for opioid use disorder, plus care for alcohol use disorder. Board-certified psychiatric provider, same-week appointments, 42 CFR Part 2 confidentiality. Call (662) 640-4004.',
         path: '/addiction-treatment-oxford-ms',
         keywords: [
             'addiction treatment Oxford MS',
-            'opioid use disorder Mississippi',
+            'Suboxone Oxford MS',
+            'Sublocade Oxford Mississippi',
+            'MAT program Oxford MS',
+            'medication-assisted treatment Oxford',
+            'opioid use disorder Oxford Mississippi',
             'alcohol use disorder Oxford',
-            'substance abuse treatment Oxford Mississippi',
-            'MAT program North Mississippi',
-            'outpatient addiction treatment Oxford',
+            'substance abuse treatment Oxford',
+            'outpatient addiction Oxford',
+            'opioid addiction North Mississippi',
+            'Lafayette County addiction treatment',
         ],
         breadcrumbs: [
             { name: 'Home', path: '/' },
@@ -125,14 +135,21 @@ export const pageMeta = {
     '/suboxone-doctor-oxford-ms': {
         title: 'Suboxone Doctor in Oxford, MS',
         description:
-            'Suboxone and Sublocade treatment for opioid use disorder in Oxford, Mississippi. Medication-assisted treatment (MAT) and buprenorphine prescribing from a board-certified psychiatric provider. Call (662) 640-4004.',
+            'Suboxone & Sublocade treatment for opioid use disorder in Oxford, Mississippi. Same-day induction available. Medication-assisted treatment (MAT) and buprenorphine prescribing from a board-certified psychiatric provider. 42 CFR Part 2 confidentiality. Same-week appointments. Call (662) 640-4004.',
         path: '/suboxone-doctor-oxford-ms',
         keywords: [
             'Suboxone doctor Oxford MS',
-            'Sublocade Oxford Mississippi',
+            'Suboxone clinic Oxford Mississippi',
+            'Sublocade Oxford MS',
             'buprenorphine prescriber Oxford',
-            'Suboxone clinic North Mississippi',
-            'opioid treatment Oxford MS',
+            'MAT clinic Oxford MS',
+            'medication-assisted treatment Oxford',
+            'opioid use disorder Oxford Mississippi',
+            'Suboxone induction Oxford',
+            'Suboxone telehealth Mississippi',
+            'Lafayette County Suboxone doctor',
+            'North Mississippi Suboxone clinic',
+            'Ole Miss Suboxone provider',
         ],
         breadcrumbs: [
             { name: 'Home', path: '/' },

@@ -47,14 +47,14 @@ const PublicSite: React.FC = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/psychiatric-care-batesville-ms" element={<TownLanding town={townList.find(t => t.slug === 'batesville')!} />} />
-          <Route path="/psychiatric-care-new-albany-ms" element={<TownLanding town={townList.find(t => t.slug === 'new-albany')!} />} />
-          <Route path="/psychiatric-care-water-valley-ms" element={<TownLanding town={townList.find(t => t.slug === 'water-valley')!} />} />
-          <Route path="/psychiatric-care-holly-springs-ms" element={<TownLanding town={townList.find(t => t.slug === 'holly-springs')!} />} />
-          <Route path="/psychiatric-care-pontotoc-ms" element={<TownLanding town={townList.find(t => t.slug === 'pontotoc')!} />} />
-          <Route path="/psychiatric-care-tupelo-ms" element={<TownLanding town={townList.find(t => t.slug === 'tupelo')!} />} />
-          <Route path="/psychiatric-care-bruce-ms" element={<TownLanding town={townList.find(t => t.slug === 'bruce')!} />} />
-          <Route path="/psychiatric-care-senatobia-ms" element={<TownLanding town={townList.find(t => t.slug === 'senatobia')!} />} />
+          <Route path="/suboxone-doctor-batesville-ms" element={<TownLanding town={townList.find(t => t.slug === 'batesville')!} />} />
+          <Route path="/suboxone-doctor-new-albany-ms" element={<TownLanding town={townList.find(t => t.slug === 'new-albany')!} />} />
+          <Route path="/suboxone-doctor-water-valley-ms" element={<TownLanding town={townList.find(t => t.slug === 'water-valley')!} />} />
+          <Route path="/suboxone-doctor-holly-springs-ms" element={<TownLanding town={townList.find(t => t.slug === 'holly-springs')!} />} />
+          <Route path="/suboxone-doctor-pontotoc-ms" element={<TownLanding town={townList.find(t => t.slug === 'pontotoc')!} />} />
+          <Route path="/suboxone-doctor-tupelo-ms" element={<TownLanding town={townList.find(t => t.slug === 'tupelo')!} />} />
+          <Route path="/suboxone-doctor-bruce-ms" element={<TownLanding town={townList.find(t => t.slug === 'bruce')!} />} />
+          <Route path="/suboxone-doctor-senatobia-ms" element={<TownLanding town={townList.find(t => t.slug === 'senatobia')!} />} />
         </Routes>
       </Suspense>
     </main>
