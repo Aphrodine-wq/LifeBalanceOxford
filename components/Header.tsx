@@ -30,16 +30,17 @@ const Header: React.FC = () => {
     {
       section: 'Programs',
       items: [
+        { name: 'All Services', href: '/services' },
+        { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
+        { name: 'MAT Program', href: '/mat-program' },
         { name: 'Suboxone Treatment', href: '/suboxone-doctor-oxford-ms' },
         { name: 'Same-Day Suboxone', href: '/same-day-suboxone-oxford-ms' },
-        { name: 'MAT Program', href: '/mat-program' },
         { name: 'Telehealth (Mississippi)', href: '/suboxone-telehealth-mississippi' },
       ],
     },
     {
       section: 'Specialty & Coverage',
       items: [
-        { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
         { name: 'Fentanyl Recovery', href: '/fentanyl-addiction-treatment-mississippi' },
         { name: 'Stimulant & ADHD Care', href: '/adderall-addiction-treatment-oxford-ms' },
         { name: 'Ole Miss & North MS', href: '/ole-miss-suboxone-doctor' },
@@ -94,17 +95,8 @@ const Header: React.FC = () => {
             >
               Home
             </Link>
-            <Link
-              to="/services"
-              className={`text-base font-medium transition-colors ${isActive('/services')
-                ? 'text-white'
-                : 'text-gray-300 hover:text-white'
-                }`}
-            >
-              Services
-            </Link>
 
-            {/* Treatment dropdown */}
+            {/* Services dropdown */}
             <div
               className="relative"
               onMouseEnter={openTreatment}
@@ -120,7 +112,7 @@ const Header: React.FC = () => {
                   : 'text-gray-300 hover:text-white'
                   }`}
               >
-                Treatment
+                Services
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-200 ${isTreatmentOpen ? 'rotate-180' : ''}`}
@@ -220,17 +212,8 @@ const Header: React.FC = () => {
           >
             Home
           </Link>
-          <Link
-            to="/services"
-            className={`block px-4 py-4 rounded-lg text-xl font-medium transition-colors ${isActive('/services')
-              ? 'text-white bg-white/10'
-              : 'text-gray-300 hover:text-white hover:bg-white/5'
-              }`}
-          >
-            Services
-          </Link>
 
-          {/* Mobile Treatment collapsible */}
+          {/* Mobile Services collapsible */}
           <div>
             <button
               type="button"
@@ -241,7 +224,7 @@ const Header: React.FC = () => {
                 : 'text-gray-300 hover:text-white hover:bg-white/5'
                 }`}
             >
-              <span>Treatment</span>
+              <span>Services</span>
               <ChevronDown
                 size={20}
                 className={`transition-transform duration-200 ${isMobileTreatmentOpen ? 'rotate-180' : ''}`}
