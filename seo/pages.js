@@ -384,9 +384,9 @@ export const pageMeta = {
     },
 
     '/adderall-addiction-treatment-oxford-ms': {
-        title: 'Adderall & Stimulant Addiction Treatment — Oxford, MS',
+        title: 'Stimulant Use Disorder & ADHD Care — Oxford, MS',
         description:
-            'Confidential treatment for Adderall, Vyvanse, Ritalin, cocaine, and methamphetamine use disorder in Oxford, Mississippi — psychiatric evaluation, ADHD diagnosis, withdrawal management, and behavioral treatment. Private from Ole Miss systems. 42 CFR Part 2 confidentiality. Call (662) 640-4004.',
+            'Private psychiatric care for prescription stimulant misuse, ADHD evaluation, and co-occurring anxiety or depression in Oxford, Mississippi — including non-stimulant ADHD options. Confidential, 42 CFR Part 2 protected, off-campus from Ole Miss. Call (662) 640-4004.',
         path: '/adderall-addiction-treatment-oxford-ms',
         keywords: [
             'Adderall addiction treatment Oxford MS',
@@ -405,13 +405,13 @@ export const pageMeta = {
         breadcrumbs: [
             { name: 'Home', path: '/' },
             { name: 'Services', path: '/services' },
-            { name: 'Adderall & Stimulant Treatment', path: '/adderall-addiction-treatment-oxford-ms' },
+            { name: 'Stimulant & ADHD Care', path: '/adderall-addiction-treatment-oxford-ms' },
         ],
         jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'MedicalWebPage',
             '@id': `${SITE_URL}/adderall-addiction-treatment-oxford-ms#page`,
-            name: 'Adderall & Stimulant Addiction Treatment in Oxford, MS',
+            name: 'Stimulant Use Disorder & ADHD Care in Oxford, MS',
             url: `${SITE_URL}/adderall-addiction-treatment-oxford-ms`,
             inLanguage: 'en-US',
             isPartOf: websiteRef,

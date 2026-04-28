@@ -17,13 +17,13 @@ const AdderallTreatment: React.FC = () => {
                         Stimulant Use Disorder &nbsp;·&nbsp; Oxford &amp; Ole Miss
                     </p>
                     <h1 className="font-serif text-[2.6rem] md:text-[3.4rem] leading-[1.08] font-semibold text-white mb-8 max-w-3xl">
-                        It started as study help.<br />
-                        <span className="text-gold-accent italic font-normal">It's not study help anymore.</span>
+                        Stimulant use disorder is more common than people say.<br />
+                        <span className="text-gold-accent italic font-normal">It's also more treatable.</span>
                     </h1>
                     <p className="text-xl text-cream max-w-2xl leading-relaxed mb-10">
-                        Adderall and other stimulant addictions are common, treatable, and rarely talked about — especially
-                        in the Ole Miss community. We treat them privately, without shame, without a record on a
-                        transcript.
+                        Private psychiatric care for prescription stimulant misuse, ADHD evaluation, and co-occurring
+                        anxiety or depression — for patients in the Ole Miss community and across North Mississippi.
+                        No lecture, no record on a transcript.
                     </p>
                     <div className="flex flex-wrap items-center gap-5 text-cream">
                         <a href="tel:6626404004" className="text-lg underline decoration-gold-accent decoration-2 underline-offset-[6px] hover:text-white transition-colors">
@@ -38,18 +38,20 @@ const AdderallTreatment: React.FC = () => {
             <section className="py-20">
                 <div className="max-w-3xl mx-auto px-6">
                     <div className="font-serif text-2xl md:text-3xl text-slate-900 leading-snug mb-10">
-                        At Ole Miss, an Adderall problem usually doesn't start in a parking lot.
-                        <span className="italic"> It starts in a study group during finals freshman year.</span>
+                        For most patients, the slide from regular use to a real problem is gradual.
+                        <span className="italic"> By the time it's clear, it doesn't feel like a choice anymore.</span>
                     </div>
                     <p className="text-lg text-slate-600 leading-relaxed mb-5">
-                        Someone has a prescription. Someone shares. The papers get done. The dose creeps. By
-                        sophomore year you're snorting it, by junior year you can't write a paper without it, by senior
-                        year there's a real concern about getting through licensing exams.
+                        Stimulant use disorder is what the medical literature calls it. It can involve prescription
+                        medications — Adderall, Vyvanse, Ritalin, Concerta — or non-prescription stimulants. It can
+                        develop from misuse of someone else's prescription or from escalation on your own. The pathway
+                        in matters less than the path out.
                     </p>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                        That arc is so common in Oxford that we treat it weekly. It is not weakness, not stupidity, and
-                        not the start of a criminal record. It is a treatable medical condition called stimulant use
-                        disorder, and the way out involves real psychiatric care — not a lecture and not detox.
+                        It is not weakness or stupidity. It is a treatable medical condition, and the way out involves
+                        real psychiatric care — usually starting with a careful look at whether ADHD, anxiety, or
+                        depression has been driving the pattern underneath. We do this work weekly. Most patients are
+                        surprised at how quickly things start moving when the right things get treated.
                     </p>
                 </div>
             </section>
@@ -94,7 +96,7 @@ const AdderallTreatment: React.FC = () => {
                 <div className="max-w-4xl mx-auto px-6">
                     <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Two — what treatment actually looks like</p>
                     <h2 className="font-serif text-4xl text-slate-900 mb-10 leading-tight max-w-2xl">
-                        There is no Suboxone for Adderall. There are real tools.
+                        There's no buprenorphine-equivalent for stimulants. There are real tools.
                     </h2>
 
                     <div className="space-y-10 md:pl-6">
@@ -105,10 +107,10 @@ const AdderallTreatment: React.FC = () => {
                             <div className="col-span-12 md:col-span-10 text-slate-700 text-lg leading-relaxed">
                                 <p className="font-semibold text-slate-900 mb-2">Diagnose what's actually underneath.</p>
                                 <p>
-                                    For a meaningful percentage of students who developed an Adderall problem, untreated
-                                    ADHD is the underlying issue. The first task is figuring out whether you have ADHD,
-                                    a stimulant use disorder, an anxiety or depression issue using stimulants as
-                                    self-medication, or some combination. The treatment plan depends entirely on that.
+                                    For a meaningful percentage of patients in this situation, untreated ADHD is the
+                                    underlying issue. For others, anxiety or depression is the driver, with stimulants
+                                    serving as self-medication. The first task is figuring out which — through a careful
+                                    psychiatric evaluation — because the treatment plan depends entirely on it.
                                 </p>
                             </div>
                         </div>
@@ -173,7 +175,7 @@ const AdderallTreatment: React.FC = () => {
                         <div>
                             <p className="text-sm tracking-widest uppercase text-slate-500 mb-3">Three — privacy, again</p>
                             <h2 className="font-serif text-4xl text-slate-900 mb-6 leading-tight max-w-2xl">
-                                What an Adderall record means — and doesn't mean — for your future.
+                                What a treatment record means — and doesn't mean — for your future.
                             </h2>
                         </div>
                     </div>
@@ -228,7 +230,7 @@ const AdderallTreatment: React.FC = () => {
                 title="What students and families ask about stimulant treatment"
                 items={[
                     {
-                        q: 'Is there a Suboxone-equivalent for Adderall addiction?',
+                        q: 'Is there a medication that treats stimulant use disorder the way buprenorphine treats opioid use disorder?',
                         aText:
                             'No. Buprenorphine works for opioid use disorder because of how opioid receptors work. Stimulant use disorder is a different mechanism — there is no FDA-approved medication that treats it the same way. Treatment combines management of withdrawal, treatment of underlying ADHD or mood conditions, and behavioral support.',
                         a: (
@@ -240,19 +242,19 @@ const AdderallTreatment: React.FC = () => {
                         ),
                     },
                     {
-                        q: 'I think I have actual ADHD but I have been misusing Adderall. Can you treat both?',
+                        q: 'What if I think I have ADHD underneath this? Can you treat both?',
                         aText:
-                            'Yes. This is a very common scenario, especially with students. The first step is a careful evaluation to confirm the ADHD diagnosis and the use disorder. From there, treatment options include long-acting stimulant medications with structured prescribing safeguards, non-stimulant ADHD medications (Strattera, Wellbutrin, guanfacine), or a combined approach. The plan is built with you, not handed to you.',
+                            'Yes. This is a common scenario. The first step is a careful evaluation to confirm the ADHD diagnosis and any use disorder. From there, treatment options include long-acting stimulant medications with structured prescribing safeguards, non-stimulant ADHD medications (Strattera, Wellbutrin, guanfacine), or a combined approach. The plan is built with you, not handed to you.',
                         a: (
                             <>
-                                Yes — very common. Careful evaluation first, then options including long-acting stimulants with
-                                structured safeguards, <strong>non-stimulants (Strattera, Wellbutrin, guanfacine)</strong>, or a
-                                combined approach.
+                                Yes — common scenario. Careful evaluation first, then options including long-acting stimulants
+                                with structured safeguards, <strong>non-stimulants (Strattera, Wellbutrin, guanfacine)</strong>,
+                                or a combined approach.
                             </>
                         ),
                     },
                     {
-                        q: 'How bad is Adderall withdrawal?',
+                        q: 'How bad is stimulant withdrawal?',
                         aText:
                             'Stimulant withdrawal is rarely physically dangerous, but it can be psychologically severe. Exhaustion, brain fog, anhedonia, low mood, sometimes depression severe enough to require monitoring. The worst typically lasts 7–14 days. Significant improvement comes over weeks, with full recovery of normal energy and motivation taking months for heavy users.',
                         a: (
@@ -287,12 +289,12 @@ const AdderallTreatment: React.FC = () => {
                         ),
                     },
                     {
-                        q: 'Do you treat cocaine and methamphetamine use disorder, or just Adderall?',
+                        q: 'Do you treat cocaine and methamphetamine use disorder as well as prescription stimulants?',
                         aText:
-                            'Yes. Treatment for stimulant use disorder applies whether the substance is Adderall, Vyvanse, Ritalin, cocaine, or methamphetamine. The protocols are the same.',
+                            'Yes. Treatment for stimulant use disorder applies across substances — prescription stimulants like Adderall, Vyvanse, Ritalin, and Concerta, as well as cocaine and methamphetamine. The protocols are the same.',
                         a: (
                             <>
-                                Yes. Same protocols apply for <strong>Adderall, Vyvanse, Ritalin, cocaine, or methamphetamine</strong>.
+                                Yes. The same protocols apply across prescription stimulants and non-prescription stimulants.
                             </>
                         ),
                     },
