@@ -12,6 +12,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const AddictionTreatment = lazy(() => import('./components/AddictionTreatment'));
 const SuboxoneDoctor = lazy(() => import('./components/SuboxoneDoctor'));
+const SuboxoneTreatment = lazy(() => import('./components/SuboxoneTreatment'));
 const SuboxoneTelehealth = lazy(() => import('./components/SuboxoneTelehealth'));
 const OleMissSuboxone = lazy(() => import('./components/OleMissSuboxone'));
 const BcbsSuboxone = lazy(() => import('./components/BcbsSuboxone'));
@@ -49,6 +50,7 @@ const PublicSite: React.FC = () => (
           <Route path="/mat-program" element={<MatProgram />} />
           <Route path="/addiction-treatment-oxford-ms" element={<AddictionTreatment />} />
           <Route path="/suboxone-doctor-oxford-ms" element={<SuboxoneDoctor />} />
+          <Route path="/suboxone-treatment-oxford-ms" element={<SuboxoneTreatment />} />
           <Route path="/suboxone-telehealth-mississippi" element={<SuboxoneTelehealth />} />
           <Route path="/ole-miss-suboxone-doctor" element={<OleMissSuboxone />} />
           <Route path="/blue-cross-suboxone-mississippi" element={<BcbsSuboxone />} />

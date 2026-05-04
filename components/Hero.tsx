@@ -25,9 +25,12 @@ const Hero: React.FC<HeroProps> = ({ onBookAppointment }) => {
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-hero px-6 sm:px-12 text-center">
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-2xl text-white mb-8">
-          Personalized Psychiatric Care for a Balanced Life
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-3xl text-white mb-5">
+          Suboxone Treatment & Psychiatric Care in Oxford, Mississippi
         </h1>
+        <p className="font-serif text-lg sm:text-xl text-cream/90 max-w-xl mb-8 italic">
+          Personalized care for a balanced life.
+        </p>
         <button
           onClick={onBookAppointment}
           className="inline-block px-10 py-3.5 text-white font-serif font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200 bg-gold-accent"

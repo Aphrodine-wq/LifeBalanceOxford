@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         { name: 'All Services', href: '/services' },
         { name: 'Addiction Treatment', href: '/addiction-treatment-oxford-ms' },
         { name: 'MAT Program', href: '/mat-program' },
-        { name: 'Suboxone Treatment', href: '/suboxone-doctor-oxford-ms' },
+        { name: 'Suboxone Treatment', href: '/suboxone-treatment-oxford-ms' },
         { name: 'Same-Day Suboxone', href: '/same-day-suboxone-oxford-ms' },
         { name: 'Telehealth (Mississippi)', href: '/suboxone-telehealth-mississippi' },
       ],

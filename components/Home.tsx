@@ -11,15 +11,19 @@ const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   usePageMeta({
-    title: 'Psychiatric Services in Oxford, MS',
-    description: 'Life Balance Psychiatric Services in Oxford, MS — psychiatric evaluations, medication management, addiction treatment (Suboxone), and GeneSight testing. Accepting new patients. Call (662) 640-4004.',
+    title: 'Suboxone Treatment in Oxford, MS',
+    description: 'Suboxone treatment & psychiatric care in Oxford, Mississippi — medication-assisted treatment for opioid use disorder, psychiatric evaluations, medication management, GeneSight testing. Same-week appointments, telehealth statewide. Call (662) 640-4004.',
     keywords: [
+      'Suboxone treatment Oxford MS',
+      'Suboxone treatment Mississippi',
+      'Suboxone doctor Oxford',
+      'MAT program Oxford MS',
+      'medication-assisted treatment Mississippi',
+      'opioid use disorder treatment Oxford',
       'psychiatrist Oxford MS',
       'psychiatric services Oxford Mississippi',
-      'mental health Oxford MS',
-      'medication management Oxford',
-      'Suboxone Oxford Mississippi',
-      'addiction treatment North Mississippi',
+      'telehealth Suboxone Mississippi',
+      'North Mississippi Suboxone treatment',
       'Casey Hester PMHNP',
       'Life Balance Oxford',
     ],
@@ -187,13 +191,12 @@ const Home: React.FC = () => {
                   </span>
                 </Link>
 
-                <Link to="/suboxone-doctor-oxford-ms" className="block group md:pl-6">
+                <Link to="/suboxone-treatment-oxford-ms" className="block group md:pl-6">
                   <span className="block font-serif text-xl text-white group-hover:text-gold-accent transition-colors">
                     Suboxone treatment →
                   </span>
                   <span className="block text-sm text-cream/70 mt-1 leading-relaxed">
-                    How Suboxone works, the induction day walkthrough, side effects, cost
-                    transparency.
+                    What treatment includes, how to start, what it costs, who it's for.
                   </span>
                 </Link>
 
@@ -349,7 +352,7 @@ const Home: React.FC = () => {
             a: (
               <>
                 Yes — Casey prescribes{' '}
-                <Link to="/suboxone-doctor-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
+                <Link to="/suboxone-treatment-oxford-ms" className="text-gold-accent underline decoration-1 underline-offset-4">
                   Suboxone
                 </Link>{' '}
                 for opioid use disorder, combined with ongoing psychiatric care in the same visit.

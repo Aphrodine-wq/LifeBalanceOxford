@@ -129,6 +129,120 @@ export const pageMeta = {
         },
     },
 
+    '/suboxone-treatment-oxford-ms': {
+        title: 'Suboxone Treatment in Oxford, MS',
+        description:
+            'Suboxone treatment for opioid use disorder in Oxford, Mississippi — same-week appointments, same-day induction available, in-person or telehealth statewide. Board-certified psychiatric provider. 42 CFR Part 2 confidentiality. Most insurance accepted. Call (662) 640-4004.',
+        path: '/suboxone-treatment-oxford-ms',
+        keywords: [
+            'Suboxone treatment Oxford MS',
+            'Suboxone treatment Mississippi',
+            'Suboxone treatment near me',
+            'Suboxone clinic Oxford Mississippi',
+            'medication-assisted treatment Oxford',
+            'MAT program Oxford MS',
+            'opioid use disorder treatment Oxford',
+            'buprenorphine treatment Mississippi',
+            'Suboxone treatment cost Mississippi',
+            'same-day Suboxone treatment Oxford',
+            'telehealth Suboxone treatment Mississippi',
+            'Lafayette County Suboxone treatment',
+            'North Mississippi Suboxone treatment',
+            'Ole Miss Suboxone treatment',
+        ],
+        breadcrumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: 'Addiction Treatment', path: '/addiction-treatment-oxford-ms' },
+            { name: 'Suboxone Treatment', path: '/suboxone-treatment-oxford-ms' },
+        ],
+        jsonLd: [
+            {
+                '@context': 'https://schema.org',
+                '@type': 'MedicalWebPage',
+                '@id': `${SITE_URL}/suboxone-treatment-oxford-ms#page`,
+                name: 'Suboxone Treatment in Oxford, MS',
+                url: `${SITE_URL}/suboxone-treatment-oxford-ms`,
+                inLanguage: 'en-US',
+                isPartOf: websiteRef,
+                about: [
+                    { '@type': 'Drug', name: 'Suboxone', alternateName: 'Buprenorphine/Naloxone' },
+                    { '@type': 'MedicalCondition', name: 'Opioid Use Disorder' },
+                    { '@type': 'MedicalCondition', name: 'Substance Use Disorder' },
+                    { '@type': 'MedicalTherapy', name: 'Medication-Assisted Treatment', alternateName: 'MAT' },
+                ],
+                audience: medicalAudience(),
+                author: caseyRef,
+                reviewedBy: caseyRef,
+                publisher: businessRef,
+                lastReviewed: '2026-05-04',
+                dateModified: '2026-05-04',
+                speakable,
+                spatialCoverage: {
+                    '@type': 'AdministrativeArea',
+                    name: 'North Mississippi',
+                    containedInPlace: { '@type': 'State', name: 'Mississippi' },
+                },
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'MedicalProcedure',
+                '@id': `${SITE_URL}/suboxone-treatment-oxford-ms#procedure`,
+                name: 'Suboxone Treatment',
+                alternateName: ['Buprenorphine/Naloxone Treatment', 'Medication-Assisted Treatment for Opioid Use Disorder'],
+                procedureType: { '@type': 'MedicalProcedureType', name: 'NoninvasiveProcedure' },
+                howPerformed:
+                    'Outpatient buprenorphine/naloxone (Suboxone) prescribing combined with ongoing psychiatric medication management. Includes initial evaluation, induction, dose stabilization, and maintenance care from a board-certified psychiatric mental health nurse practitioner.',
+                preparation:
+                    'Patients should be in mild to moderate opioid withdrawal (COWS score of 12 or greater) before the first Suboxone dose to avoid precipitated withdrawal. The provider walks each patient through timing before induction.',
+                followup:
+                    'Monthly visits during dose stabilization, then less frequent maintenance visits as patients stabilize. Same provider continuity for the life of treatment.',
+                bodyLocation: 'Sublingual',
+                indication: [
+                    { '@type': 'MedicalIndication', name: 'Opioid Use Disorder' },
+                ],
+                relevantSpecialty: { '@type': 'MedicalSpecialty', name: 'Psychiatry' },
+                provider: businessRef,
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'Service',
+                '@id': `${SITE_URL}/suboxone-treatment-oxford-ms#service`,
+                serviceType: 'Suboxone Treatment',
+                name: 'Suboxone Treatment in Oxford, MS',
+                description:
+                    'Outpatient Suboxone treatment for opioid use disorder. Same-week appointments, same-day induction available, in-person in Oxford or telehealth across Mississippi.',
+                provider: businessRef,
+                areaServed: [
+                    { '@type': 'City', name: 'Oxford, Mississippi' },
+                    { '@type': 'AdministrativeArea', name: 'Lafayette County, Mississippi' },
+                    { '@type': 'AdministrativeArea', name: 'North Mississippi' },
+                    { '@type': 'State', name: 'Mississippi' },
+                ],
+                hoursAvailable: [
+                    {
+                        '@type': 'OpeningHoursSpecification',
+                        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+                        opens: '08:00',
+                        closes: '17:00',
+                    },
+                    {
+                        '@type': 'OpeningHoursSpecification',
+                        dayOfWeek: 'Friday',
+                        opens: '08:00',
+                        closes: '12:00',
+                    },
+                ],
+                offers: {
+                    '@type': 'Offer',
+                    priceCurrency: 'USD',
+                    description:
+                        'Most major insurance plans accepted. Self-pay pricing available. Generic buprenorphine/naloxone is on almost every formulary and runs roughly $30–$80 per month at most Oxford pharmacies.',
+                },
+            },
+        ],
+    },
+
     '/suboxone-doctor-oxford-ms': {
         title: 'Suboxone Doctor in Oxford, MS',
         description:

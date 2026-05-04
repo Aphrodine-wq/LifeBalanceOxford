@@ -46,7 +46,7 @@ const Services: React.FC = () => {
       tag: 'Recovery',
       primary: { label: 'Our addiction treatment approach', to: '/addiction-treatment-oxford-ms' },
       secondary: [
-        { label: 'Suboxone treatment', to: '/suboxone-doctor-oxford-ms' },
+        { label: 'Suboxone treatment', to: '/suboxone-treatment-oxford-ms' },
         { label: 'MAT program detail', to: '/mat-program' },
       ],
     },
